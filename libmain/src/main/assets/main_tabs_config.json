@@ -1,0 +1,43 @@
+{
+  "activeColor": "#2ABC6D",
+  "inActiveColor": "#666666",
+  "selectTab": 0,
+  "tabs": [
+    {
+      "size": 24,
+      "enable": true,
+      "index": 0,
+      "pageUrl": "main/tabs/home",
+      "title": "首页"
+    },
+    {
+      "size": 24,
+      "enable": true,
+      "index": 1,
+      "pageUrl": "main/tabs/msg",
+      "title": "消息"
+    },
+    {
+      "size": 40,
+      "enable": false,
+      "index": 2,
+      "tintColor": "#ff678f",
+      "pageUrl": "main/tabs/middle",
+      "title": ""
+    },
+    {
+      "size": 24,
+      "enable": true,
+      "index": 3,
+      "pageUrl": "main/tabs/service",
+      "title": "服务"
+    },
+    {
+      "size": 24,
+      "enable": true,
+      "index": 4,
+      "pageUrl": "main/tabs/my",
+      "title": "我的"
+    }
+  ]
+}

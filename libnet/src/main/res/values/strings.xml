@@ -1,0 +1,13 @@
+<resources  tools:ignore="ExtraTranslation" xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">networklib</string>
+
+    <string name="error_type_unknown">未知错误</string>
+    <string name="error_type_time_out">连接超时</string>
+    <string name="error_type_ssl_error">证书验证失败</string>
+    <string name="error_type_connect_fail">连接失败</string>
+    <string name="error_type_parse_error">解析错误</string>
+    <string name="error_type_http_error">网络错误</string>
+
+
+    <string name="net_url_mp">""</string>
+</resources>

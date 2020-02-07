@@ -1,0 +1,37 @@
+
+android {
+    //productFlavors
+    flavorDimensions 'default'
+    productFlavors {
+        global {
+            manifestPlaceholders = [JPUSH_APPKEY_VALUE: "bb18cdd4996839162d0fc40d"
+            ]
+        }
+        shenzhen {
+            manifestPlaceholders = [JPUSH_APPKEY_VALUE: "bb18cdd4996839162d0fc40d"
+            ]
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res']
+            assets.srcDirs = ['src/main/assets']
+
+        }
+        global {
+            jniLibs.srcDirs = ['libs']
+            java.srcDirs = ['src/main/java', 'src/global/java']
+            res.srcDirs = ['src/main/res', 'src/global/res']
+            assets.srcDirs = ['src/main/assets', 'src/global/assets']
+        }
+        shenzhen {
+            jniLibs.srcDirs = ['libs']
+            java.srcDirs = ['src/main/java', 'src/shenzhen/java']
+            res.srcDirs = ['src/main/res', 'src/shenzhen/res']
+            assets.srcDirs = ['src/main/assets', 'src/shenzhen/assets']
+        }
+    }
+}

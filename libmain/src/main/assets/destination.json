@@ -1,0 +1,44 @@
+{
+  "main/tabs/home": {
+    "asStart": true,
+    "className": "com.bsoft.libmain.fragment.HomeFragment",
+    "id": 946010952,
+    "isFragment": true,
+    "needLogin": false,
+    "pageUrl": "main/tabs/home"
+  },
+  "main/tabs/msg": {
+    "asStart": false,
+    "className": "com.bsoft.libmain.fragment.MsgFragment",
+    "id": 1729678456,
+    "isFragment": true,
+    "needLogin": false,
+    "pageUrl": "main/tabs/msg"
+  },
+  "main/tabs/middle": {
+    "asStart": false,
+    "className": "com.bsoft.libmain.fragment.MiddleFragment",
+    "id": 147242568,
+    "isFragment": true,
+    "needLogin": false,
+    "pageUrl": "main/tabs/middle"
+  },
+  "main/tabs/service": {
+    "asStart": false,
+    "className": "com.bsoft.libmain.fragment.ServiceFragment",
+    "id": 1509210903,
+    "isFragment": true,
+    "needLogin": true,
+    "pageUrl": "main/tabs/service"
+  },
+  "main/tabs/my": {
+    "asStart": false,
+    "className": "com.bsoft.libmain.fragment.MyFragment",
+    "id": 1407657752,
+    "isFragment": true,
+    "needLogin": true,
+    "pageUrl": "main/tabs/my"
+  }
+
+
+}

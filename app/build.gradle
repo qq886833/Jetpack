@@ -1,0 +1,126 @@
+apply plugin: 'com.android.application'
+
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    //配置应用的签名信息
+    signingConfigs {
+        release {
+            storeFile file("${rootProject.rootDir.absolutePath}/Tank.key")
+            keyAlias 'tank'
+            keyPassword '198739zkl'
+            storePassword '198739zkl'
+            v1SigningEnabled true
+            v2SigningEnabled true
+
+        }
+    }
+
+
+    compileSdkVersion Versions.target_sdk
+    buildToolsVersion Versions.build_tools
+    defaultConfig {
+        applicationId "com.bsoft.pub.jetpack"
+        minSdkVersion Versions.min_sdk
+        targetSdkVersion Versions.target_sdk
+        versionCode Versions.version_code
+        versionName Versions.version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
+        multiDexEnabled = true
+        vectorDrawables.useSupportLibrary = true  //使用vector矢量图
+
+        resConfigs 'en','cn'  //保留配置的国际化
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+    }
+    buildTypes {
+       release {
+            minifyEnabled true    //是否开启混淆
+            shrinkResources true  //用来开启删除无用资源，也就是没有被引用的文件  两者必须同时配置true才有效
+            signingConfig signingConfigs.release //增加签名
+            //zip对齐
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+        debug {
+//            minifyEnabled true    //是否开启混淆
+//            shrinkResources true  //用来开启删除无用资源，也就是没有被引用的文件  两者必须同时配置true才有效
+
+            minifyEnabled false    //是否开启混淆
+            shrinkResources false  //用来开启删除无用资源，也就是没有被引用的文件  两者必须同时配置true才有效
+            signingConfig signingConfigs.release //增加签名
+            //zip对齐
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    dexOptions {
+
+        javaMaxHeapSize '4g'
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    //程序在编译的时候会检查lint，有任何错误提示会停止build，我们可以关闭这个开关
+    lintOptions {
+        abortOnError false
+        //即使报错也不会停止打包
+        checkReleaseBuilds false
+        //打包release版本的时候进行检测
+
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    // used by Room, to test migrations
+    sourceSets {
+        androidTest.assets.srcDirs +=
+                files("$projectDir/schemas".toString())
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Deps.kotlin_stdlib
+    implementation Deps.appcompat
+    kapt Deps.arouter_compiler
+
+    
+    implementation 'androidx.core:core-ktx:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    api project(path: ':libnet')
+    api project(path: ':libmain')
+}

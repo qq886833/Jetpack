@@ -1,0 +1,44 @@
+[
+  {
+    "environment": "shoudong",
+    "environmentText": "手动",
+    "HttpApiUrl": "http://ih.dev.aijk.net/",
+    "HttpDownloadUrl": "http://app.dev.aijk.net/app/down.html",
+    "HttpImgUrl": "http://file.dev.aijk.net/file/upload/image/"
+  },
+  {
+    "environment": "kaifa",
+    "environmentText": "开发",
+    "HttpApiUrl": "http://ih.dev.aijk.net/",
+    "HttpDownloadUrl": "http://ih.dev.aijk.net/app/down.html",
+    "HttpImgUrl": "http://file.dev.aijk.net/file/upload/image/"
+  },
+  {
+    "environment": "ceshi",
+    "environmentText": "测试",
+    "HttpApiUrl": "http://ih.test.aijk.net/",
+    "HttpDownloadUrl": "http://app.test.aijk.net/app/down.html",
+    "HttpImgUrl": "http://file.test.aijk.net/file/upload/image/"
+  },
+  {
+    "environment": "ceshi2",
+    "environmentText": "测试2",
+    "HttpApiUrl": "http://ih2.test.aijk.net/",
+    "HttpDownloadUrl": "http://app2.test.aijk.net/app/down.html",
+    "HttpImgUrl": "http://file2.test.aijk.net/file/upload/image/"
+  },
+  {
+    "environment": "yufa",
+    "environmentText": "预发-华为云",
+    "HttpApiUrl": "https://yih.bshcn.com.cn/",
+    "HttpDownloadUrl": "https://apptt.bshcn.com.cn/app/down.html",
+    "HttpImgUrl": "http://117.78.42.229:9085/cfs-file/file/upload/image/"
+  },
+  {
+    "environment": "zhengshi",
+    "environmentText": "正式-华为云",
+    "HttpApiUrl": "http://hc.dev.atag.bsoft.com.cn/hcn-web/",
+    "HttpDownloadUrl": "https://timgsa.baidu.com/",
+    "HttpImgUrl": "http://image.bshcn.com.cn/file/upload/image/"
+  }
+]

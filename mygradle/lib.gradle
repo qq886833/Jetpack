@@ -1,0 +1,90 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+def releaseTime() {
+    return new Date().format("yyMMdd")
+}
+
+//lib重命名
+android.libraryVariants.all { variant ->
+    variant.outputs.all { output ->
+        def outputFile = output.outputFile
+        if (outputFile != null && outputFile.name.endsWith('.aar')) {
+            File outputDirectory = new File("./")
+            def fileName
+
+            fileName = "${project.getName()}"
+
+            if (!"${variant.flavorName}".isEmpty()) {
+                fileName = fileName + "-${variant.flavorName}"
+            }
+
+            //${variant.buildType.name}
+            //${releaseTime()}
+            fileName = fileName + "-v${android.defaultConfig.versionName}.aar"
+
+            outputFileName = new File(outputDirectory, fileName)
+        }
+    }
+}
+
+android {
+    compileSdkVersion Versions.target_sdk
+    buildToolsVersion Versions.build_tools
+
+
+    defaultConfig {
+        minSdkVersion Versions.min_sdk
+        targetSdkVersion Versions.target_sdk
+        versionCode Versions.version_code
+        versionName Versions.version_name
+
+        multiDexEnabled = true
+        vectorDrawables.useSupportLibrary = true
+        consumerProguardFiles 'consumer-rules.pro'
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+                arg("room.schemaLocation", "$projectDir/schemas".toString())
+
+            }
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+   /* buildTypes {
+        release {
+            postprocessing {
+                //混淆
+                obfuscate true
+                //优化代码
+                optimizeCode true
+                consumerProguardFiles 'proguard-rules.pro'
+            }
+        }
+    }*/
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation Deps.kotlin_stdlib
+    kapt Deps.arouter_compiler
+}

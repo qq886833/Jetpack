@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+apply from: "../mygradle/lib.gradle"
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    kapt project(":libnavcompiler")
+    implementation project(path: ':libnavannotation')
+    implementation project(path: ':libcommon')
+
+
+}
