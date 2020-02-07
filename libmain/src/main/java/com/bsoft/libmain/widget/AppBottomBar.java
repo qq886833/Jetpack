@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import com.bsoft.libmain.R;
 import com.bsoft.libmain.model.BottomBar;
 import com.bsoft.libmain.model.Destination;
-import com.bsoft.libmain.model.Tab;
+import com.bsoft.libmain.model.MainTab;
 import com.bsoft.libmain.utils.AppConfig;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
@@ -50,8 +50,8 @@ public class AppBottomBar extends BottomNavigationView {
         //LABEL_VISIBILITY_SELECTED：只有被选中的那个按钮的文本才会显示
         //LABEL_VISIBILITY_UNLABELED:所有的按钮文本都不显示
         setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
-        List<Tab> tabs = config.tabs;
-        for (Tab tab : tabs) {
+        List<MainTab> tabs = config.tabs;
+        for (MainTab tab : tabs) {
             if (!tab.enable) {
                 continue;
             }
@@ -65,7 +65,7 @@ public class AppBottomBar extends BottomNavigationView {
 
         //此处给按钮icon设置大小
         int index = 0;
-        for (Tab tab : config.tabs) {
+        for (MainTab tab : config.tabs) {
             if (!tab.enable) {
                 continue;
             }
@@ -100,7 +100,7 @@ public class AppBottomBar extends BottomNavigationView {
 
         //底部导航栏默认选中项
         if (config.selectTab != 0) {
-           Tab selectTab = config.tabs.get(config.selectTab);
+           MainTab selectTab = config.tabs.get(config.selectTab);
             if (selectTab.enable) {
                 int itemId = getItemId(selectTab.pageUrl);
                 //这里需要延迟一下 再定位到默认选中的tab

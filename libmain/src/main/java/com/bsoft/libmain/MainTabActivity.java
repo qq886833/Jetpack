@@ -44,7 +44,7 @@ public class MainTabActivity extends AppCompatActivity implements BottomNavigati
         StatusBar.fitSystemBar(this);
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main_tab);
+        setContentView(R.layout.main_activity_main_tab);
         navView = findViewById(R.id.nav_view);
 
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);

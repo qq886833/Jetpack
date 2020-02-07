@@ -1,6 +1,6 @@
 package com.bsoft.libmain.model;
 
-public class Tab {
+public class MainTab {
     /**
      * size : 24
      * enable : true

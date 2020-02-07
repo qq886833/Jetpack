@@ -19,7 +19,7 @@
     },
     {
       "size": 40,
-      "enable": false,
+      "enable": true,
       "index": 2,
       "tintColor": "#ff678f",
       "pageUrl": "main/tabs/middle",

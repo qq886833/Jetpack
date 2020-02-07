@@ -11,3 +11,20 @@
 /build
 /captures
 .externalNativeBuild
+
+
+# Files for the Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Android Studio project files
+
