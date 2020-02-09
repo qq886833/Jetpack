@@ -7,9 +7,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bsoft.libbasic.utils.StatusBar;
 import com.bsoft.libbasic.utils.ToastUtil;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
+import com.bsoft.libcommon.arouter.interceptor.LoginNavCallback;
 import com.bsoft.libcommon.commonaop.CheckNet;
 import com.bsoft.libcommon.commonaop.SingleClick;
 import com.bsoft.libmain.databinding.MainFragmentMyBinding;
@@ -42,9 +44,9 @@ public class MyFragment extends Fragment {
             //    ProfileActivity.startProfileActivity(getContext(), ProfileActivity.TAB_TYPE_ALL);
 
                 ToastUtil.showLong("点击"+i++);
-                CommonArouterGroup.getArouter(CommonArouterGroup.TEST_ACTIVITY)
-                        .greenChannel()
-                        .navigation();
+                ARouter.getInstance()
+                        .build(CommonArouterGroup.CHANGE_NET_ACTIVITY)
+                        .navigation(getContext(), new LoginNavCallback());
             }
         });
 

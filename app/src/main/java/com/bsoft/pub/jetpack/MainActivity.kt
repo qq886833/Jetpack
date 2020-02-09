@@ -3,6 +3,7 @@ package com.bsoft.pub.jetpack
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.bsoft.libcommon.localdata.AccountSharpref
 import com.bsoft.libmain.MainTabActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 //                    payUtil.pay(PayTypeDic.TYPE_ALI, "");
 //                }
     //   startActivity(Intent(this, HttpActivity::class.java))
+        AccountSharpref.getInstance().setLoginState(false)
         startActivity(Intent(this, MainTabActivity::class.java))
 
     }

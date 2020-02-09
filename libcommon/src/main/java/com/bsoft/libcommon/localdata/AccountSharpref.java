@@ -1,6 +1,11 @@
 package com.bsoft.libcommon.localdata;
 
-import com.bsoft.baselib.shapref.BaseSharpref;
+import android.content.Context;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import com.bsoft.libbasic.shapref.BaseSharpref;
+import com.bsoft.libcommon.arouter.CommonArouterGroup;
+import com.bsoft.libcommon.model.LoginUserVo;
 import org.jetbrains.annotations.NotNull;
 
 public class AccountSharpref extends BaseSharpref {
@@ -36,5 +41,14 @@ public class AccountSharpref extends BaseSharpref {
         synchronized (this) {
             return getBoolean(LOGIN_STATE);
         }
+    }
+
+    private MutableLiveData<LoginUserVo> userLiveData = new MutableLiveData<>();
+   public LiveData<LoginUserVo> login(Context context) {
+//        Intent intent = new Intent(context, LoginActivity.class);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context.startActivity(intent);
+       CommonArouterGroup.gotoActivity(CommonArouterGroup.TEST_ACTIVITY);
+        return userLiveData;
     }
 }

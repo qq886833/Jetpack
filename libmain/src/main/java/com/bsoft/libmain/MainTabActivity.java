@@ -6,12 +6,14 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bsoft.libbasic.utils.StatusBar;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
-import com.bsoft.libcommon.arouter.interceptor.CommonTInterceptor;
+import com.bsoft.libcommon.localdata.AccountSharpref;
+import com.bsoft.libcommon.model.LoginUserVo;
 import com.bsoft.libmain.model.Destination;
 import com.bsoft.libmain.utils.AppConfig;
 import com.bsoft.libmain.utils.NavGraphBuilder;
@@ -32,7 +34,7 @@ import java.util.Map;
  * 4.底部导航栏 按钮个数和 内容区域destination个数。由注解处理器NavProcessor来收集,生成assetsdestination.json。而后我们解析它。
  */
 
-@Route(path = CommonArouterGroup.MAIN_TAB_ACTIVITY, extras = CommonTInterceptor.GREEN_ALL)
+@Route(path = CommonArouterGroup.MAIN_TAB_ACTIVITY)
 public class MainTabActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private NavController navController;
@@ -68,15 +70,15 @@ public class MainTabActivity extends AppCompatActivity implements BottomNavigati
         while (iterator.hasNext()) {
             Map.Entry<String, Destination> entry = iterator.next();
             Destination value = entry.getValue();
-//            if (value != null && !UserManager.get().isLogin() && value.needLogin && value.id == menuItem.getItemId()) {
-//                UserManager.get().login(this).observe(this, new Observer<User>() {
-//                    @Override
-//                    public void onChanged(User user) {
-//                        navView.setSelectedItemId(menuItem.getItemId());
-//                    }
-//                });
-//                return false;
-//            }
+            if (value != null && !AccountSharpref.getInstance().getLoginState() && value.needLogin && value.id == menuItem.getItemId()) {
+                AccountSharpref.getInstance().login(this).observe(this, new Observer<LoginUserVo>() {
+                    @Override
+                    public void onChanged(LoginUserVo user) {
+                        navView.setSelectedItemId(menuItem.getItemId());
+                    }
+                });
+                return false;
+            }
         }
 
         navController.navigate(menuItem.getItemId());

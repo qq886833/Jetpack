@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">message</string>
+
+    <string name="msg_router_empty">未找到相应跳转</string>
+</resources>

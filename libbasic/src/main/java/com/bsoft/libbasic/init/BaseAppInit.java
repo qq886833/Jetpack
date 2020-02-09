@@ -8,7 +8,6 @@ import com.bsoft.libbasic.constant.HttpConstants;
  */
 
 public class BaseAppInit {
-    private InitListener listener;
 
     private static class Holder {
         private static final BaseAppInit INSTANCE = new BaseAppInit();
@@ -18,8 +17,8 @@ public class BaseAppInit {
         return BaseAppInit.Holder.INSTANCE;
     }
 
-    public void init(Application app, BaseInitConfig config, InitListener listener) {
-        this.listener = listener;
+    public void init(Application app, BaseInitConfig config) {
+
         initConstants(config);
         ArouterInit.init(app);
     }
@@ -36,11 +35,5 @@ public class BaseAppInit {
 
     }
 
-    public InitListener getListener() {
-        return listener;
-    }
 
-    public void setListener(InitListener listener) {
-        this.listener = listener;
-    }
 }

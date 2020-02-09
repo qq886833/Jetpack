@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/libnavannotation" />
             <option value="$PROJECT_DIR$/libnavcompiler" />
             <option value="$PROJECT_DIR$/libnet" />
+            <option value="$PROJECT_DIR$/message" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

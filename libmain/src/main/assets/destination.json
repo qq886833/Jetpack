@@ -28,7 +28,7 @@
     "className": "com.bsoft.libmain.fragment.ServiceFragment",
     "id": 1509210903,
     "isFragment": true,
-    "needLogin": true,
+    "needLogin": false,
     "pageUrl": "main/tabs/service"
   },
   "main/tabs/my": {
@@ -36,7 +36,7 @@
     "className": "com.bsoft.libmain.fragment.MyFragment",
     "id": 1407657752,
     "isFragment": true,
-    "needLogin": true,
+    "needLogin": false,
     "pageUrl": "main/tabs/my"
   }
 

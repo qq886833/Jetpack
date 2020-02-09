@@ -1,4 +1,4 @@
-package com.bsoft.baselib.shapref
+package com.bsoft.libbasic.shapref
 
 import com.bsoft.libbasic.constant.Constants
 

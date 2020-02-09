@@ -10,8 +10,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import androidx.annotation.IdRes;
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libbasic.utils.ExitUtil;
+import com.bsoft.libcommon.arouter.CommonArouterGroup;
 import com.bsoft.libnet.R;
 import com.bsoft.libnet.model.NetAddressVo;
 import com.bsoft.libnet.model.NetRadio;
@@ -25,7 +27,7 @@ import java.util.ArrayList;
  */
 
 
-
+@Route(path = CommonArouterGroup.CHANGE_NET_ACTIVITY)
 public class ChangeNetActivity extends Activity {
 
     private NetAddressVo originVo;

@@ -6,6 +6,9 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.bsoft.libbasic.context.ContextProvider;
 import com.bsoft.libcommon.R;
 
+import java.util.Arrays;
+import java.util.List;
+
 
 /**
  * Created by chenkai on 2018/6/28.
@@ -21,11 +24,21 @@ public class CommonArouterGroup {
     private static final String PROJECT = "/wise_";
 
 
+    public static final String CHANGE_NET_ACTIVITY = PROJECT + "net/ChangeNetActivity";
+
+
+
+
+
+
+
+
+
     public static final String MAIN_TAB_ACTIVITY = PROJECT + "libmain/mainTabActivity";
     public static final String LOGIN_ACTIVITY = PROJECT + "login/LoginActivity";
     public static final String TEST_ACTIVITY = PROJECT + "app/HttpActivity";
     //******************** wiseChangeNet **********************
-    public static final String CHANGE_NET_ACTIVITY = PROJECT + "wiseChangeNet/changenet/ChangeNetActivity";
+
 
     //******************** commonlib **********************
     public static final String COMMON_WEB_ACTIVITY = PROJECT + "commonlib/web/CommonWebActivity";
@@ -90,4 +103,49 @@ public class CommonArouterGroup {
     public static void goMainTabActivity() {
         CommonArouterGroup.gotoActivity(CommonArouterGroup.MAIN_TAB_ACTIVITY);
     }
+
+
+
+    public static final List<String> NEED_LOGIN_FILTER_LIST = Arrays.asList(
+            CHANGE_NET_ACTIVITY
+//            APPOINT_NOTICE_ACTIVITY,//预约挂号
+//            CLOUD_HOME_ACTIVITY,   //云诊室
+//            REPORT_HOME_ACTIVITY,//门诊、住院报告
+//            PREPAY_HOME_ACTIVITY,//住院金预缴
+//            SIGN_HOME_ACTIVITY, //签到取号
+//            QUEUE_TWO_TAB_ACTIVITY,//排队叫号
+//            PAY_HOME_ACTIVITY,//诊间支付
+//            MZFY_HOME_ACTIVITY,//门诊费用
+//            FZPY_FZPY_ACTIVITY,//复诊配药
+//            ZXWZ_ZXWZ_ACTIVITY,//在线问诊
+//            FAMILY_MY_FAMILY_LIST_ACTIVITY, //就诊人管理
+//            APPOINT_RECORD_ACTIVITY, //预约记录
+//            RECHARGE_ACCOUNT_QUERY_ACTIVITY, //账户查询
+//
+//            ACCOUNT_SETTING_ACTIVITY, //账号设置
+//            // FAMILY_COMPLETE_INFO_ACTIVITY//完善信息
+//            APP_ZY_SERVICE_ACTIVITY,//住院服务
+//            HEALTH_RECORD_ACTIVTY //健康记录
+
+    );
+
+    public static final List<String> NEED_COMPLINFO_FILTER_LIST = Arrays.asList(
+            CHANGE_NET_ACTIVITY
+//            APPOINT_NOTICE_ACTIVITY,//预约挂号
+//            CLOUD_HOME_ACTIVITY,   //云诊室
+//            REPORT_HOME_ACTIVITY,//门诊、住院报告
+//            PREPAY_HOME_ACTIVITY,//住院金预缴
+//            SIGN_HOME_ACTIVITY, //签到取号
+//            QUEUE_TWO_TAB_ACTIVITY,//排队叫号
+//            PAY_HOME_ACTIVITY,//诊间支付
+//            MZFY_HOME_ACTIVITY,//门诊费用
+//            FZPY_FZPY_ACTIVITY,//复诊配药
+//            ZXWZ_ZXWZ_ACTIVITY,//在线问诊
+//            FAMILY_MY_FAMILY_LIST_ACTIVITY, //就诊人管理
+//            APPOINT_RECORD_ACTIVITY, //预约记录
+//            RECHARGE_ACCOUNT_QUERY_ACTIVITY,//账户查询;
+//            APP_ZY_SERVICE_ACTIVITY,//住院服务
+//            FAMILY_CERTIFICATE_ACTIVITY,//身份认证
+//            HEALTH_RECORD_ACTIVTY //健康记录
+    );
 }
