@@ -8,7 +8,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import com.bsoft.baselib.constant.HttpConstants;
+import com.bsoft.libbasic.constant.HttpConstants;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;

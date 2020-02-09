@@ -24,7 +24,8 @@ object Versions {
 
     const val constraint_layout = "1.1.3"
 
-    const val glide = "4.8.0"
+    const val glide = "4.9.0"
+    const val glide_transformations = "4.0.0"
 
     const val retrofit = "2.6.0"
     const val okhttp_logging_interceptor = "3.9.0"
@@ -45,7 +46,9 @@ object Versions {
     const val smartrefresh = "1.1.0"
     const val multidex = "2.0.0"
 
-
+    const val live_event_bus = "1.5.7"  //https://github.com/JeremyLiao/LiveEventBus
+    const val banner = "androidx_v1.0.5"   //https://github.com/xiaohaibin/XBanner
+    const val aspectjrt = "1.8.9"
 
 }
 
@@ -74,10 +77,11 @@ object Deps {
     const val work_runtime = "androidx.work:work-runtime-ktx:${Versions.work_version}"
 
     const val glide_runtime = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glide_transformations = "jp.wasabeef:glide-transformations:${Versions.glide_transformations}"
     const val glide_compiler = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
     const val multidex = "androidx.multidex:multidex:${Versions.multidex}"
-
+    const val live_event_bus = "com.jeremyliao:live-event-bus-x:${Versions.live_event_bus}"
 
     const val retrofit_runtime = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofit_gson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
@@ -95,6 +99,8 @@ object Deps {
 
     const val arouter_api = "com.alibaba:arouter-api:${Versions.arouter_api}"
     const val arouter_compiler = "com.alibaba:arouter-compiler:${Versions.arouter_compiler}"
+
+    const val aspectjrt = "org.aspectj:aspectjrt:${Versions.aspectjrt}"
 
 
     /*t腾讯qmui库*/
@@ -114,9 +120,12 @@ object Deps {
     const val smartrefreshlayout = "com.scwang.smartrefresh:SmartRefreshLayout:${Versions.smartrefresh}"
     const val smartrefreshheader = "com.scwang.smartrefresh:SmartRefreshHeader:${Versions.smartrefresh}"
 
+    const val banner = "com.github.xiaohaibin:XBanner:${Versions.banner}"
+
     val addRepos: (handler: RepositoryHandler) -> Unit = {
         it.google()
         it.jcenter()
         it.maven { url = URI("https://oss.sonatype.org/content/repositories/snapshots") }
+        it.maven { url = URI("https://jitpack.io")}
     }
 }

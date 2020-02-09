@@ -4,6 +4,8 @@
     <application>
 
         <activity android:name=".MainTabActivity"/>
+
+        <activity android:name=".activity.ProfileActivity"/>
     </application>
 
 

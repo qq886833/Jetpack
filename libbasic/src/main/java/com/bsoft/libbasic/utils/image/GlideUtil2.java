@@ -4,7 +4,7 @@ package com.bsoft.libbasic.utils.image;
 import android.widget.ImageView;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
-import com.bsoft.baselib.constant.HttpConstants;
+import com.bsoft.libbasic.constant.HttpConstants;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 

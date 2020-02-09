@@ -1,4 +1,4 @@
-package com.bsoft.baselib.constant
+package com.bsoft.libbasic.constant
 
 class Constants private constructor(){
 

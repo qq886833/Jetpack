@@ -1,11 +1,8 @@
 apply plugin: 'com.android.application'
-
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-
+apply plugin: 'android-aspectjx'
 android {
 
     //配置应用的签名信息
@@ -60,11 +57,11 @@ android {
 
         }
         debug {
-//            minifyEnabled true    //是否开启混淆
-//            shrinkResources true  //用来开启删除无用资源，也就是没有被引用的文件  两者必须同时配置true才有效
+            minifyEnabled true    //是否开启混淆
+            shrinkResources true  //用来开启删除无用资源，也就是没有被引用的文件  两者必须同时配置true才有效
 
-            minifyEnabled false    //是否开启混淆
-            shrinkResources false  //用来开启删除无用资源，也就是没有被引用的文件  两者必须同时配置true才有效
+//            minifyEnabled false    //是否开启混淆
+//            shrinkResources false  //用来开启删除无用资源，也就是没有被引用的文件  两者必须同时配置true才有效
             signingConfig signingConfigs.release //增加签名
             //zip对齐
             zipAlignEnabled true
@@ -113,7 +110,7 @@ dependencies {
     implementation Deps.kotlin_stdlib
     implementation Deps.appcompat
     kapt Deps.arouter_compiler
-
+    api Deps.aspectjrt
     
     implementation 'androidx.core:core-ktx:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

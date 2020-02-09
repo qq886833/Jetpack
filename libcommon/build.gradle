@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply from: "../mygradle/lib.gradle"
-
+apply plugin: 'android-aspectjx'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -10,4 +10,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     api project(path: ':libbasic')
+    kapt Deps.glide_compiler
+
+   api Deps.aspectjrt
 }

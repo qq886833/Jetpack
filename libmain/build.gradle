@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply from: "../mygradle/lib.gradle"
-
+apply plugin: 'android-aspectjx'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

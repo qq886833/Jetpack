@@ -60,7 +60,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-   /* buildTypes {
+  /*buildTypes {
         release {
             postprocessing {
                 //混淆

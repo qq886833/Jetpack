@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">libmain</string>
+
+
+
+
+
+
+
+
+    <string name="like_count">\n获赞</string>
+    <string name="fans_count">\n粉丝</string>
+    <string name="follow_count">\n关注</string>
+    <string name="score_count">\n积分</string>
+
+
+    <string-array name="profile_tabs">
+        <item>动态</item>
+        <item>帖子</item>
+        <item>评论</item>
+    </string-array>
 </resources>

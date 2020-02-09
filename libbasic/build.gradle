@@ -67,6 +67,7 @@ dependencies {
     api Deps.rxandroid
     // glide
     api Deps.glide_runtime
+    api Deps. glide_transformations
     kapt Deps.glide_compiler
 
     //timber
@@ -81,6 +82,7 @@ dependencies {
     api Deps.arch
     kapt Deps.arch_compiler
 
+    api Deps.live_event_bus
     api Deps.fastjson
     api Deps.navigation_fragment
     api Deps.navigation_ui
@@ -92,4 +94,7 @@ dependencies {
     //下拉刷新
     api Deps.smartrefreshlayout
     api Deps.smartrefreshheader
+
+    api Deps.banner
+
 }
