@@ -8,7 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bsoft.libbasic.utils.StatusBar;
+import com.bsoft.libcommon.arouter.CommonArouterGroup;
+import com.bsoft.libcommon.arouter.interceptor.CommonTInterceptor;
 import com.bsoft.libmain.model.Destination;
 import com.bsoft.libmain.utils.AppConfig;
 import com.bsoft.libmain.utils.NavGraphBuilder;
@@ -28,6 +31,8 @@ import java.util.Map;
  * 3.底部导航栏 和 内容区域的 切换联动 使用NavController驱动
  * 4.底部导航栏 按钮个数和 内容区域destination个数。由注解处理器NavProcessor来收集,生成assetsdestination.json。而后我们解析它。
  */
+
+@Route(path = CommonArouterGroup.MAIN_TAB_ACTIVITY, extras = CommonTInterceptor.GREEN_ALL)
 public class MainTabActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private NavController navController;

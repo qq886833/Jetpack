@@ -1,6 +1,7 @@
 package com.bsoft.libnet.base;
 
 import android.annotation.SuppressLint;
+import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libbasic.context.ContextProvider;
 import com.bsoft.libnet.R;
 import com.bsoft.libnet.cache.CacheBuilder;
@@ -36,7 +37,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public abstract class NetworkApi implements IEnvironment {
-    private static INetworkInit mINetworkInit;
+
     private String mBaseUrl;
     private OkHttpClient mOkHttpClient;
 
@@ -46,33 +47,9 @@ public abstract class NetworkApi implements IEnvironment {
         mBaseUrl = getCurrentUrl();
     }
 
-    public static void init(INetworkInit iNetworkInit) {
-        mINetworkInit = iNetworkInit;
 
-    }
 
     protected Retrofit getRetrofit() {
-//        OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
-//        if (getInterceptor() != null) {
-//            okHttpClientBuilder.addInterceptor(getInterceptor());
-//        }
-//
-//        okHttpClientBuilder.addInterceptor(new CommonRequestInterceptor(mINetworkInit));
-//        okHttpClientBuilder.addInterceptor(new CommonResponseInterceptor());
-//        if (mINetworkInit != null &&(mINetworkInit.isDebug())) {
-//            HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-//            httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-//            okHttpClientBuilder.addInterceptor(httpLoggingInterceptor);
-//            okHttpClientBuilder.addInterceptor(new NetLogInterceptor());
-//
-//        }
-//        if (NetConfig.CACHE_ENABLE) {
-//            Cache cache = new CacheBuilder().build(ContextProvider.get().getApplication());
-//            okHttpClientBuilder.cache(cache)
-//                    .addInterceptor(new CacheInterceptor(ContextProvider.get().getApplication()));
-//        }
-
-
 
         Retrofit  retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -101,13 +78,13 @@ public abstract class NetworkApi implements IEnvironment {
             if (getInterceptor() != null) {
                 okHttpClientBuilder.addInterceptor(getInterceptor());
             }
-            okHttpClientBuilder.addInterceptor(new CommonRequestInterceptor(mINetworkInit));
+            okHttpClientBuilder.addInterceptor(new CommonRequestInterceptor());
             okHttpClientBuilder.addInterceptor(new CommonResponseInterceptor());
             okHttpClientBuilder.addInterceptor(new HttpLoggingInterceptor().setLevel(
-                    (mINetworkInit != null && (mINetworkInit.isDebug())) ? HttpLoggingInterceptor.Level.BODY :
+                    (HttpConstants.isDebug) ? HttpLoggingInterceptor.Level.BODY :
                             HttpLoggingInterceptor.Level.NONE
             ));
-            if (mINetworkInit != null && (mINetworkInit.isDebug())) {
+            if (HttpConstants.isDebug) {
                 okHttpClientBuilder.addInterceptor(new NetLogInterceptor());
 
             }

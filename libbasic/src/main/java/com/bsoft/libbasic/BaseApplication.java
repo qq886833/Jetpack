@@ -31,6 +31,9 @@ public class BaseApplication extends MultiDexApplication {
 //                .addCallback(new PlaceholderCallback())
 //                .setDefaultCallback(LoadingCallback.class)
 //                .commit();
+
+
+
     }
 
     @Override

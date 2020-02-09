@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 //               }else{
 //                    payUtil.pay(PayTypeDic.TYPE_ALI, "");
 //                }
-       // startActivity(Intent(this, HttpActivity::class.java))
+    //   startActivity(Intent(this, HttpActivity::class.java))
         startActivity(Intent(this, MainTabActivity::class.java))
 
     }

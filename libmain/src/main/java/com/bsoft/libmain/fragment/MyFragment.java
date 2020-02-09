@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.bsoft.libbasic.utils.StatusBar;
 import com.bsoft.libbasic.utils.ToastUtil;
+import com.bsoft.libcommon.arouter.CommonArouterGroup;
 import com.bsoft.libcommon.commonaop.CheckNet;
 import com.bsoft.libcommon.commonaop.SingleClick;
 import com.bsoft.libmain.databinding.MainFragmentMyBinding;
@@ -41,6 +42,9 @@ public class MyFragment extends Fragment {
             //    ProfileActivity.startProfileActivity(getContext(), ProfileActivity.TAB_TYPE_ALL);
 
                 ToastUtil.showLong("点击"+i++);
+                CommonArouterGroup.getArouter(CommonArouterGroup.TEST_ACTIVITY)
+                        .greenChannel()
+                        .navigation();
             }
         });
 

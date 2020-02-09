@@ -28,6 +28,11 @@ android {
         versionCode Versions.version_code
         versionName Versions.version_name
 
+        manifestPlaceholders = [BAIDU_LBS    : "GY8xVfmedAFe37ZqRja4sgMaDqEG6HI0",
+                                JPUSH_PKGNAME: applicationId,
+                                JPUSH_APPKEY : "bb18cdd4996839162d0fc40d", //JPush 上注册的包名对应的 Appkey.
+                                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         kapt {
@@ -45,6 +50,14 @@ android {
                 cppFlags ""
             }
         }
+
+
+        //***************************网络环境配置********************************
+//        buildConfigField 'String', 'environment', '"kaifa"'//开发
+//        buildConfigField 'String', 'environment', '"ceshi"' //测试
+//        buildConfigField 'String', 'environment', '"ceshi2"' //测试2
+//        buildConfigField 'String', 'environment', '"yufa"'//预发-华为云
+        buildConfigField 'String', 'environment', '"zhengshi"'//正式-华为云
     }
     buildTypes {
        release {
@@ -120,4 +133,15 @@ dependencies {
 
     api project(path: ':libnet')
     api project(path: ':libmain')
+
+    api project(path: ':message')
+
+
+
+
+    //jpush
+    implementation 'cn.jiguang.sdk:jpush:3.2.0'  // 此处以JPush 3.2.0 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:2.0.0'  // 此处以JCore 2.0.0 版本为例。
+
+
 }

@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.bsoft.libbasic.utils.ToastUtil;
+import com.bsoft.libbasic.widget.dialog.ConfirmDialog;
 import com.bsoft.libmain.activity.ProfileActivity;
 import com.bsoft.libmain.databinding.MainFragmentHomeBinding;
 import com.bsoft.libnavannotation.FragmentDestination;
@@ -37,6 +39,22 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ConfirmDialog.newInstance("你好jhsjahfjhfjhjsdfhj","确定","取消")
+                .setCommonDialogListener(new ConfirmDialog.CommonDialogListener() {
+                    @Override
+                    public void onComplete(boolean ok, String tag) {
+                        if (ok) {
+                            ToastUtil.showLong(tag+"======="+ok);
+                        }else{
+                            ToastUtil.showLong(tag+"======="+ok);
+                        }
+                    }
+                })
+
+
+            .setMargin(60)
+                .setOutCancel(true)
+                .show(getFragmentManager());
 
     }
 

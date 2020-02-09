@@ -1,4 +1,4 @@
-package com.bsoft.libnet.constants;
+package com.bsoft.libbasic.constant;
 
 /**
  * Created by chenkai on 2018/6/1.
@@ -13,7 +13,7 @@ public class HttpConstants {
 
     public static boolean isDebug;
     public static String versionName;
-    public static String versionCode;
+    public static int versionCode;
 
     public static String environment;
     // api地址

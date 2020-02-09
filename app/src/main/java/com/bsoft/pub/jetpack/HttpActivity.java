@@ -11,11 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.collection.ArrayMap;
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libbasic.utils.AppUtil;
+import com.bsoft.libcommon.arouter.CommonArouterGroup;
+import com.bsoft.libcommon.arouter.interceptor.CommonTInterceptor;
 import com.bsoft.libnet.api.NetDownLoadApi;
 import com.bsoft.libnet.api.NetPostApi;
 import com.bsoft.libnet.apiservice.DownloadService;
-import com.bsoft.libnet.constants.HttpConstants;
 import com.bsoft.libnet.observer.BaseObserver;
 import com.bsoft.libnet.observer.BaseObserver2;
 import com.bsoft.libnet.observer.BaseObserverx;
@@ -35,6 +38,8 @@ import java.io.*;
 import java.util.ArrayList;
 
 
+
+@Route(path = CommonArouterGroup.TEST_ACTIVITY, extras = CommonTInterceptor.GREEN_LOGIN + 1)
 public class HttpActivity extends AppCompatActivity {
 
     AppCompatActivity appCompatActivity;

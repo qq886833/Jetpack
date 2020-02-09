@@ -3,10 +3,10 @@ package com.bsoft.libnet.utils.log;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libbasic.thirdpart.logger.AndroidLogAdapter;
 import com.bsoft.libbasic.thirdpart.logger.FormatStrategy;
 import com.bsoft.libbasic.thirdpart.logger.PrettyFormatStrategy;
-import com.bsoft.libnet.constants.HttpConstants;
 
 
 public class LogAdapter extends AndroidLogAdapter {

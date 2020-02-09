@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+        <!--android:background="?attr/selectableItemBackground"-->
+<com.qmuiteam.qmui.layout.QMUILinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="@color/qmui_config_color_white"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        app:qmui_radius="@dimen/dp_8"
+        app:qmui_outerNormalColor="?attr/qmui_skin_support_color_background"
+        app:qmui_borderColor="?attr/qmui_skin_support_color_separator"
+        app:qmui_showBorderOnlyBeforeL="true">
+
+
+    <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:padding="2dp"
+            android:scrollbars="vertical"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            tools:text="title"/>
+
+    <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:gravity="center"
+            android:maxLines="10"
+            android:padding="2dp"
+            android:scrollbars="vertical"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            tools:text="查询申请已提交，请耐心等待！\n系统会通过消息通知您查看查询结果。"/>
+
+    <TextView
+            android:id="@+id/tvInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:gravity="center"
+            android:maxLines="10"
+            android:padding="2dp"
+            android:scrollbars="vertical"
+            android:textColor="#999999"
+            android:textSize="14sp"
+            tools:text="查询申请已提交，请耐心等待！"/>
+
+    <!-- <View
+         android:layout_width="match_parent"
+         android:layout_height="0.5dp"
+         android:layout_marginTop="20dp"
+         android:background="#e4e4e4" />-->
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_15"
+            android:orientation="horizontal">
+
+
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                android:id="@+id/btCancel"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_5"
+                android:text="@string/basic_cancel"
+                app:qmui_radius="@dimen/dp_4"
+                android:textColor="@color/main_green"
+                app:qmui_backgroundColor="@color/qmui_config_color_white"
+                app:qmui_borderColor="@color/main_green"
+                app:qmui_borderWidth="1px"
+                app:qmui_isRadiusAdjustBounds="true"
+                android:layout_gravity="center"/>
+        <View android:id="@+id/divder"
+                android:layout_width="@dimen/dp_30"
+              android:layout_height="1dp"/>
+        <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                android:id="@+id/btConfirm"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/dp_5"
+                android:text="@string/basic_confirm"
+                app:qmui_isRadiusAdjustBounds="true"
+                app:qmui_radius="@dimen/dp_4"
+                android:textColor="@color/qmui_config_color_white"
+                app:qmui_backgroundColor="@color/main_green"
+                app:qmui_borderColor="@color/main_green"
+                app:qmui_borderWidth="1px"
+                android:layout_gravity="center"/>
+
+
+    </LinearLayout>
+
+
+</com.qmuiteam.qmui.layout.QMUILinearLayout>

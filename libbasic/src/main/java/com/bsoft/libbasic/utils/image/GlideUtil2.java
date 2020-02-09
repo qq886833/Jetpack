@@ -258,6 +258,6 @@ public class GlideUtil2 {
     }
 
     protected String getImgUrl(){
-        return HttpConstants.HTTPIMGURL;
+        return HttpConstants.httpImgUrl;
     }
 }

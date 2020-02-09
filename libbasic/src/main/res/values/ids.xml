@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="main_container" type="id"/>
+
+    <item type="id" name="mainLoadLay"/>
+    <item type="id" name="mSmartRefreshLayout"/>
+    <item type="id" name="mRecyclerView"/>
+    <item type="id" name="yjhealthCoreWebview"/>
+    <item type="id" name="yjhealthCoreTvTitle"/>
+    <item type="id" name="yjhealthCoreRecyclerview"/>
+    <item type="id" name="yjhealthCoreBosftToolbar"/>
+
+    <!--statusbarutil-->
+    <item name="statusbar_fake_status_bar_view" type="id"/>
+    <item name="statusbar_translucent_view" type="id"/>
+</resources>

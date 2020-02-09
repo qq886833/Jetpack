@@ -4,8 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.text.TextUtils;
-import com.bsoft.libnet.base.INetworkInit;
-import com.bsoft.libnet.constants.HttpConstants;
+import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libnet.model.NetAddressVo;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -22,7 +21,7 @@ import java.util.ArrayList;
 
 public class NetEnvironmentUtil {
     private static String sCurrentNetworkEnvironment = "currentEnviroment";
-    private static INetworkInit mINetworkInit;
+
     private static SharedPreferences sp ;
     /**
      * 初始化网络环境
@@ -30,22 +29,21 @@ public class NetEnvironmentUtil {
      * @param context
      * @return
      */
-    public static boolean initConstans(Context context,INetworkInit iNetworkInit) {
+    public static boolean initConstans(Context context) {
         if (context == null) {
             throw new RuntimeException("context can't be null");
         }
         sp = context.getSharedPreferences("netWork", Context.MODE_PRIVATE);
-        mINetworkInit =iNetworkInit;
         NetAddressVo vo = getCurEnvironment(context);
 
         if (vo != null) {
-            HttpConstants.versionCode =mINetworkInit.getAppVersionCode();
-            HttpConstants.versionName =mINetworkInit.getAppVersionName();
+            HttpConstants.versionCode = HttpConstants.versionCode;
+            HttpConstants.versionName = HttpConstants.versionName;
             HttpConstants.environment =vo.getEnvironment();
             HttpConstants.httpApiUrl = vo.getHttpApiUrl();
             HttpConstants.httpDownloadUrl = vo.getHttpDownloadUrl();
             HttpConstants.httpImgUrl = vo.getHttpImgUrl();
-            HttpConstants.isDebug = mINetworkInit.isDebug();
+            HttpConstants.isDebug =  HttpConstants.isDebug;
             return true;
         } else {
             return false;
@@ -105,7 +103,7 @@ public class NetEnvironmentUtil {
         if(!TextUtils.isEmpty(sp.getString(sCurrentNetworkEnvironment,""))){
             HttpConstants.environment = sp.getString(sCurrentNetworkEnvironment,"");
         }else {
-            HttpConstants.environment = mINetworkInit.getEnvironment();
+            HttpConstants.environment =  HttpConstants.environment;
         }
 
 

@@ -71,7 +71,7 @@ public class GlideUtil {
     public static void loadHeadById(@NonNull Object object, @NonNull ImageView imageView,
                                     String id, int width,
                                     @DrawableRes int loadRes, @DrawableRes int errorRes) {
-        loadHeadByUrl(object, imageView, ImageUrlUtil.getUrl(HttpConstants.HTTPIMGURL, id), width, loadRes, errorRes);
+        loadHeadByUrl(object, imageView, ImageUrlUtil.getUrl(HttpConstants.httpImgUrl, id), width, loadRes, errorRes);
     }
 
     /**
@@ -133,7 +133,7 @@ public class GlideUtil {
                                           String id, int width,
                                           @DrawableRes int loadRes, @DrawableRes int errorRes) {
         loadHeadCircleByUrl(object, imageView,
-                ImageUrlUtil.getUrl(HttpConstants.HTTPIMGURL, id), width,
+                ImageUrlUtil.getUrl(HttpConstants.httpImgUrl, id), width,
                 loadRes, errorRes);
     }
 
@@ -191,7 +191,7 @@ public class GlideUtil {
     public static void loadImageById(@NonNull Object object, @NonNull ImageView imageView,
                                      String id, @DrawableRes int loadRes, @DrawableRes int errorRes) {
         loadImageByUrl(object, imageView,
-                ImageUrlUtil.getUrl(HttpConstants.HTTPIMGURL, id),
+                ImageUrlUtil.getUrl(HttpConstants.httpImgUrl, id),
                 loadRes, errorRes);
     }
 
@@ -254,7 +254,7 @@ public class GlideUtil {
     public static void loadImageCircleById(@NonNull Object object, @NonNull ImageView imageView,
                                            String id, @DrawableRes int loadRes, @DrawableRes int errorRes) {
         loadImageCircleByUrl(object, imageView,
-                ImageUrlUtil.getUrl(HttpConstants.HTTPIMGURL, id),
+                ImageUrlUtil.getUrl(HttpConstants.httpImgUrl, id),
                 loadRes, errorRes);
     }
 
