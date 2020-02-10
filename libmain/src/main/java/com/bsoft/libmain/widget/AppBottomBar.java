@@ -7,7 +7,10 @@ import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import com.bsoft.libmain.R;
 import com.bsoft.libmain.model.BottomBar;
 import com.bsoft.libmain.model.Destination;
@@ -17,13 +20,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
+import com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton;
 
 import java.util.List;
 
 public class AppBottomBar extends BottomNavigationView {
     private static int[] sIcons = new int[]{R.drawable.icon_tab_home, R.drawable.icon_tab_sofa, R.drawable.icon_tab_publish, R.drawable.icon_tab_find, R.drawable.icon_tab_mine};
     private BottomBar config;
-
+    private QMUIRoundButton count;
     public AppBottomBar(Context context) {
         this(context, null);
     }
@@ -78,6 +82,15 @@ public class AppBottomBar extends BottomNavigationView {
             int iconSize = dp2Px(tab.size);
             BottomNavigationMenuView menuView = (BottomNavigationMenuView) getChildAt(0);
             BottomNavigationItemView itemView = (BottomNavigationItemView) menuView.getChildAt(index);
+
+//加载我们的角标View，新创建的一个布局
+            View badge = LayoutInflater.from(context).inflate(R.layout.main_menu_badge, menuView, false);
+
+            if (tab.badgeVisiable) {
+                //添加到Tab上
+                setBadge(badge);
+                itemView.addView(badge);
+            }
             itemView.setIconSize(iconSize);
             if (TextUtils.isEmpty(tab.title)) {
                 int tintColor = TextUtils.isEmpty(tab.tintColor) ? Color.parseColor("#ff678f") : Color.parseColor(tab.tintColor);
@@ -111,6 +124,30 @@ public class AppBottomBar extends BottomNavigationView {
         }
     }
 
+    private void setBadge( View badge){
+        this.count= (QMUIRoundButton) badge.findViewById(R.id.tv_msg_count);
+    }
+    private TextView getBadge(){
+        return count;
+    }
+    public void setBadgeCount(int num){
+        TextView count = getBadge();
+
+        if(count==null){
+          return;
+        }else {
+            if(num>0){
+                count.setText(String.valueOf(num));
+            }else {
+                //如果没有消息，不需要显示的时候那只需要将它隐藏即可
+                count.setVisibility(View.GONE);
+            }
+        }
+
+
+
+
+    }
     private int dp2Px(int dpValue) {
         DisplayMetrics metrics = getContext().getResources().getDisplayMetrics();
         return (int) (metrics.density * dpValue + 0.5f);

@@ -16,4 +16,5 @@ public class MainTab {
     public String pageUrl;
     public String title;
     public String tintColor;
+    public boolean badgeVisiable;
 }
