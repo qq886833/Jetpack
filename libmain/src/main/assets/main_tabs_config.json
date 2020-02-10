@@ -34,7 +34,7 @@
       "index": 3,
       "pageUrl": "main/tabs/service",
       "title": "服务",
-      "badgeVisiable": false
+      "badgeVisiable": true
     },
     {
       "size": 24,

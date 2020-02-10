@@ -59,7 +59,9 @@ public class MainTabActivity extends AppCompatActivity implements BottomNavigati
         NavGraphBuilder.build(this, navController, fragment.getId());
 
         navView.setOnNavigationItemSelectedListener(this);
-        navView.setBadgeCount(3);
+
+        navView.setBadgeCount(1,103);
+        navView.setBadgeCount(3,32);
     }
 
     @Override

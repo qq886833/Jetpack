@@ -10,7 +10,6 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import com.bsoft.libmain.R;
 import com.bsoft.libmain.model.BottomBar;
 import com.bsoft.libmain.model.Destination;
@@ -22,12 +21,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class AppBottomBar extends BottomNavigationView {
     private static int[] sIcons = new int[]{R.drawable.icon_tab_home, R.drawable.icon_tab_sofa, R.drawable.icon_tab_publish, R.drawable.icon_tab_find, R.drawable.icon_tab_mine};
     private BottomBar config;
     private QMUIRoundButton count;
+    private static HashMap<Integer, QMUIRoundButton> mBadgeHashMap = new HashMap<>();
     public AppBottomBar(Context context) {
         this(context, null);
     }
@@ -85,10 +86,9 @@ public class AppBottomBar extends BottomNavigationView {
 
 //加载我们的角标View，新创建的一个布局
             View badge = LayoutInflater.from(context).inflate(R.layout.main_menu_badge, menuView, false);
-
             if (tab.badgeVisiable) {
                 //添加到Tab上
-                setBadge(badge);
+                setBadge(index,badge);
                 itemView.addView(badge);
             }
             itemView.setIconSize(iconSize);
@@ -109,6 +109,7 @@ public class AppBottomBar extends BottomNavigationView {
                  */
             }
             index++;
+
         }
 
         //底部导航栏默认选中项
@@ -124,23 +125,31 @@ public class AppBottomBar extends BottomNavigationView {
         }
     }
 
-    private void setBadge( View badge){
-        this.count= (QMUIRoundButton) badge.findViewById(R.id.tv_msg_count);
-    }
-    private TextView getBadge(){
-        return count;
-    }
-    public void setBadgeCount(int num){
-        TextView count = getBadge();
+    private void setBadge(int index, View badge){
 
-        if(count==null){
+        if(!mBadgeHashMap.containsKey(index)) {
+            mBadgeHashMap.put(index, (QMUIRoundButton) badge.findViewById(R.id.tv_msg_count));
+        }
+    }
+
+    public void setBadgeCount(int index,int num){
+        QMUIRoundButton badgeView = mBadgeHashMap.get(index);
+
+        if(badgeView==null){
           return;
         }else {
             if(num>0){
-                count.setText(String.valueOf(num));
+                badgeView.setVisibility(View.VISIBLE);
+                if(num>99){
+                    badgeView.setText("...");
+                }else{
+                    badgeView.setText(String.valueOf(num));
+                }
+
+
             }else {
                 //如果没有消息，不需要显示的时候那只需要将它隐藏即可
-                count.setVisibility(View.GONE);
+                badgeView.setVisibility(View.GONE);
             }
         }
 
