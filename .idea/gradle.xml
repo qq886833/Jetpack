@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/assemblebase" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/libbasic" />
             <option value="$PROJECT_DIR$/libcommon" />
@@ -16,6 +17,7 @@
             <option value="$PROJECT_DIR$/libnavannotation" />
             <option value="$PROJECT_DIR$/libnavcompiler" />
             <option value="$PROJECT_DIR$/libnet" />
+            <option value="$PROJECT_DIR$/login" />
             <option value="$PROJECT_DIR$/message" />
           </set>
         </option>

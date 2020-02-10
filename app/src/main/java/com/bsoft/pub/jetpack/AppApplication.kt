@@ -1,17 +1,18 @@
 package com.bsoft.pub.jetpack
 
+import android.app.Application
 import cn.jpush.android.api.JPushInterface
-import com.bsoft.libbasic.BaseApplication
+import com.bsoft.libbasic.application.AppConfig
+import com.bsoft.libbasic.application.BaseApp
 import com.bsoft.libbasic.constant.HttpConstants
 import com.bsoft.libbasic.init.BaseAppInit
 import com.bsoft.libbasic.init.BaseInitConfig
 import com.bsoft.libcommon.localdata.AccountSharpref
 import com.bsoft.libnet.utils.NetEnvironmentUtil
 import com.bsoft.libnet.utils.log.LogUtil
-import com.jeremyliao.liveeventbus.LiveEventBus
 
 
-class AppApplication : BaseApplication() {
+class AppApplication : BaseApp() {
     //token失效在后台时，标记需要显示dialog，当程序进入前台显示dialog
     private var tokenErrorDialogNeedShow = false
     private var toekenErrorMsg: String? = null
@@ -22,35 +23,29 @@ class AppApplication : BaseApplication() {
         lateinit var instance : AppApplication
     }
 
+
+
     override fun onCreate() {
         super.onCreate()
 
+        initModuleApp(this)
+        initModuleData(this)
+        initComponentList()
 
 
-        LiveEventBus.config().supportBroadcast(this).lifecycleObserverAlwaysActive(true);
-//        LogUtils.getConfig().run {
-//            isLogSwitch = BuildConfig.DEBUG
-//            setSingleTagSwitch(true)
-//        }
-
-        //  LiveEventBus.config().supportBroadcast(getApplicationContext()).lifecycleObserverAlwaysActive(true);
-//  CoreAppInit.getInstance().init(this)
-//        LoadSir.beginBuilder()
-//                .addCallback(new ErrorCallback.Builder().build())
-//                .addCallback(new EmptyCallback.Builder().build())
-//                .addCallback(new LoadingCallback.Builder().build())
-//                .addCallback(new TimeoutCallback.Builder().build())
-//                .addCallback(new CustomCallback())
-//                .addCallback(new PlaceholderCallback())
-//                .setDefaultCallback(LoadingCallback.class)
-//                .commit();
         BaseAppInit.getInstance().init(this, getConfig())
 
         NetEnvironmentUtil.initConstans(this)
         LogUtil.init()
         JPushInterface.setDebugMode(HttpConstants.isDebug)
         JPushInterface.init(this)
+        InitializeService.start(applicationContext)
 
+    }
+    override fun initModuleApp(application: Application?) {
+
+    }
+    override fun initModuleData(application: Application?) {
 
     }
 
@@ -67,7 +62,20 @@ class AppApplication : BaseApplication() {
         return config
     }
 
-
+    //初始化组件
+//通过反射初始化
+    private fun initComponentList() {
+        for (moduleApp in AppConfig.moduleApps) {
+            try {
+                val clazz = Class.forName(moduleApp)
+                val baseApp = clazz.newInstance() as BaseApp
+                baseApp.initModuleApp(this)
+                baseApp.initModuleData(this)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
     private fun logout() {
         AccountSharpref.getInstance().loginState = false
     //    AccountSharpref.getInstance().setAccessToken(null)

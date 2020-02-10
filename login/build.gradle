@@ -1,0 +1,10 @@
+apply from: "../mygradle/module.gradle"
+apply plugin: 'android-aspectjx'
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api Deps.aspectjrt
+    api project(path: ':libcommon')
+}

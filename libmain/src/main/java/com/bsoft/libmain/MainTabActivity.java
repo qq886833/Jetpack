@@ -15,7 +15,7 @@ import com.bsoft.libcommon.arouter.CommonArouterGroup;
 import com.bsoft.libcommon.localdata.AccountSharpref;
 import com.bsoft.libcommon.model.LoginUserVo;
 import com.bsoft.libmain.model.Destination;
-import com.bsoft.libmain.utils.AppConfig;
+import com.bsoft.libmain.utils.MainConfig;
 import com.bsoft.libmain.utils.NavGraphBuilder;
 import com.bsoft.libmain.widget.AppBottomBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -60,13 +60,13 @@ public class MainTabActivity extends AppCompatActivity implements BottomNavigati
 
         navView.setOnNavigationItemSelectedListener(this);
 
-        navView.setBadgeCount(1,103);
-        navView.setBadgeCount(3,32);
+        navView.setBadgeCount(1,13);
+
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        HashMap<String, Destination> destConfig = AppConfig.getDestConfig();
+        HashMap<String, Destination> destConfig = MainConfig.getDestConfig();
         Iterator<Map.Entry<String, Destination>> iterator = destConfig.entrySet().iterator();
         //遍历 target destination 是否需要登录拦截
         while (iterator.hasNext()) {
@@ -96,7 +96,7 @@ public class MainTabActivity extends AppCompatActivity implements BottomNavigati
 //        String tag = fragment.getTag();
 //        int currentPageDestId = Integer.parseInt(tag);
 //
-//        HashMap<String, Destination> config = AppConfig.getDestConfig();
+//        HashMap<String, Destination> config = MainConfig.getDestConfig();
 //        Iterator<Map.Entry<String, Destination>> iterator = config.entrySet().iterator();
 //        while (iterator.hasNext()) {
 //            Map.Entry<String, Destination> next = iterator.next();

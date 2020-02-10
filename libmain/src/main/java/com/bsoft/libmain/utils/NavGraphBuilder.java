@@ -24,7 +24,7 @@ public class NavGraphBuilder {
         FixFragmentNavigator fragmentNavigator = new FixFragmentNavigator(activity, activity.getSupportFragmentManager(), containerId);
         provider.addNavigator(fragmentNavigator);
         ActivityNavigator activityNavigator = provider.getNavigator(ActivityNavigator.class);
-        HashMap<String, Destination> destConfig = AppConfig.getDestConfig();
+        HashMap<String, Destination> destConfig = MainConfig.getDestConfig();
         Iterator<Destination> iterator = destConfig.values().iterator();
         while (iterator.hasNext()) {
             Destination node = iterator.next();

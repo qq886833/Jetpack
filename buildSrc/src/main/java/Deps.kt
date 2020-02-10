@@ -60,8 +60,8 @@ object Deps {
 
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val junit = "junit:junit:${Versions.junit}"
-    const val runner = "com.android.support.test:runner:${Versions.runner}"
-    const val espresso_core = "com.android.support.test.espresso:espresso-core:${Versions.espresso_core}"
+    const val runner = "androidx.test:runner:${Versions.runner}"
+    const val espresso_core = "androidx.test.espresso:espresso-core:${Versions.espresso_core}"
 
     const val material = "com.google.android.material:material:${Versions.material}"
     const val constraint_layout = "androidx.constraintlayout:constraintlayout:${Versions.constraint_layout}"

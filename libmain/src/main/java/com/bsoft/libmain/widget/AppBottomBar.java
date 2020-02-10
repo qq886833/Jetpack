@@ -14,7 +14,7 @@ import com.bsoft.libmain.R;
 import com.bsoft.libmain.model.BottomBar;
 import com.bsoft.libmain.model.Destination;
 import com.bsoft.libmain.model.MainTab;
-import com.bsoft.libmain.utils.AppConfig;
+import com.bsoft.libmain.utils.MainConfig;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -41,7 +41,7 @@ public class AppBottomBar extends BottomNavigationView {
     public AppBottomBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        config = AppConfig.getBottomBarConfig();
+        config = MainConfig.getBottomBarConfig();
 
         int[][] state = new int[2][];
         state[0] = new int[]{android.R.attr.state_selected};
@@ -163,7 +163,7 @@ public class AppBottomBar extends BottomNavigationView {
     }
 
     private int getItemId(String pageUrl) {
-        Destination destination = AppConfig.getDestConfig().get(pageUrl);
+        Destination destination = MainConfig.getDestConfig().get(pageUrl);
         if (destination == null)
             return -1;
         return destination.id;

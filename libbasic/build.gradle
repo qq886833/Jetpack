@@ -42,6 +42,7 @@ dependencies {
     api Deps.appcompat
     api Deps.kotlin_core
 
+    api project(':assemblebase')
     api Deps.constraint_layout
     api Deps.material
     // architecture component
@@ -86,9 +87,9 @@ dependencies {
     api Deps.fastjson
     api Deps.navigation_fragment
     api Deps.navigation_ui
-    testImplementation Deps.junit
-    androidTestImplementation Deps.runner
-    androidTestImplementation Deps.espresso_core
+    testApi Deps.junit
+    androidTestApi Deps.runner
+    androidTestApi Deps.espresso_core
 
 
     //下拉刷新

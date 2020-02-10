@@ -15,7 +15,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 import com.bsoft.libmain.databinding.MainFragmentMiddleBinding;
 import com.bsoft.libmain.model.SofaTab;
-import com.bsoft.libmain.utils.AppConfig;
+import com.bsoft.libmain.utils.MainConfig;
 import com.bsoft.libnavannotation.FragmentDestination;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -134,7 +134,7 @@ public class MiddleFragment extends Fragment {
     }
 
     public SofaTab getTabConfig() {
-        return AppConfig.getSofaTabConfig();
+        return MainConfig.getSofaTabConfig();
     }
 
 
