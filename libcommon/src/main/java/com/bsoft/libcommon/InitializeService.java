@@ -1,4 +1,4 @@
-package com.bsoft.pub.jetpack;
+package com.bsoft.libcommon;
 
 import android.app.IntentService;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 import androidx.annotation.Nullable;
-import com.bsoft.libbasic.thirdpart.fastsharedpreferences.FastSharedPreferences;
 import com.jeremyliao.liveeventbus.LiveEventBus;
 
 

@@ -3,4 +3,5 @@
 
 
     <string name="common_arouter_name">common_arouter_name</string>
+    <string name="common_empty">无</string>
 </resources>

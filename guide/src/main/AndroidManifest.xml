@@ -1,0 +1,22 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.bsoft.guide">
+
+
+    <application>
+
+
+        <activity android:name=".activity.SplashActivity"
+                  android:theme="@style/launcher"/>
+
+        <activity android:name=".activity.AdActivity"
+                  android:theme="@style/launcher"/>
+
+        <activity android:name=".activity.GuideActivity"
+                  android:theme="@style/AppTheme"/>
+
+        <activity android:name=".activity.LoadingActivity"
+                  android:theme="@style/AppTheme"/>
+    </application>
+
+
+</manifest>

@@ -8,4 +8,9 @@ dependencies {
     api Deps.aspectjrt
     api project(path: ':libcommon')
     implementation project(path: ':libnet')
+
+    if (isRunAlone.toBoolean()) {
+        api project(path: ':libmain')
+       // api project(path: ':login')
+    }
 }

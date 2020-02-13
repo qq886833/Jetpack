@@ -79,6 +79,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 tab.setText(tabs[position]);
+
             }
         }).attach();
 

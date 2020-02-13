@@ -20,7 +20,7 @@ public class BaseAppInit {
     public void init(Application app, BaseInitConfig config) {
 
         initConstants(config);
-        ArouterInit.init(app);
+
     }
 
     private void initConstants(BaseInitConfig config) {

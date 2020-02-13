@@ -1,11 +1,14 @@
+/*
 package com.bsoft.login.service;
 
 
 import com.bsoft.assemblebase.service.ILoginService;
 
+*/
 /**
  * Created by shiyagang on 2019/10/23.
- */
+ *//*
+
 
 public class LoginService implements ILoginService {
     @Override
@@ -28,3 +31,4 @@ public class LoginService implements ILoginService {
 
     }
 }
+*/

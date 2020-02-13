@@ -42,7 +42,6 @@ dependencies {
     api Deps.appcompat
     api Deps.kotlin_core
 
-    api project(':assemblebase')
     api Deps.constraint_layout
     api Deps.material
     // architecture component

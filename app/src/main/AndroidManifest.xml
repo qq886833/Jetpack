@@ -10,8 +10,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-                  android:theme="@style/launcher">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -70,11 +69,7 @@
 
 
 
-        <service android:name=".InitializeService">
-            <intent-filter >
-                <action android:name="com.bsoft.pub.jetpack.ipc"/>
-            </intent-filter>
-        </service>
+
 
     </application>
 

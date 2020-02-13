@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">guide</string>
+
+    <string name="guide_start">开始体验</string>
+    <string name="guide_remind">提示</string>
+    <!--引导页-->
+    <integer-array name="guide_res">
+        <item>@drawable/guidepage1</item>
+        <item>@drawable/guidepage2</item>
+        <item>@drawable/guidepage3</item>
+        <item>@drawable/guidepage4</item>
+    </integer-array>
+    <string-array name="guide_title">
+        <item>就医服务全面升级</item>
+        <item>签约我的家庭医生</item>
+        <item>健康内容随需而定</item>
+        <item>靠谱严选增值服务</item>
+    </string-array>
+    <string-array name="guide_sub_title">
+        <item>名医咨询更放心</item>
+        <item>家庭健康守门人</item>
+        <item>健康生活轻松读</item>
+        <item>买的放心购的舒心</item>
+    </string-array>
+</resources>

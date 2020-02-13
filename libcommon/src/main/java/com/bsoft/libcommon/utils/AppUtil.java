@@ -1,4 +1,4 @@
-package com.bsoft.libbasic.utils;
+package com.bsoft.libcommon.utils;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;

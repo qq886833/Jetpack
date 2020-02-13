@@ -23,6 +23,10 @@ public class CommonArouterGroup {
     public static final int PRIORITY = 111;
     private static final String PROJECT = "/wise_";
 
+    //******************** GUIDE **********************
+    public static final String PATH_SPLASH_ACTIVITY = PROJECT + "guide/SplashActivity";
+    public static final String PATH_GUIDE_ACTIVITY = PROJECT + "guide/GuideActivity";
+    public static final String PATH_LOADING_ACTIVITY = PROJECT + "guide/LoadingActivity";
 
     public static final String CHANGE_NET_ACTIVITY = PROJECT + "net/ChangeNetActivity";
 
@@ -34,7 +38,7 @@ public class CommonArouterGroup {
 
 
 
-    public static final String MAIN_TAB_ACTIVITY = PROJECT + "libmain/mainTabActivity";
+    public static final String MAIN_TAB_ACTIVITY = PROJECT + "libmain/MainTabActivity";
     public static final String LOGIN_ACTIVITY = PROJECT + "login/LoginActivity";
     public static final String TEST_ACTIVITY = PROJECT + "app/HttpActivity";
     //******************** wiseChangeNet **********************
@@ -46,7 +50,7 @@ public class CommonArouterGroup {
     public static final String CHANGE_PERSION_ACTIVITY = PROJECT + "commonlib/ChangePersonActivity";
 
     //******************** businessGuide *******************
-    public static final String PATH_GUIDE_ACTIVITY = PROJECT + "businessGuide/GuideActivity";
+
 
     //******************** businessAppoint *******************
     public static final String APPOINT_CONFIRM_ACTIVITY = PROJECT + "businessAppoint/AppointConfirmActivity";

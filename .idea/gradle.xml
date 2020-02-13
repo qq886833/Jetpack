@@ -9,8 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/assemblebase" />
             <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/guide" />
             <option value="$PROJECT_DIR$/libbasic" />
             <option value="$PROJECT_DIR$/libcommon" />
             <option value="$PROJECT_DIR$/libmain" />

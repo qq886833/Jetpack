@@ -1,4 +1,4 @@
-package com.bsoft.login;
+package com.bsoft.guide;
 
 import com.bsoft.libbasic.BaseApplication;
 import com.bsoft.libbasic.init.ArouterInit;
@@ -9,14 +9,13 @@ import com.bsoft.libnet.utils.NetEnvironmentUtil;
 import com.bsoft.libnet.utils.log.LogUtil;
 
 
-public class LoginApp extends BaseApplication {
+public class GuideApp extends BaseApplication {
 
 
 
     @Override
     public void onCreate() {
         super.onCreate();
-
         BaseAppInit.getInstance().init(this, getConfig());
         ArouterInit.init(this);
         NetEnvironmentUtil.initConstans(this);

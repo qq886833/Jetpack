@@ -9,8 +9,8 @@ import com.bsoft.libcommon.model.LoginUserVo;
 import org.jetbrains.annotations.NotNull;
 
 public class AccountSharpref extends BaseSharpref {
-    public static final String  SHARED_ACCOUNT = "share_account";
-    public static final String LOGIN_STATE = "login_state";
+    private static final String  SHARED_ACCOUNT = "share_account";
+    private static final String LOGIN_STATE = "login_state";
     public AccountSharpref(@NotNull String name) {
         super(name);
     }

@@ -1,1 +1,1 @@
-include ':app', ':libnavannotation', ':libnavcompiler', ':libbasic', ':libcommon', ':buildSrc', ':libmain', ':libnet', ':message', ':assemblebase', ':login'
+include ':app', ':libnavannotation', ':libnavcompiler', ':libbasic', ':libcommon', ':buildSrc', ':libmain', ':libnet', ':message', ':login', ':guide'

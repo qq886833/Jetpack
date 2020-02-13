@@ -4,5 +4,14 @@
     <application>
 
         <activity android:name=".commonaop.PermissionRequestActivity"/>
+
+
+
+
+        <service android:name=".InitializeService">
+            <intent-filter >
+                <action android:name="com.bsoft.pub.jetpack.ipc"/>
+            </intent-filter>
+        </service>
     </application>
 </manifest>

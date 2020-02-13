@@ -26,5 +26,7 @@ public class BaseApplication extends MultiDexApplication {
 
         MultiDex.install(this);
     }
+
+
 }
 
