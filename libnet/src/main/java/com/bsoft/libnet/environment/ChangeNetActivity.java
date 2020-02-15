@@ -1,6 +1,5 @@
 package com.bsoft.libnet.environment;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -10,14 +9,18 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import androidx.annotation.IdRes;
+import androidx.appcompat.app.AppCompatActivity;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libbasic.utils.ExitUtil;
+import com.bsoft.libbasic.utils.StatusBar;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
 import com.bsoft.libnet.R;
 import com.bsoft.libnet.model.NetAddressVo;
 import com.bsoft.libnet.model.NetRadio;
 import com.bsoft.libnet.utils.NetEnvironmentUtil;
+import com.qmuiteam.qmui.util.QMUIViewHelper;
+import com.qmuiteam.qmui.widget.QMUITopBar;
 
 import java.util.ArrayList;
 
@@ -27,8 +30,8 @@ import java.util.ArrayList;
  */
 
 
-@Route(path = CommonArouterGroup.CHANGE_NET_ACTIVITY)
-public class ChangeNetActivity extends Activity {
+@Route(path = CommonArouterGroup.PATH_CHANGE_NET_ACTIVITY)
+public class ChangeNetActivity extends AppCompatActivity {
 
     private NetAddressVo originVo;
     private ArrayList<NetAddressVo> netAddressVos;
@@ -39,19 +42,23 @@ public class ChangeNetActivity extends Activity {
     private ImageView ivBack;
     private TextView tvComfirm;
     private RadioGroup changeItems;
+    private QMUITopBar mTopBar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StatusBar.lightStatusBar(this, false);
+        StatusBar.setColor(this,getResources().getColor(R.color.app_topbar_bg_color),0);
         setContentView(R.layout.networklib_activity_change_net);
+       // QMUIStatusBarHelper.translucent(this);
         //default
         netAddressVos = NetEnvironmentUtil.getNetEnvironments(this);
         originVo = NetEnvironmentUtil.getCurEnvironment(this);
 
         initLayout();
 
-        tvInternalVersion.setText("内部版本号：" + HttpConstants.versionName+"~~"+ HttpConstants.versionCode);
+
         updateVo(originVo);
         //动态添加选项
         radioButtons.clear();
@@ -65,15 +72,25 @@ public class ChangeNetActivity extends Activity {
         }
 
         changeItems.setOnCheckedChangeListener(checkedChangeListener);
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        tvComfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+
+    }
+
+
+
+    protected void initLayout() {
+        mTopBar = findViewById(R.id.topbar);
+        changeItems = findViewById(R.id.changeItems);
+        // mTopBar.setBackgroundColor(ContextCompat.getColor(this, R.color.app_color_theme_4));
+        if(mTopBar !=null){
+            mTopBar.addLeftBackImageButton().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+
+            mTopBar.addRightTextButton("确定", QMUIViewHelper.generateViewId()).setOnClickListener(view ->
+            {
                 if (originVo != null && curAddressVo != null
                         && (!TextUtils.equals(originVo.getEnvironment(), curAddressVo.getEnvironment()))) {
                     NetEnvironmentUtil.setEnvironment(ChangeNetActivity.this, curAddressVo.getEnvironment());
@@ -82,19 +99,10 @@ public class ChangeNetActivity extends Activity {
                 } else {
                     finish();
                 }
-            }
-        });
-    }
+            });
+        }
 
-
-
-    protected void initLayout() {
-
-        ivBack = findViewById(R.id.ivBack);
-        tvComfirm = findViewById(R.id.tvComfirm);
-        tvInternalVersion = findViewById(R.id.tvInternalVersion);
-
-        changeItems = findViewById(R.id.changeItems);
+        mTopBar.setTitle("内部版本号：" + HttpConstants.versionName+"~~"+ HttpConstants.versionCode);
     }
 
     private void updateVo(NetAddressVo addressVo) {

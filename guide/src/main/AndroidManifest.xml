@@ -15,7 +15,7 @@
                   android:theme="@style/AppTheme"/>
 
         <activity android:name=".activity.LoadingActivity"
-                  android:theme="@style/AppTheme"/>
+                  android:theme="@style/launcher"/>
     </application>
 
 

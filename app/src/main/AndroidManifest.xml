@@ -10,7 +10,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.bsoft.guide.activity.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -67,9 +67,28 @@
         </receiver>
 
 
+        <meta-data
+                android:name="android.notch_support"
+                android:value="true"/>
 
+        <meta-data
+                android:name="android.max_aspect"
+                android:value="2.34"/>
 
+        <meta-data
+                android:name="notch.config"
+                android:value="portrait|landscape"/>
 
+       <!-- //临时访问文件的注册-->
+        <provider
+                android:authorities="${applicationId}.androidx.fileprovider"
+                android:name="androidx.core.content.FileProvider"
+                android:exported="false"
+                android:grantUriPermissions="true">
+            <meta-data
+                    android:name="android.support.FILE_PROVIDER_PATHS"
+                    android:resource="@xml/provider_paths" />
+            </provider>
 
     </application>
 

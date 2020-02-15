@@ -5,8 +5,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.*;
 import androidx.navigation.fragment.FragmentNavigator;
 import com.bsoft.libbasic.context.ContextProvider;
+import com.bsoft.libbasic.widget.navigator.FixFragmentNavigator;
 import com.bsoft.libmain.model.Destination;
-import com.bsoft.libmain.navigator.FixFragmentNavigator;
 
 import java.util.HashMap;
 import java.util.Iterator;

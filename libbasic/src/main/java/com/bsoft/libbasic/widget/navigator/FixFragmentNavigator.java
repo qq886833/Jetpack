@@ -1,4 +1,4 @@
-package com.bsoft.libmain.navigator;
+package com.bsoft.libbasic.widget.navigator;
 
 import android.content.Context;
 import android.os.Bundle;

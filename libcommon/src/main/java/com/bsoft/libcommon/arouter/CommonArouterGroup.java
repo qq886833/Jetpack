@@ -15,6 +15,8 @@ import java.util.List;
  */
 
 public class CommonArouterGroup {
+    //单点登录
+    public static final String EXTRA_IS_SSO = "isSSO";
     public static final String PATH = "path";
     public static final String PARAM = "param";
     public static final String CALLBACK = "callback";
@@ -28,18 +30,22 @@ public class CommonArouterGroup {
     public static final String PATH_GUIDE_ACTIVITY = PROJECT + "guide/GuideActivity";
     public static final String PATH_LOADING_ACTIVITY = PROJECT + "guide/LoadingActivity";
 
-    public static final String CHANGE_NET_ACTIVITY = PROJECT + "net/ChangeNetActivity";
+
+
+    public static final String PATH_CHANGE_NET_ACTIVITY = PROJECT + "net/ChangeNetActivity";
 
 
 
 
+    public static final String PATH_LOGIN_ACTIVITY = PROJECT + "login/AccountFragmentActivity";
 
 
 
 
+    public static final String PATH_MAIN_TAB_ACTIVITY = PROJECT + "libmain/MainTabActivity";
 
-    public static final String MAIN_TAB_ACTIVITY = PROJECT + "libmain/MainTabActivity";
-    public static final String LOGIN_ACTIVITY = PROJECT + "login/LoginActivity";
+
+
     public static final String TEST_ACTIVITY = PROJECT + "app/HttpActivity";
     //******************** wiseChangeNet **********************
 
@@ -105,13 +111,19 @@ public class CommonArouterGroup {
     }
 
     public static void goMainTabActivity() {
-        CommonArouterGroup.gotoActivity(CommonArouterGroup.MAIN_TAB_ACTIVITY);
+        CommonArouterGroup.gotoActivity(CommonArouterGroup.PATH_MAIN_TAB_ACTIVITY);
+    }
+    public static void goLoginActivity(String path, Bundle bundle, boolean isSSO){
+        CommonArouterGroup.getArouter(CommonArouterGroup.PATH_LOGIN_ACTIVITY)
+                .withString(PATH, path)
+                .withBundle(PARAM, bundle)
+                .withBoolean(EXTRA_IS_SSO, isSSO)
+                .navigation();
     }
 
 
-
     public static final List<String> NEED_LOGIN_FILTER_LIST = Arrays.asList(
-            CHANGE_NET_ACTIVITY
+           // PATH_CHANGE_NET_ACTIVITY
 //            APPOINT_NOTICE_ACTIVITY,//预约挂号
 //            CLOUD_HOME_ACTIVITY,   //云诊室
 //            REPORT_HOME_ACTIVITY,//门诊、住院报告
@@ -134,7 +146,7 @@ public class CommonArouterGroup {
     );
 
     public static final List<String> NEED_COMPLINFO_FILTER_LIST = Arrays.asList(
-            CHANGE_NET_ACTIVITY
+           // PATH_CHANGE_NET_ACTIVITY
 //            APPOINT_NOTICE_ACTIVITY,//预约挂号
 //            CLOUD_HOME_ACTIVITY,   //云诊室
 //            REPORT_HOME_ACTIVITY,//门诊、住院报告

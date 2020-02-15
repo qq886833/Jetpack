@@ -51,6 +51,7 @@ android {
 
             }
         }
+
     }
 
 
@@ -60,17 +61,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-  /*buildTypes {
-        release {
-            postprocessing {
-                //混淆
-                obfuscate true
-                //优化代码
-                optimizeCode true
-                consumerProguardFiles 'proguard-rules.pro'
-            }
-        }
-    }*/
+
 
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8

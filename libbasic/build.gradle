@@ -24,8 +24,11 @@ android {
         multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true  //使用vector矢量图
 
-        resConfigs 'en','cn'  //保留配置的国际化
+        resConfigs 'en', 'cn'  //保留配置的国际化
+
+
     }
+
 
     buildTypes {
         release {
@@ -33,7 +36,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -67,7 +73,7 @@ dependencies {
     api Deps.rxandroid
     // glide
     api Deps.glide_runtime
-    api Deps. glide_transformations
+    api Deps.glide_transformations
     kapt Deps.glide_compiler
 
     //timber
@@ -96,5 +102,5 @@ dependencies {
     api Deps.smartrefreshheader
 
     api Deps.banner
-
+    api Deps.baserecyclerview
 }

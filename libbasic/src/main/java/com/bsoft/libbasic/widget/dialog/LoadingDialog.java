@@ -40,7 +40,7 @@ public class LoadingDialog extends BaseDialog {
 
     @Override
     public int setUpLayoutId() {
-        return R.layout.base_dialog_loading;
+        return R.layout.basic_dialog_loading;
     }
 
     @Override

@@ -45,7 +45,7 @@ public class MyFragment extends Fragment {
 
                 ToastUtil.showLong("点击"+i++);
                 ARouter.getInstance()
-                        .build(CommonArouterGroup.CHANGE_NET_ACTIVITY)
+                        .build(CommonArouterGroup.PATH_CHANGE_NET_ACTIVITY)
                         .navigation(getContext(), new LoginNavCallback());
             }
         });

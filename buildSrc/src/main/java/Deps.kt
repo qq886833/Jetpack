@@ -48,6 +48,8 @@ object Versions {
 
     const val live_event_bus = "1.5.7"  //https://github.com/JeremyLiao/LiveEventBus
     const val banner = "androidx_v1.0.5"   //https://github.com/xiaohaibin/XBanner
+    const val baserecyclerview = "3.0.0-beta11"  //https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+
     const val aspectjrt = "1.8.9"
 
 }
@@ -121,6 +123,7 @@ object Deps {
     const val smartrefreshheader = "com.scwang.smartrefresh:SmartRefreshHeader:${Versions.smartrefresh}"
 
     const val banner = "com.github.xiaohaibin:XBanner:${Versions.banner}"
+    const val baserecyclerview = "com.github.CymChad:BaseRecyclerViewAdapterHelper:${Versions.baserecyclerview}"
 
     val addRepos: (handler: RepositoryHandler) -> Unit = {
         it.google()

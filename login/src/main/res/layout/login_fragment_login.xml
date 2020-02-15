@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingDefaultResource">
+    <data>
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+        <include layout="@layout/basic_actionbar"
+                 app:layout_constraintTop_toTopOf="parent"
+                 app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <Button
+                android:id="@+id/bt_register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_15"
+                android:text="注册"
+                app:layout_constraintTop_toBottomOf="@+id/topbar"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+        <Button
+                android:id="@+id/bt_forget_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_15"
+                android:text="忘记密码"
+                app:layout_constraintTop_toBottomOf="@+id/bt_register"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+        <Button
+                android:id="@+id/bt_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_15"
+                android:text="登录"
+                app:layout_constraintTop_toBottomOf="@+id/bt_forget_pwd"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

@@ -20,7 +20,7 @@ import io.reactivex.functions.Consumer;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.bsoft.libcommon.arouter.CommonArouterGroup.MAIN_TAB_ACTIVITY;
+import static com.bsoft.libcommon.arouter.CommonArouterGroup.PATH_LOGIN_ACTIVITY;
 
 public class AdActivity extends AppCompatActivity {
 
@@ -78,7 +78,7 @@ public class AdActivity extends AppCompatActivity {
     }
     private void redirectTo() {
         if(seeAd) return;
-        ARouter.getInstance().build(MAIN_TAB_ACTIVITY)
+        ARouter.getInstance().build(PATH_LOGIN_ACTIVITY)
                 .greenChannel().navigation();
 
         disposable = Observable.timer(500,TimeUnit.MILLISECONDS)//2s后发射

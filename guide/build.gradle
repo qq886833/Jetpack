@@ -11,6 +11,6 @@ dependencies {
 
     if (isRunAlone.toBoolean()) {
         api project(path: ':libmain')
-       // api project(path: ':login')
+        //api project(path: ':login')
     }
 }

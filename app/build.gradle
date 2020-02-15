@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'android-aspectjx'
+
+
 android {
 
     //配置应用的签名信息
@@ -50,6 +52,7 @@ android {
                 cppFlags ""
             }
         }
+
 
 
         //***************************网络环境配置********************************
@@ -131,10 +134,13 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    api project(path: ':libnet')
-    api project(path: ':libmain')
 
+    api project(path: ':guide')
+    api project(path: ':login')
+    implementation project(path: ':libnet')
+    api project(path: ':libmain')
     api project(path: ':message')
+
 
 
 

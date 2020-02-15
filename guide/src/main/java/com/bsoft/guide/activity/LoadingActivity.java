@@ -8,6 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bsoft.guide.R;
 import com.bsoft.guide.databinding.GuideActivityLoadingBinding;
+import com.bsoft.libbasic.utils.DensityUtil;
 import com.bsoft.libbasic.utils.StatusBar;
 import com.bsoft.libbasic.widget.dialog.ConfirmDialog;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
@@ -53,7 +54,8 @@ public class LoadingActivity extends AppCompatActivity {
                                     finish();
                                 }
                             }
-                        })
+                        }).setOutCancel(false)
+                        .setMargin(DensityUtil.dip2px(30))
                         .show(getSupportFragmentManager());
 
             } else {
@@ -66,11 +68,13 @@ public class LoadingActivity extends AppCompatActivity {
 
     private void loadingStart() {
 
+
         disposable = Observable.timer(1, TimeUnit.SECONDS)//2s后发射
           .subscribe(new Consumer<Long>() {
               @Override
               public void accept(Long aLong) throws Exception {
                   redirectTo();
+
               }
           });
     }
@@ -84,13 +88,18 @@ public class LoadingActivity extends AppCompatActivity {
      * 跳转到...
      */
     private void redirectTo() {
+        AppSharpref.getInstance().setShowGuide(true);
+
         if (AccountSharpref.getInstance().getLoginState()) {
-            ARouter.getInstance().build(CommonArouterGroup.MAIN_TAB_ACTIVITY).navigation();
+            ARouter.getInstance().build(CommonArouterGroup.PATH_LOGIN_ACTIVITY).navigation();
         } else {
             if (!AppSharpref.getInstance().isShowGuide()) {
                 ARouter.getInstance().build(CommonArouterGroup.PATH_GUIDE_ACTIVITY).navigation();
             }else {
-                ARouter.getInstance().build(CommonArouterGroup.LOGIN_ACTIVITY).navigation();
+              //  ARouter.getInstance().build(CommonArouterGroup.MAIN_TAB_ACTIVITY).navigation();
+                //登录
+               CommonArouterGroup.goLoginActivity("",new Bundle(),false);
+
             }
 
         }
@@ -100,6 +109,9 @@ public class LoadingActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        disposable.dispose();
+        if(disposable!=null){
+            disposable.dispose();
+        }
+
     }
 }

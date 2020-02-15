@@ -41,41 +41,17 @@
         <item name="android:windowBackground">@color/black</item>
     </style>
 
-    <style name="materialButton" parent="Widget.MaterialComponents.Button">
-        <item name="android:paddingLeft">8dp</item>
-        <item name="android:paddingRight">8dp</item>
-        <item name="android:paddingTop">4dp</item>
-        <item name="android:paddingBottom">4dp</item>
-        <item name="android:inset">0dp</item>
-        <item name="android:insetLeft">0dp</item>
-        <item name="android:insetRight">0dp</item>
-        <item name="android:insetBottom">0dp</item>
-        <item name="android:insetTop">0dp</item>
-        <item name="android:minWidth">0dp</item>
-        <item name="android:minHeight">0dp</item>
-        <item name="android:elevation">0dp</item>
+    <style name="common_actionbar" parent="@style/QMUI.TopBar">
+        <item name="qmui_skin_support_topbar_bg">@color/color_white</item>
+        <item name="qmui_topbar_subtitle_color">@color/color_333</item>
+        <item name="qmui_topbar_text_btn_color_state_list">@color/color_333</item>
+        <item name="qmui_topbar_title_color">@color/color_333</item>
+        <item name="qmui_topbar_left_back_drawable_id">@drawable/icon_arrow_left</item>
+
     </style>
 
 
-    <declare-styleable name="view_offset_behavior">
-        <attr name="anchor_gravity" format="enum">
-            <enum name="left" value="0"></enum>
-            <enum name="top" value="1"></enum>
-            <enum name="right" value="2"></enum>
-            <enum name="bottom" value="3"></enum>
-        </attr>
-        <attr name="scroll_follow" format="boolean" />
-        <attr name="anchor_id" format="integer" />
-    </declare-styleable>
 
-    <declare-styleable name="view_anchor_behavior">
-        <attr name="anchorId" format="integer"></attr>
-    </declare-styleable>
-
-    <declare-styleable name="view_zoom_behavior">
-        <attr name="min_height" format="dimension"></attr>
-        <attr name="scrolling_id" format="integer"></attr>
-    </declare-styleable>
 
 
     <style name="active" parent="TextAppearance.AppCompat">

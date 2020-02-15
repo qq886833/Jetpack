@@ -69,7 +69,7 @@ public class ConfirmDialog extends BaseDialog {
 
     @Override
     public int setUpLayoutId() {
-        return R.layout.base_dialog_confirm;
+        return R.layout.basic_dialog_confirm;
     }
 
     public ConfirmDialog setCommonDialogListener(CommonDialogListener listener) {

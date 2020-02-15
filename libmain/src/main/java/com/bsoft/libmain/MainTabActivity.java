@@ -34,7 +34,7 @@ import java.util.Map;
  * 4.底部导航栏 按钮个数和 内容区域destination个数。由注解处理器NavProcessor来收集,生成assetsdestination.json。而后我们解析它。
  */
 
-@Route(path = CommonArouterGroup.MAIN_TAB_ACTIVITY)
+@Route(path = CommonArouterGroup.PATH_MAIN_TAB_ACTIVITY)
 public class MainTabActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     private NavController navController;

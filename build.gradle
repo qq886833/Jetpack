@@ -17,6 +17,7 @@ buildscript {
 
 
         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.8'  //aop
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0' //Lambda
     }
 }
 
