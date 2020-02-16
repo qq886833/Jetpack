@@ -3,6 +3,7 @@ package com.bsoft.pub.jetpack;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.collection.ArrayMap;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bsoft.libbasic.constant.HttpConstants;
+import com.bsoft.libbasic.utils.ToastUtil;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
 import com.bsoft.libcommon.utils.AppUtil;
 import com.bsoft.libnet.api.NetDownLoadApi;
@@ -22,11 +24,17 @@ import com.bsoft.libnet.observer.BaseObserver;
 import com.bsoft.libnet.observer.BaseObserver2;
 import com.bsoft.libnet.observer.BaseObserverx;
 import com.bsoft.libnet.utils.MD5;
+import com.bsoft.libpay.PayManager;
+import com.bsoft.libpay.PayResultListener;
+import com.bsoft.libpay.dic.PayTypeDic;
+import com.bsoft.libpay.model.PayResult;
+import com.bsoft.libpay.widget.PayTypeLayout;
 import com.bsoft.pub.jetpack.api.NewsApiInterface;
 import com.bsoft.pub.jetpack.model.ConfigContentVo;
 import com.bsoft.pub.jetpack.model.LoginResponse;
 import com.bsoft.pub.jetpack.model.TransactionRecordVo;
 import com.google.gson.Gson;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -36,6 +44,7 @@ import okhttp3.ResponseBody;
 import java.io.*;
 import java.util.ArrayList;
 
+import static com.bsoft.libpay.BasePayActivity.KEY_PAY_RESULT_NAME;
 
 
 @Route(path = CommonArouterGroup.TEST_ACTIVITY)
@@ -99,29 +108,93 @@ public class HttpActivity extends AppCompatActivity {
         });
 
 
-//        PayTypeLayout payTypeLayout = findViewById(R.id.paytype_layout);
-//        payTypeLayout.takePayType("fcfe2049-2681-4bfd-a038-216baea6da1f","1","0.01","1");
+        PayTypeLayout payTypeLayout = findViewById(R.id.paytype_layout);
+        payTypeLayout.takePayType("fcfe2049-2681-4bfd-a038-216baea6da1f","1","0.01","1");
 
 
 
-
+        PayManager payUtil = new PayManager(appCompatActivity, payResultListener);
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                // Toast.makeText(HttpActivity.this, payTypeLayout.getPayType(), Toast.LENGTH_LONG).show();
+                String s=  "{\"appid\":\"wxdb5302652abbee2d\",\"partnerid\":\"1359139002\",\"prepayid\":\"wx200932471245149ed8ed7e311743694600\",\"package\":\"Sign=WXPay\",\"noncestr\":\"erm7IwDg9y6UJOQJ\",\"timestamp\":\"1579483967\",\"sign\":\"38F2CEF55263FBD93242F913C2473661\"}";
 
-//                if(TextUtils.isEmpty(payTypeLayout.getPayType())){
-//                    ToastUtil.showLong("请先选择支付方式");
-//               }else{
-//                    payUtil.pay(PayTypeDic.TYPE_ALI, "");
-//                }
+                if(TextUtils.isEmpty(payTypeLayout.getPayType())){
+                    ToastUtil.showLong("请先选择支付方式");
+               }else{
+                  //  payUtil.pay(PayTypeDic.TYPE_WEIXIN, s);
+                      payUtil.pay(PayTypeDic.TYPE_ALI, "alipay_sdk=alipay-sdk-java-dynamicVersionNo&app_id=2018080160806862&biz_content=%7B%22body%22%3A%22%E5%A4%8D%E8%AF%8A%E9%85%8D%E8%8D%AF%22%2C%22goods_type%22%3A%221%22%2C%22out_trade_no%22%3A%22338d3d2308a54e1daa17544b7c0c00c0%22%2C%22product_code%22%3A%22bsoftmobile%40qq.com%22%2C%22seller_id%22%3A%22bsoftmobile%40qq.com%22%2C%22store_id%22%3A%222088121633623155%22%2C%22subject%22%3A%22%E5%A4%8D%E8%AF%8A%E9%85%8D%E8%8D%AF%22%2C%22timeout_express%22%3A%223m%22%2C%22total_amount%22%3A%220.01%22%7D&charset=utf-8&format=json&method=alipay.trade.app.pay&notify_url=%E5%95%86%E6%88%B7%E5%A4%96%E7%BD%91%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE%E7%9A%84%E5%BC%82%E6%AD%A5%E5%9C%B0%E5%9D%80&sign=JlCLUMy7dOmRnLwAwzRJoas8wO%2FiSo3Puzvo29KO5e4e%2BIj0%2Fy3Y51YgqJrrQsmCuVIRghFHsRbtG8p6FP5MtXaiQ30e1hXOpqazOVvTkhG7PcD%2BThmAmuYd34QlVwvoUVdrZKbUfKEV02NEUmP3qVnK6om37DWBuNT0NaCCIjINUfkmngd4usYbIFICn8gpurnIvtK0QhMf8J%2FEYgKmvZFxtuenJgTtvtY0XmZJjUyDvjVSxjFQ5dJ7rRXs1GPHX514L4jKUU1MYCJgbG3aKR4CeDfCDeSsznhK6B6QvImowf3JqwEgkRuZYshL7%2BEbX%2FM1qOuu%2BwhbuVSVTsXxuw%3D%3D&sign_type=RSA2&timestamp=2020-01-20+09%3A08%3A17&version=1.0");
+
+                }
 
 
             }
         });
 
     }
+    private PayResultListener payResultListener = new PayResultListener() {
+        @Override
+        public void start(String payType, String appId, String payInfo) {
 
+        }
+
+        @Override
+        public void success(String payType, PayResult resultVo) {
+            // Log.e("DemoPayActivity;success;payType=" + payType);
+            taskQueryPay("338d3d2308a54e1daa17544b7c0c00c0");
+        }
+
+        @Override
+        public void error(String payType, PayResult resultVo) {
+            //  Log.e("DemoPayActivity;error;payType=" + payType);
+            ToastUtil.showLong(resultVo.getMsg());
+        }
+
+        @Override
+        public void cancel(String payType, PayResult resultVo) {
+            // Log.e("DemoPayActivity;cancel;payType=" + payType);
+            ToastUtil.showLong(resultVo.getMsg());
+        }
+    };
+    public void taskQueryPay(String tradeNo) {
+        ArrayList<Object> list = new ArrayList<Object>();
+        ArrayMap<String, String> head = new ArrayMap<>();
+        ArrayMap<String, Object> body = new ArrayMap<String, Object>();
+        head.put(HttpConstants.Head_Id, "hcn.payTradeV2");
+        head.put(HttpConstants.Head_Method, "notifyPayResult");
+
+        body.put("tradeNo",tradeNo);
+        list.add(body);
+
+        NetPostApi.getInstance().post(HttpConstants.REQUEST_URL,head, list, String.class, new BaseObserver<String>() {
+            @Override
+            public void onHandlePrePare(Disposable d) {
+                //   showLoadingDialog();
+            }
+
+            @Override
+            protected void onHandleSuccess(String value) {
+                LiveEventBus.get(KEY_PAY_RESULT_NAME).post(value);
+            }
+
+            @Override
+            protected void onHandleError(Throwable e) {
+
+                //  dismissLoadingDialog();
+                ToastUtil.showLong(e.getMessage());
+            }
+
+            @Override
+            protected void onHandleComplete() {
+                // dismissLoadingDialog();
+            }
+
+        });
+
+
+
+    }
     private void taskPayOrder(final String orderNo, final String curPayType, final String price) {
 
 

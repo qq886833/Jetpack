@@ -47,6 +47,7 @@ public class CommonArouterGroup {
 
 
     public static final String TEST_ACTIVITY = PROJECT + "app/HttpActivity";
+    public static final String PAY_ACTIVITY = PROJECT + "pay/PermissionActivity";
     //******************** wiseChangeNet **********************
 
 

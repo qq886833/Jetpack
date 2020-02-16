@@ -1,8 +1,12 @@
 package com.bsoft.libbasic.base.fragment;
 
+import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 import com.bsoft.libbasic.R;
 import com.bsoft.libbasic.widget.dialog.LoadingDialog;
 import com.qmuiteam.qmui.widget.QMUITopBar;
@@ -12,10 +16,14 @@ public class CoreFragment extends Fragment {
     private LoadingDialog loadingDialog;
     protected QMUITopBar mTopBar;
 
+    //是否第一次加载
+    private boolean isFirst= true;
 
-
-
-
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        onVisible();
+    }
 
     protected void initTopBar() {
         mTopBar = getView().findViewById(R.id.topbar);
@@ -59,5 +67,17 @@ public class CoreFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        onVisible();
+    }
 
+    private void onVisible() {
+        if (getLifecycle().getCurrentState() == Lifecycle.State.STARTED && isFirst) {
+            lazyLoadData();
+            isFirst = false;
+        }
+    }
+    protected void  lazyLoadData(){}
 }

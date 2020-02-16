@@ -26,7 +26,11 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
-
+    <style name="translucent" parent="AppTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
     <style name="preview" parent="AppTheme">
         <item name="android:windowFullscreen">true</item>
     </style>

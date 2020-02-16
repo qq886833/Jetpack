@@ -3,7 +3,7 @@ import java.net.URI
 
 object Versions {
     const val target_sdk = 29
-    const val min_sdk = 21
+    const val min_sdk = 19
     const val build_tools = "29.0.2"
     const val version_code = 1
     const val version_name = "1.0.0"

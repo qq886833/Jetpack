@@ -98,7 +98,9 @@ public class LoadingActivity extends AppCompatActivity {
             }else {
               //  ARouter.getInstance().build(CommonArouterGroup.MAIN_TAB_ACTIVITY).navigation();
                 //登录
-               CommonArouterGroup.goLoginActivity("",new Bundle(),false);
+          //     CommonArouterGroup.goLoginActivity("",new Bundle(),false);
+            //    CommonArouterGroup.gotoActivity(CommonArouterGroup.TEST_ACTIVITY);
+                CommonArouterGroup.gotoActivity(CommonArouterGroup.PAY_ACTIVITY);
 
             }
 

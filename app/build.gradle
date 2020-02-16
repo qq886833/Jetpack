@@ -24,7 +24,8 @@ android {
     compileSdkVersion Versions.target_sdk
     buildToolsVersion Versions.build_tools
     defaultConfig {
-        applicationId "com.bsoft.pub.jetpack"
+        applicationId "com.bsoft.mhealthp.jkcs"
+       // applicationId "com.bsoft.pub.jetpack"
         minSdkVersion Versions.min_sdk
         targetSdkVersion Versions.target_sdk
         versionCode Versions.version_code
@@ -118,7 +119,15 @@ android {
         androidTest.assets.srcDirs +=
                 files("$projectDir/schemas".toString())
     }
-
+    repositories {
+        flatDir {
+            dirs 'libs', '../libpay/libs'
+        }
+    }
+    aspectjx {  //使用此插件会导致支付宝支付闪退
+//排除所有package路径中包含`android.support`的class文件及库（jar文件）
+        exclude 'com.alipay.sdk'
+    }
 }
 
 dependencies {
@@ -141,8 +150,9 @@ dependencies {
     api project(path: ':libmain')
     api project(path: ':message')
 
-
-
+    api project(path: ':libpay')
+    kapt project(":libnavcompiler")
+    implementation project(path: ':libnavannotation')
 
 
     //jpush

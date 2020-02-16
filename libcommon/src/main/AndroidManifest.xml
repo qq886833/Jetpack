@@ -3,7 +3,8 @@
 
     <application>
 
-        <activity android:name=".commonaop.PermissionRequestActivity"/>
+        <activity android:name=".commonaop.PermissionRequestActivity"
+                  android:theme="@style/translucent" />
 
 
 
