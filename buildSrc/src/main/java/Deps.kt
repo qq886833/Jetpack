@@ -48,6 +48,7 @@ object Versions {
 
     const val live_event_bus = "1.5.7"  //https://github.com/JeremyLiao/LiveEventBus
     const val banner = "androidx_v1.0.5"   //https://github.com/xiaohaibin/XBanner
+    //ViewPager2：打造Banner控件     https://juejin.im/post/5e49163e6fb9a07cb96ae33d#heading-19
     const val baserecyclerview = "3.0.0-beta11"  //https://github.com/CymChad/BaseRecyclerViewAdapterHelper
 
     const val aspectjrt = "1.8.9"

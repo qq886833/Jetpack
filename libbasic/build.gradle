@@ -101,6 +101,6 @@ dependencies {
     api Deps.smartrefreshlayout
     api Deps.smartrefreshheader
 
-    api Deps.banner
+   // api Deps.banner
     api Deps.baserecyclerview
 }
