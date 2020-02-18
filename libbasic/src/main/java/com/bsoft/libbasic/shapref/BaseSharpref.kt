@@ -4,7 +4,7 @@ import android.content.SharedPreferences
 
 import com.bsoft.libbasic.thirdpart.fastsharedpreferences.FastSharedPreferences
 
-open abstract class BaseSharpref {
+open  class BaseSharpref {
 
    private var mName: String
     constructor(name: String)  {

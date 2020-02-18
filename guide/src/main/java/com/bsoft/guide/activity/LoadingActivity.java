@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 @Route(path = CommonArouterGroup.PATH_LOADING_ACTIVITY)
 public class LoadingActivity extends AppCompatActivity {
 
-    private Disposable disposable;
+    private Disposable mDisposable;
     private GuideActivityLoadingBinding binding;
 
     @Override
@@ -69,7 +69,7 @@ public class LoadingActivity extends AppCompatActivity {
     private void loadingStart() {
 
 
-        disposable = Observable.timer(1, TimeUnit.SECONDS)//2s后发射
+        mDisposable = Observable.timer(1, TimeUnit.SECONDS)//2s后发射
           .subscribe(new Consumer<Long>() {
               @Override
               public void accept(Long aLong) throws Exception {
@@ -99,9 +99,9 @@ public class LoadingActivity extends AppCompatActivity {
               //  ARouter.getInstance().build(CommonArouterGroup.MAIN_TAB_ACTIVITY).navigation();
                 //登录
           //     CommonArouterGroup.goLoginActivity("",new Bundle(),false);
-            //    CommonArouterGroup.gotoActivity(CommonArouterGroup.TEST_ACTIVITY);
+               CommonArouterGroup.gotoActivity(CommonArouterGroup.TEST_ACTIVITY);
                 //CommonArouterGroup.gotoActivity(CommonArouterGroup.PAY_ACTIVITY);
-                ARouter.getInstance().build(CommonArouterGroup.PATH_GUIDE_ACTIVITY).navigation();
+               // ARouter.getInstance().build(CommonArouterGroup.PATH_GUIDE_ACTIVITY).navigation();
             }
 
         }
@@ -111,8 +111,8 @@ public class LoadingActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(disposable!=null){
-            disposable.dispose();
+        if(mDisposable!=null&& !mDisposable.isDisposed()){
+            mDisposable.dispose();
         }
 
     }

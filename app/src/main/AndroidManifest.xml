@@ -81,7 +81,7 @@
 
        <!-- //临时访问文件的注册-->
         <provider
-                android:authorities="${applicationId}.androidx.fileprovider"
+                android:authorities="${applicationId}.fileprovider"
                 android:name="androidx.core.content.FileProvider"
                 android:exported="false"
                 android:grantUriPermissions="true">

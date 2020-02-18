@@ -52,6 +52,8 @@ object Versions {
     const val baserecyclerview = "3.0.0-beta11"  //https://github.com/CymChad/BaseRecyclerViewAdapterHelper
 
     const val aspectjrt = "1.8.9"
+    const val filedownloader = "1.7.7"
+
 
 }
 
@@ -104,8 +106,8 @@ object Deps {
     const val arouter_compiler = "com.alibaba:arouter-compiler:${Versions.arouter_compiler}"
 
     const val aspectjrt = "org.aspectj:aspectjrt:${Versions.aspectjrt}"
-
-
+    const val filedownloader = "com.liulishuo.filedownloader:library:${Versions.filedownloader}"
+    
     /*t腾讯qmui库*/
     const val qmui = "com.qmuiteam:qmui:${Versions.qmui}"
 

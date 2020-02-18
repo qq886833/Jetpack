@@ -15,10 +15,10 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.alipay.sdk.app.PayTask;
-import com.bsoft.libcommon.commonaop.PermissionCancel;
-import com.bsoft.libcommon.commonaop.PermissionDenied;
-import com.bsoft.libcommon.commonaop.PermissionNeed;
-import com.bsoft.libcommon.utils.SettingUtil;
+import com.bsoft.libcommon.commonaop.permission.annotation.PermissionCancel;
+import com.bsoft.libcommon.commonaop.permission.annotation.PermissionDenied;
+import com.bsoft.libcommon.commonaop.permission.annotation.PermissionNeed;
+import com.bsoft.libcommon.commonaop.permission.util.SettingUtil;
 import com.bsoft.libpay.PayFragment;
 import com.bsoft.libpay.PayResultListener;
 import com.bsoft.libpay.dic.PayTypeDic;
@@ -46,21 +46,19 @@ public class AlipayUtil  implements LifecycleObserver {
 
     @SuppressLint("CheckResult")
     public void goAlipay(final String payInfo) {
-        this.payInfo=payInfo;
-        requestPermission();
+        requestPermission(payInfo);
     }
 
     /**
      * 申请多个权限
+     * @param payInfo
      */
-    @PermissionNeed(value = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE}, requestCode = 12)
-    public void requestPermission() {
+    @PermissionNeed(value = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.READ_PHONE_STATE}, requestCode = 12)
+    public void requestPermission(String payInfo) {
         pay(payInfo);
     }
-    @PermissionCancel()
-    public void permissionCancel(int requestCode) {
-        Log.e("pay", "permissionCancel: " + requestCode);
-    }
+
 
 
     private void pay(final String payInfo) {
@@ -145,6 +143,10 @@ public class AlipayUtil  implements LifecycleObserver {
             }
         }
     };
+    @PermissionCancel()
+    public void permissionCancel(int requestCode) {
+        Log.e("pay", "permissionCancel: " + requestCode);
+    }
     @PermissionDenied()
     public void permissionDenied(int requestCode) {
         Log.e("pay", "permissionDenied: " + requestCode);

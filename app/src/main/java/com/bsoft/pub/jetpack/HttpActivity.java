@@ -16,6 +16,8 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libbasic.utils.ToastUtil;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
+import com.bsoft.libcommon.update.UpdateDailog;
+import com.bsoft.libcommon.update.UpdateUtils;
 import com.bsoft.libcommon.utils.AppUtil;
 import com.bsoft.libnet.api.NetDownLoadApi;
 import com.bsoft.libnet.api.NetPostApi;
@@ -49,7 +51,9 @@ import static com.bsoft.libpay.BasePayActivity.KEY_PAY_RESULT_NAME;
 
 @Route(path = CommonArouterGroup.TEST_ACTIVITY)
 public class HttpActivity extends AppCompatActivity {
-
+    //这个是你的包名
+    private static final String apkName = "apk";
+    private static final String firstUrl = "http://ucan.25pp.com/Wandoujia_web_seo_baidu_homepage.apk";
     AppCompatActivity appCompatActivity;
 
     private TextView sample_text;
@@ -97,6 +101,21 @@ public class HttpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 getUpLoad();
            //     getPayType();
+
+                //设置自定义下载文件路径
+                UpdateUtils.APP_UPDATE_DOWN_APK_PATH = "apk" + File.separator + "downApk";
+                String  desc = getResources().getString(R.string.common_update_content_info);
+                /*
+                 * @param isForceUpdate             是否强制更新
+                 * @param desc                      更新文案
+                 * @param url                       下载链接
+                 * @param apkFileName               apk下载文件路径名称
+                 * @param packName                  包名
+                 */
+                UpdateDailog.showFragment(HttpActivity.this,
+                        true,firstUrl,apkName,desc,BuildConfig.APPLICATION_ID);
+
+             //   UpdateUtils.clearDownload();
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {

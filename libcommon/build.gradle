@@ -1,7 +1,8 @@
 apply plugin: 'com.android.library'
 apply from: "../mygradle/lib.gradle"
 apply plugin: 'android-aspectjx'
-
+//2_2.android-maven-gradle-plugin
+apply plugin: 'com.github.dcendents.android-maven'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -13,4 +14,6 @@ dependencies {
     kapt Deps.glide_compiler
 
    api Deps.aspectjrt
+    api Deps.filedownloader
+
 }

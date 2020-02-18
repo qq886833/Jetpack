@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
           package="com.bsoft.libbasic">
 
-
-
+    <!--安装-->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
     <!--定位-->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!--电话-->

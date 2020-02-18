@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 import androidx.annotation.Nullable;
+import com.bsoft.libbasic.context.ContextProvider;
 import com.jeremyliao.liveeventbus.LiveEventBus;
+import com.liulishuo.filedownloader.FileDownloader;
+import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection;
 
 
 public class InitializeService extends IntentService {
@@ -34,7 +37,12 @@ public class InitializeService extends IntentService {
             Log.e("InitializeService", "onHandleIntent");
             LiveEventBus.config().supportBroadcast(getApplicationContext()).lifecycleObserverAlwaysActive(true);
 
-
+            FileDownloader.setupOnApplicationOnCreate(ContextProvider.get().getApplication())
+                    .connectionCreator(new FileDownloadUrlConnection
+                            .Creator(new FileDownloadUrlConnection.Configuration()
+                            .connectTimeout(15_000) // set connection timeout.
+                            .readTimeout(15_000) // set read timeout.
+                    )).commit();
 
         }
 

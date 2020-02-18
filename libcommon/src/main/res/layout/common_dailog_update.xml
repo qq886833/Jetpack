@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <LinearLayout
+            android:layout_width="@dimen/dp_300"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+        <ImageView
+                android:id="@+id/iv_top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_150"
+                android:scaleType="fitXY"
+                android:src="@mipmap/lib_update_app_top_bg"/>
+
+
+        <com.bsoft.libbasic.widget.CornerLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_300"
+                android:background="@color/color_white"
+                android:orientation="vertical"
+                app:clip_radius="@dimen/dp_8"
+                app:clip_side="bottom">
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_15"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="检测到新版本"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_16" />
+
+                <TextView
+                        android:id="@+id/tvVersion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:textColor="@color/orange_txt"
+                        android:textSize="@dimen/sp_16"
+                        tools:text="V 1.3.0" />
+            </LinearLayout>
+
+
+            <!--这个地方需要设置可以滚动-->
+            <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:paddingBottom="@dimen/dp_10"
+                    android:paddingTop="@dimen/dp_10"
+                    android:scrollbars="vertical">
+                <TextView
+                        android:id="@+id/tv_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_15"
+                        android:layout_marginRight="@dimen/dp_15"
+                        android:lineSpacingExtra="@dimen/dp_5"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:text="@string/common_update_content_info"/>
+            </androidx.core.widget.NestedScrollView>
+
+            <com.bsoft.libcommon.widget.progressbar.NumberProgressBar
+                    android:layout_margin="@dimen/dp_15"
+                    android:id="@+id/numberProgressBar"
+                    android:visibility="invisible"
+                    tools:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:numprogress_reache_color="@color/main_green"
+                    app:numprogress_text_color="@color/main_green"
+                    app:numprogress_unreache_color="@color/color_999"/>
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_15"
+                    android:orientation="horizontal">
+
+
+                <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                        android:id="@+id/btCancel"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp_10"
+                        android:text="@string/common_update_next"
+                        android:layout_marginRight="@dimen/dp_15"
+                        app:qmui_radius="@dimen/dp_32"
+                        android:textColor="@color/main_green"
+                        app:qmui_backgroundColor="@color/qmui_config_color_white"
+                        app:qmui_borderColor="@color/main_green"
+                        app:qmui_borderWidth="1px"
+                        app:qmui_isRadiusAdjustBounds="true"
+                        android:layout_gravity="center"/>
+
+                <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                        android:id="@+id/btOk"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="@dimen/dp_10"
+                        android:text="@string/common_update_info"
+                        app:qmui_isRadiusAdjustBounds="true"
+                        app:qmui_radius="@dimen/dp_32"
+                        android:textColor="@color/qmui_config_color_white"
+                        app:qmui_backgroundColor="@color/main_green"
+                        app:qmui_borderColor="@color/main_green"
+                        app:qmui_borderWidth="1px"
+                        android:layout_gravity="center"/>
+
+
+            </LinearLayout>
+        </com.bsoft.libbasic.widget.CornerLinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
