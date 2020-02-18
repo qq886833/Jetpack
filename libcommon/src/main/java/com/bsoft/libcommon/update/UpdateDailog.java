@@ -24,6 +24,7 @@ import com.bsoft.libcommon.commonaop.permission.annotation.PermissionCancel;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionDenied;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionNeed;
 import com.bsoft.libcommon.commonaop.permission.util.SettingUtil;
+import com.bsoft.libcommon.utils.StringUtil;
 import com.bsoft.libcommon.widget.progressbar.NumberProgressBar;
 import com.liulishuo.filedownloader.BaseDownloadTask;
 import com.liulishuo.filedownloader.FileDownloadListener;
@@ -43,6 +44,7 @@ public class UpdateDailog extends BaseDialog implements View.OnClickListener {
     private String apkName;
     private String desc;
     private String packageName;
+    private String  version;
     private FragmentActivity mActivity;
     private QMUIRoundButton mBtCancel;
     private QMUIRoundButton mBtOk;
@@ -61,7 +63,7 @@ public class UpdateDailog extends BaseDialog implements View.OnClickListener {
      */
     public static void showFragment(FragmentActivity activity, boolean isForceUpdate ,
                                     String apkUrl , String apkName , String desc,
-                                    String packageName) {
+                                    String packageName,String version) {
         UpdateDailog updateDailog = new UpdateDailog();
         Bundle bundle = new Bundle();
         bundle.putString("apk_url", apkUrl);
@@ -69,6 +71,7 @@ public class UpdateDailog extends BaseDialog implements View.OnClickListener {
         bundle.putString("apkName", apkName);
         bundle.putBoolean("isUpdate", isForceUpdate);
         bundle.putString("packageName",packageName);
+        bundle.putString("version",version);
         updateDailog.setArguments(bundle);
         updateDailog.show(activity.getSupportFragmentManager());
 
@@ -84,6 +87,7 @@ public class UpdateDailog extends BaseDialog implements View.OnClickListener {
             apkName = arguments.getString("apkName");
             isForceUpdate = arguments.getBoolean("isUpdate");
             packageName = arguments.getString("packageName");
+            version = arguments.getString("version");
         }
     }
     @Override
@@ -95,20 +99,16 @@ public class UpdateDailog extends BaseDialog implements View.OnClickListener {
             apkName = outState.getString("apkName");
             isForceUpdate = outState.getBoolean("isUpdate");
             packageName = outState.getString("packageName");
+            version = outState.getString("version");
+
         }
     }
     @Override
     public int setUpLayoutId() {
         return R.layout.common_dailog_update;
     }
-    /**
-     * 如果isForceUpdate是true，那么就是强制更新，则设置cancel为false
-     * 如果isForceUpdate是false，那么不是强制更新，则设置cancel为true
-     */
 
-    protected boolean isCancel() {
-        return !isForceUpdate;
-    }
+
 
     @Override
     public void convertView(ViewHolder holder, BaseDialog dialog) {
@@ -118,9 +118,13 @@ public class UpdateDailog extends BaseDialog implements View.OnClickListener {
         mBtCancel = holder.getView(R.id.btCancel);
         mBtOk = holder.getView(R.id.btOk);
         tvVersion = holder.getView(R.id.tvVersion);
+
+
+        tvVersion.setText(StringUtil.notNull(version));
+        mTvDesc.setText(StringUtil.notNull(desc));
         mNumberProgressBar.setMax(100);
         mNumberProgressBar.setProgress(0);
-        mTvDesc.setText(desc==null?"":desc);
+
         if (isForceUpdate) {
             mBtOk.setVisibility(View.VISIBLE);
             mBtCancel.setVisibility(View.GONE);
@@ -130,7 +134,11 @@ public class UpdateDailog extends BaseDialog implements View.OnClickListener {
         }
         mBtOk.setOnClickListener(this);
         mBtCancel.setOnClickListener(this);
-
+        /**
+         * 如果isForceUpdate是true，那么就是强制更新，则设置cancel为false
+         * 如果isForceUpdate是false，那么不是强制更新，则设置cancel为true
+         */
+        getDialog().setCanceledOnTouchOutside(!isForceUpdate);
         onKeyListener();
         createFilePath();
     }
@@ -158,7 +166,7 @@ public class UpdateDailog extends BaseDialog implements View.OnClickListener {
                 break;
             case UpdateUtils.DownloadStatus.FINISH:
                 mBtOk.setText("开始安装");
-                mNumberProgressBar.setVisibility(View.INVISIBLE);
+                mNumberProgressBar.setVisibility(View.GONE);
                 break;
             case UpdateUtils.DownloadStatus.PAUSED:
                 mNumberProgressBar.setVisibility(View.VISIBLE);

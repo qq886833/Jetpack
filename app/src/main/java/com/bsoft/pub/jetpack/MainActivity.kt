@@ -7,6 +7,7 @@ import com.bsoft.libcommon.localdata.AccountSharpref
 import com.bsoft.libmain.MainTabActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
+//scrcpy
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

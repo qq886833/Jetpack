@@ -8,6 +8,7 @@ import androidx.annotation.FloatRange;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
+import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import com.bsoft.libbasic.R;
@@ -16,7 +17,7 @@ import com.bsoft.libbasic.R;
 /**
  * Dialog通用样式   https://blog.csdn.net/qq_14876133/article/details/81012388
  */
-public abstract class BaseDialog extends DialogFragment {
+public abstract class BaseDialog extends AppCompatDialogFragment {
 
     @LayoutRes
     protected int mLayoutResId;

@@ -112,8 +112,10 @@ public class HttpActivity extends AppCompatActivity {
                  * @param apkFileName               apk下载文件路径名称
                  * @param packName                  包名
                  */
-                UpdateDailog.showFragment(HttpActivity.this,
-                        true,firstUrl,apkName,desc,BuildConfig.APPLICATION_ID);
+                UpdateDailog.
+                        showFragment(HttpActivity.this,
+                        true,firstUrl,apkName,desc,BuildConfig.APPLICATION_ID,"1.1.1")
+                ;
 
              //   UpdateUtils.clearDownload();
             }
@@ -150,7 +152,6 @@ public class HttpActivity extends AppCompatActivity {
 
             }
         });
-
     }
     private PayResultListener payResultListener = new PayResultListener() {
         @Override

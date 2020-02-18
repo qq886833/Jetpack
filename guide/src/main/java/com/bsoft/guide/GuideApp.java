@@ -26,7 +26,7 @@ public class GuideApp extends BaseApplication {
 
     private BaseInitConfig getConfig()  {
         BaseInitConfig config = new BaseInitConfig();
-        config.setEnvironment("zhenshi");
+        config.setEnvironment("zhengshi");
         config.setVersionCode(BuildConfig.VERSION_CODE);
         config.setVersionName(BuildConfig.VERSION_NAME);
         config.setDebug(BuildConfig.DEBUG);

@@ -78,7 +78,9 @@ public class NavProcessor extends AbstractProcessor {
 
                 //由于我们想要把json文件生成在app/src/main/assets/目录下,所以这里可以对字符串做一个截取，
                 //以此便能准确获取项目在每个电脑上的 /app/src/main/assets/的路径
-                String appPath = resourcePath.substring(0, resourcePath.indexOf("app") + 4);
+              //  String appPath = resourcePath.substring(0, resourcePath.indexOf("app") + 4);
+                String appPath = resourcePath.substring(0, resourcePath.indexOf("libmain") + 8);
+
                 String assetsPath = appPath + "src/main/assets/";
 
                 File file = new File(assetsPath);

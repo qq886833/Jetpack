@@ -5,8 +5,8 @@ apply from: "../mygradle/lib.gradle"
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    testApi Deps.junit
-    androidTestApi Deps.runner
-    androidTestApi Deps.espresso_core
+    testImplementation Deps.junit
+    androidTestImplementation Deps.runner
+    androidTestImplementation Deps.espresso_core
     api project(path: ':libcommon')
 }

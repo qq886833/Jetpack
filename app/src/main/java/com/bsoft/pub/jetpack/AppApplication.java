@@ -31,7 +31,7 @@ public class AppApplication extends BaseApplication {
 
     private BaseInitConfig getConfig()  {
         BaseInitConfig config = new BaseInitConfig();
-        config.setEnvironment("zhenshi");
+        config.setEnvironment("zhengshi");
         config.setVersionCode(com.bsoft.login.BuildConfig.VERSION_CODE);
         config.setVersionName(com.bsoft.login.BuildConfig.VERSION_NAME);
         config.setDebug(BuildConfig.DEBUG);

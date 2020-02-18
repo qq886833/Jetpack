@@ -3,6 +3,9 @@
 
     <string name="guide_start">开始体验</string>
     <string name="guide_remind">提示</string>
+
+    <string name="guide_root_info">您的设备可能已经root，是否继续运行</string>
+
     <!--引导页-->
     <integer-array name="guide_res">
         <item>@drawable/guidepage1</item>

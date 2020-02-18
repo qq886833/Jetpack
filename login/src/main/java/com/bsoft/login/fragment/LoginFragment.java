@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import com.bsoft.libbasic.base.fragment.CoreFragment;
+import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libbasic.utils.ToastUtil;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
 import com.bsoft.libcommon.livedatabus.LiveEventBusKey;
@@ -55,12 +56,13 @@ public class LoginFragment extends CoreFragment implements View.OnClickListener 
             }
         });
 
-
-        mBinding.topbar.addRightTextButton("切换地址", QMUIViewHelper.generateViewId()).setOnClickListener(view1 ->
-                {
-                    CommonArouterGroup.gotoActivity(CommonArouterGroup.PATH_CHANGE_NET_ACTIVITY);
-                }
-              );
+        if(HttpConstants.isDebug) {
+            mBinding.topbar.addRightTextButton("切换地址", QMUIViewHelper.generateViewId()).setOnClickListener(view1 ->
+                    {
+                        CommonArouterGroup.gotoActivity(CommonArouterGroup.PATH_CHANGE_NET_ACTIVITY);
+                    }
+            );
+        }
         mBinding.tvLogin.setOnClickListener(view1 ->
         {
             LiveEventBus.get(LiveEventBusKey.KEY_LOGIN).post(true);

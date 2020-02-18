@@ -41,7 +41,7 @@ public class LoadingActivity extends AppCompatActivity {
             if (!AppSharpref.getInstance().isRootTrust()) {
                 ConfirmDialog
                         .newInstance(getString(R.string.guide_remind),
-                                "您的设备可能已经root，是否继续运行",
+                                    getString(R.string.guide_root_info),
                                 getString(R.string.basic_confirm),
                                 null)
                         .setCommonDialogListener(new ConfirmDialog.CommonDialogListener() {
@@ -55,7 +55,7 @@ public class LoadingActivity extends AppCompatActivity {
                                 }
                             }
                         }).setOutCancel(false)
-                        .setMargin(DensityUtil.dip2px(30))
+                        .setMargin(DensityUtil.dip2px(25))
                         .show(getSupportFragmentManager());
 
             } else {
@@ -99,9 +99,9 @@ public class LoadingActivity extends AppCompatActivity {
               //  ARouter.getInstance().build(CommonArouterGroup.MAIN_TAB_ACTIVITY).navigation();
                 //登录
           //     CommonArouterGroup.goLoginActivity("",new Bundle(),false);
-               CommonArouterGroup.gotoActivity(CommonArouterGroup.TEST_ACTIVITY);
+              // CommonArouterGroup.gotoActivity(CommonArouterGroup.TEST_ACTIVITY);
                 //CommonArouterGroup.gotoActivity(CommonArouterGroup.PAY_ACTIVITY);
-               // ARouter.getInstance().build(CommonArouterGroup.PATH_GUIDE_ACTIVITY).navigation();
+                ARouter.getInstance().build(CommonArouterGroup.PATH_GUIDE_ACTIVITY).navigation();
             }
 
         }

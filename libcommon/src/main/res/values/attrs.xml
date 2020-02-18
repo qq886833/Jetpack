@@ -39,4 +39,8 @@
         <attr name="numprogress_text_size" format="dimension"/>
         <attr name="numprogress_offset" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="FolderTextView">
+        <attr name="foldline" format="integer" />
+    </declare-styleable>
 </resources>

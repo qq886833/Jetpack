@@ -52,7 +52,7 @@
                     android:paddingRight="16dp"
                     android:paddingBottom="10dp">
 
-                    <com.bsoft.libcommon.widget.PPImageView
+                    <com.bsoft.libcommon.widget.CustomizeImageView
                         android:id="@+id/author_avatar_large"
                         android:layout_width="90dp"
                         android:layout_height="90dp"
@@ -62,7 +62,7 @@
                         app:radius="@{0}"
                         tools:src="@mipmap/icon_jetpack">
 
-                    </com.bsoft.libcommon.widget.PPImageView>
+                    </com.bsoft.libcommon.widget.CustomizeImageView>
 
 
                     <LinearLayout
@@ -158,7 +158,7 @@
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-                        <com.bsoft.libcommon.widget.PPImageView
+                        <com.bsoft.libcommon.widget.CustomizeImageView
                             android:id="@+id/top_author_avatar"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
@@ -168,7 +168,7 @@
                             app:isCircle="@{true}"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toRightOf="@id/action_back"
-                            app:layout_constraintTop_toTopOf="parent"></com.bsoft.libcommon.widget.PPImageView>
+                            app:layout_constraintTop_toTopOf="parent"></com.bsoft.libcommon.widget.CustomizeImageView>
 
                         <TextView
                             android:id="@+id/top_author_name"

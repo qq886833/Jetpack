@@ -92,9 +92,9 @@ dependencies {
     api Deps.fastjson
     api Deps.navigation_fragment
     api Deps.navigation_ui
-    testApi Deps.junit
-    androidTestApi Deps.runner
-    androidTestApi Deps.espresso_core
+    testImplementation Deps.junit
+    androidTestImplementation Deps.runner
+    androidTestImplementation Deps.espresso_core
 
 
     //下拉刷新
