@@ -1,4 +1,3 @@
-apply plugin: 'com.android.library'
 apply from: "../mygradle/lib.gradle"
 apply plugin: 'android-aspectjx'
 //2_2.android-maven-gradle-plugin

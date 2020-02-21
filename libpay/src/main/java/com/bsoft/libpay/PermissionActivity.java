@@ -50,7 +50,7 @@ public class PermissionActivity extends AppCompatActivity {
         findViewById(R.id.btn4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new RequestPermissionUtil().requestSensors();
+                new RequestPermissionUtil(PermissionActivity.this).requestSensors();
             }
         });
     }

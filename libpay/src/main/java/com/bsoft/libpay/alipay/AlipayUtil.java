@@ -31,7 +31,7 @@ public class AlipayUtil  implements LifecycleObserver {
     private PayResultListener listener;
 
     private PayFragment rxPayFragment;
-    private String payInfo;
+
 
     @SuppressLint("CheckResult")
     public AlipayUtil(@NonNull PayFragment rxPayFragment, PayResultListener listener) {

@@ -10,6 +10,7 @@ import androidx.core.app.ActivityCompat;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+
 public class PermissionUtil {
 
     private static final SimpleArrayMap<String, Integer> MIN_SDK_PERMISSIONS;
