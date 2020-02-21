@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
+import com.bsoft.libcommon.commonaop.permission.RequestPermissionUtil;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionCancel;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionDenied;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionNeed;
@@ -41,7 +42,7 @@ public class PermissionActivity extends AppCompatActivity {
         findViewById(R.id.btn3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // startService(new Intent(PermissionActivity.this, PermissionService.class));
+               // startService(new Intent(MainActivity.this, PermissionService.class));
             }
         });
 
@@ -49,7 +50,7 @@ public class PermissionActivity extends AppCompatActivity {
         findViewById(R.id.btn4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //   new RequestPermissionUtil().requestSensors();
+                new RequestPermissionUtil().requestSensors();
             }
         });
     }

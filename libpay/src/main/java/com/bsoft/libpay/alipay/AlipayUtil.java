@@ -2,7 +2,6 @@ package com.bsoft.libpay.alipay;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
@@ -10,11 +9,12 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.alipay.sdk.app.PayTask;
+import com.bsoft.libbasic.utils.DensityUtil;
+import com.bsoft.libbasic.widget.dialog.ConfirmDialog;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionCancel;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionDenied;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionNeed;
@@ -53,8 +53,7 @@ public class AlipayUtil  implements LifecycleObserver {
      * 申请多个权限
      * @param payInfo
      */
-    @PermissionNeed(value = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_PHONE_STATE}, requestCode = 12)
+    @PermissionNeed(value = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE}, requestCode = 12)
     public void requestPermission(String payInfo) {
         pay(payInfo);
     }
@@ -147,6 +146,7 @@ public class AlipayUtil  implements LifecycleObserver {
     public void permissionCancel(int requestCode) {
         Log.e("pay", "permissionCancel: " + requestCode);
     }
+
     @PermissionDenied()
     public void permissionDenied(int requestCode) {
         Log.e("pay", "permissionDenied: " + requestCode);
@@ -161,31 +161,35 @@ public class AlipayUtil  implements LifecycleObserver {
     }
 
     private void showDialog(String message) {
-        new AlertDialog.Builder(rxPayFragment.getActivity())
-                .setTitle("提示")
-                .setMessage(message)
-                .setPositiveButton("去开启", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        SettingUtil.go2Setting(rxPayFragment.getActivity());
-                    }
-                })
-                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
 
-                        Toast.makeText(rxPayFragment.getContext(), "权限获取失败", Toast.LENGTH_SHORT).show();
-                        PayResult resultVo = new PayResult();
-                        resultVo.setCode(PayTypeDic.RESULT_CODE_PERMISSION_DENY);
-                        resultVo.setMsg("权限获取失败");
-                        if (listener != null) {
-                            listener.error(PayTypeDic.TYPE_ALI, resultVo);
+
+        ConfirmDialog
+                .newInstance("提示",
+                        message,
+                        "去开启",
+                        "取消")
+                .setCommonDialogListener(new ConfirmDialog.CommonDialogListener() {
+                    @Override
+                    public void onComplete(boolean ok, String tag) {
+                        if (ok) {
+
+                            SettingUtil.go2Setting(rxPayFragment.getActivity());
+                        } else {
+                            Toast.makeText(rxPayFragment.getContext(), "权限获取失败", Toast.LENGTH_SHORT).show();
+                            PayResult resultVo = new PayResult();
+                            resultVo.setCode(PayTypeDic.RESULT_CODE_PERMISSION_DENY);
+                            resultVo.setMsg("权限获取失败");
+                            if (listener != null) {
+                                listener.error(PayTypeDic.TYPE_ALI, resultVo);
+                            }
                         }
-
-                        dialog.dismiss();
                     }
-                }).create().show();
+                }).setOutCancel(false)
+                .setMargin(DensityUtil.dip2px(25))
+                .show(rxPayFragment.getChildFragmentManager());
+
+
+
     }
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     void destroy(){
