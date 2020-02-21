@@ -3,7 +3,6 @@ package com.bsoft.libpay;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
@@ -15,6 +14,7 @@ import com.bsoft.libcommon.commonaop.permission.annotation.PermissionCancel;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionDenied;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionNeed;
 import com.bsoft.libcommon.commonaop.permission.util.SettingUtil;
+import com.bsoft.libnet.utils.log.LogUtil;
 
 @Route(path = CommonArouterGroup.PAY_ACTIVITY)
 public class PermissionActivity extends AppCompatActivity {
@@ -73,12 +73,15 @@ public class PermissionActivity extends AppCompatActivity {
 
     @PermissionCancel()
     public void permissionCancel(int requestCode) {
-        Log.e("leo", "permissionCancel: " + requestCode);
+        LogUtil.e("leo", "permissionCancel: " + requestCode);
     }
 
     @PermissionDenied()
     public void permissionDenied(int requestCode) {
-        Log.e("leo", "permissionDenied: " + requestCode);
+        LogUtil.e("leo", "permissionDenied: " + requestCode);
+
+        Toast.makeText(this, "aaaaaaaaa", Toast.LENGTH_SHORT).show();
+
         switch (requestCode) {
             case 11:
                 showDialog("定位权限被禁止，需要手动去开启");

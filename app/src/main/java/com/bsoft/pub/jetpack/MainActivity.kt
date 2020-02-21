@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 //scrcpy
 class MainActivity : AppCompatActivity() {
-
+//gradlew clean build
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

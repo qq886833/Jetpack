@@ -8,4 +8,66 @@
     <string name="common_update_content_info">1.更新内容；\n2.更新内容啦；\n3.更新内容，赶紧查看；\n1.更新内容；\n2.更新内容啦；\n3.更新内容，赶紧查看；1.更新内容；\n2.更新内容啦；\n3.更新内容，赶紧查看；1.更新内容；\n2.更新内容啦；\n3.更新内容，赶紧查看；</string>
     <string name="common_update_info">立即更新</string>
     <string name="common_update_next">下次再说</string>
+
+
+    <string name="customactivityoncrash_error_activity_close_app">关闭程序</string>
+    <string name="customactivityoncrash_error_activity_error_details">错误日志</string>
+    <string name="customactivityoncrash_error_activity_error_details_clipboard_label">错误信息</string>
+    <string name="customactivityoncrash_error_activity_error_details_copied">日志已复制</string>
+    <string name="customactivityoncrash_error_activity_error_details_copy">复制日志</string>
+    <string name="customactivityoncrash_error_activity_error_details_title">错误详情</string>
+    <string name="customactivityoncrash_error_activity_error_occurred_explanation">发生意外错误。</string>
+    <string name="customactivityoncrash_error_activity_restart_app">重新启动</string>
+    <string name="customactivityoncrash_error_activity_error_details_close">关闭</string>
+
+
+
+
+    <string name="wise_common_sex">性别</string>
+    <string name="wise_common_man">男</string>
+    <string name="wise_common_woman">女</string>
+    <string name="wise_common_age">%1$s岁</string>
+
+    <string name="wise_common_card">证件类型</string>
+    <string name="wise_common_idcard">居民身份证</string>
+    <string name="wise_common_house_card">居民户口本</string>
+    <string name="wise_common_passport">护照</string>
+    <string name="wise_common_officer_card">军官证</string>
+    <string name="wise_common_driving_card">驾驶证</string>
+    <string name="wise_common_hongkong_card">港澳居民来往内地通行证</string>
+    <string name="wise_common_taiwan_card">台湾居民来往内地通行证</string>
+    <string name="wise_common_birth_card">出生证明</string>
+    <string name="wise_common_other_card">其他法定有效证件</string>
+
+    <string name="wise_common_card_empty">证件号不能为空</string>
+    <string name="wise_common_card_lenth_error">证件号长度必须大于6</string>
+    <string name="wise_common_name_empty">姓名不能为空</string>
+    <string name="wise_common_sex_empty">性别不能为空</string>
+    <string name="wise_common_dob_empty">出生日期不能为空</string>
+    <string name="wise_common_phone_empty">手机号不能为空</string>
+    <string name="wise_common_phone_lenth_error">手机号长度不对</string>
+
+    <string name="wise_common_relation">就诊人关系</string>
+    <string name="wise_common_own">本人</string>
+    <string name="wise_common_spouse">配偶</string>
+    <string name="wise_common_son">子</string>
+    <string name="wise_common_daoghter">女</string>
+    <string name="wise_common_grandson">孙</string>
+    <string name="wise_common_parent">父母</string>
+    <string name="wise_common_ancestor">祖辈</string>
+    <string name="wise_common_brother">兄弟姐妹</string>
+    <string name="wise_common_other_relation">其他</string>
+
+    <string name="wise_common_national">国籍</string>
+    <string name="wise_common_china">中国</string>
+    <string name="wise_common_hongkong">中国香港澳门</string>
+    <string name="wise_common_taiwan">中国台湾</string>
+    <string name="wise_common_overseas">海外</string>
+
+    <string name="wise_common_social_card">社保卡</string>
+    <string name="wise_common_medical_card">就诊卡</string>
+
+    <string name="wise_common_remark">提醒</string>
+
+
 </resources>

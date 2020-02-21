@@ -6,13 +6,24 @@
         <activity android:name=".commonaop.permission.PermissionRequestActivity"
                   android:theme="@style/translucent" />
 
-
-
-
         <service android:name=".InitializeService">
             <intent-filter >
                 <action android:name="com.bsoft.pub.jetpack.ipc"/>
             </intent-filter>
         </service>
+
+
+     <!--   <activity
+                android:name=".thirdpart.crash.DefaultErrorActivity"
+                android:process=":error_activity" />
+
+        <provider
+                android:name=".thirdpart.crash.CaocInitProvider"
+                android:authorities="${applicationId}.customactivityoncrashinitprovider"
+                android:exported="false"
+                android:initOrder="101" />
+-->
+        <activity android:name=".common.DicChoiceActivity"
+                  android:theme="@style/AppTheme"/>
     </application>
 </manifest>

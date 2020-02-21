@@ -1,0 +1,35 @@
+apply from: "../mygradle/lib.gradle"
+apply plugin: 'android-aspectjx'
+
+android {
+
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res']
+            assets.srcDirs = ['src/main/assets']
+
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+
+    api project(path: ':libcommon')
+    implementation project(path: ':libnet')
+    api Deps.aspectjrt
+  //  api 'com.github.tbruyelle:rxpermissions:0.10.2'
+    //微信sdk
+    api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.4.0'
+    api(name: 'alipaySdk-15.6.0-20190226104104-noUtdid', ext: 'aar')
+
+
+}

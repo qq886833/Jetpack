@@ -25,7 +25,7 @@ android {
     buildToolsVersion Versions.build_tools
     defaultConfig {
        // applicationId "com.bsoft.mhealthp.jkcs"
-        applicationId "com.bsoft.pub.jetpack"
+        applicationId "com.bsoft.pub.jetpackx"
         minSdkVersion Versions.min_sdk
         targetSdkVersion Versions.target_sdk
         versionCode Versions.version_code

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Log;
 import com.bsoft.libcommon.commonaop.permission.setting.Default;
+import com.bsoft.libcommon.commonaop.permission.setting.HuaWei;
 import com.bsoft.libcommon.commonaop.permission.setting.ISetting;
 import com.bsoft.libcommon.commonaop.permission.setting.ViVo;
 
@@ -36,9 +37,9 @@ public class SettingUtil {
             case MANUFACTURER_VIVO:
                 iSetting = new ViVo();
                 break;
-//            case MANUFACTURER_HUAWEI:
-//                iSetting = new HuaWei();
-//                break;
+            case MANUFACTURER_HUAWEI:
+                iSetting = new HuaWei();
+                break;
             default:
                 iSetting = new Default();
                 break;

@@ -12,7 +12,6 @@ import com.bsoft.libnavannotation.WXPayEntry;
 import com.bsoft.libnet.utils.NetEnvironmentUtil;
 import com.bsoft.libnet.utils.log.LogUtil;
 import com.bsoft.libpay.weixin.BaseWXPayEntryActivity;
-import com.bsoft.login.BuildConfig;
 
 @WXPayEntry(packageName = "com.bsoft.mhealthp.jkcs", entryClass = BaseWXPayEntryActivity.class)
 public class AppApplication extends BaseApplication {
@@ -32,8 +31,8 @@ public class AppApplication extends BaseApplication {
     private BaseInitConfig getConfig()  {
         BaseInitConfig config = new BaseInitConfig();
         config.setEnvironment("zhengshi");
-        config.setVersionCode(com.bsoft.login.BuildConfig.VERSION_CODE);
-        config.setVersionName(com.bsoft.login.BuildConfig.VERSION_NAME);
+        config.setVersionCode(BuildConfig.VERSION_CODE);
+        config.setVersionName(BuildConfig.VERSION_NAME);
         config.setDebug(BuildConfig.DEBUG);
         config.setHttpApiUrl("http://hc.dev.atag.bsoft.com.cn/hcn-web/");
         config.setHttpDownloadUrl("https://timgsa.baidu.com/");

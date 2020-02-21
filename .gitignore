@@ -27,4 +27,7 @@ gen/
 local.properties
 
 # Android Studio project files
-
+*.iml
+.gradle
+.idea
+build

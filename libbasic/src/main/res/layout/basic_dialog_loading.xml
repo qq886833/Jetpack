@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical">
+
+   <com.qmuiteam.qmui.layout.QMUILinearLayout
+        android:layout_width="@dimen/dp_90"
+        android:layout_height="@dimen/dp_90"
+        android:background="@color/qmui_config_color_white"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        app:qmui_radius="@dimen/dp_8"
+        app:qmui_outerNormalColor="?attr/qmui_skin_support_color_background"
+        app:qmui_borderColor="?attr/qmui_skin_support_color_separator"
+        app:qmui_showBorderOnlyBeforeL="true">
+
+
+
+
+        <ImageView
+            android:id="@+id/ivLoading"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/icon_loading" />
+
+        <TextView
+            android:id="@+id/tvMsg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_10"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/basic_loading"
+            android:textColor="#999999"
+            android:textSize="@dimen/sp_12" />
+
+
+   </com.qmuiteam.qmui.layout.QMUILinearLayout>
+
+</LinearLayout>
