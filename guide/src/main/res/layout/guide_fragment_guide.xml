@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/color_white">
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:id="@+id/tvTitle"
+        android:textSize="32dp"
+        android:textColor="@color/main_green"
+        tools:text="title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:id="@+id/tvSubTitle"
+        android:textSize="16dp"
+        android:textColor="@color/main_green"
+        tools:text="title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/tvTitle"
+        />
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        tools:src="@drawable/guidepage1"
+        android:layout_below="@+id/tvSubTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        />
+    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+        android:id="@+id/ivIn"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:paddingStart="@dimen/dp_16"
+        android:paddingEnd="@dimen/dp_16"
+        android:paddingTop="@dimen/dp_8"
+        android:paddingBottom="@dimen/dp_8"
+        android:textSize="@dimen/sp_18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp_50"
+        android:text="@string/guide_start"
+        app:qmui_isRadiusAdjustBounds="true"
+        app:qmui_radius="@dimen/dp_4"
+        android:textColor="@color/qmui_config_color_white"
+        app:qmui_backgroundColor="@color/main_green"
+        app:qmui_borderColor="@color/main_green"
+        app:qmui_borderWidth="1px"
+        android:layout_gravity="center"/>
+    
+
+</RelativeLayout>

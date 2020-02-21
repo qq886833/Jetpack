@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.bsoft.guide.R;
-import com.bsoft.libcommon.utils.AppUtil;
+import com.bsoft.libbasic.utils.AppUtil;
 import com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;

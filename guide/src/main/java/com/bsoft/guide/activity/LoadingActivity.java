@@ -66,8 +66,8 @@ public class LoadingActivity extends AppCompatActivity {
         }
     }
 
-    private void loadingStart() {
 
+    private void loadingStart() {
 
         mDisposable = Observable.timer(1, TimeUnit.SECONDS)//2s后发射
           .subscribe(new Consumer<Long>() {
@@ -87,6 +87,7 @@ public class LoadingActivity extends AppCompatActivity {
     /**
      * 跳转到...
      */
+    private Disposable mDisposable2;
     private void redirectTo() {
         AppSharpref.getInstance().setShowGuide(true);
 
@@ -99,9 +100,10 @@ public class LoadingActivity extends AppCompatActivity {
               //  ARouter.getInstance().build(CommonArouterGroup.MAIN_TAB_ACTIVITY).navigation();
                 //登录
           //     CommonArouterGroup.goLoginActivity("",new Bundle(),false);
-              // CommonArouterGroup.gotoActivity(CommonArouterGroup.TEST_ACTIVITY);
-                //CommonArouterGroup.gotoActivity(CommonArouterGroup.PAY_ACTIVITY);
-                ARouter.getInstance().build(CommonArouterGroup.PATH_GUIDE_ACTIVITY).navigation();
+             //  CommonArouterGroup.gotoActivity(CommonArouterGroup.TEST_ACTIVITY);
+                CommonArouterGroup.gotoActivity(CommonArouterGroup.PAY_ACTIVITY);
+               // ARouter.getInstance().build(CommonArouterGroup.PATH_GUIDE_ACTIVITY).navigation();
+
             }
 
         }
