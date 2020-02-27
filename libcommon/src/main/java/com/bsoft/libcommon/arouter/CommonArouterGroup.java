@@ -59,6 +59,15 @@ public class CommonArouterGroup {
     //******************** businessGuide *******************
 
 
+
+    public static final String FAMILY_ADD_ACTIVITY = PROJECT + "family/FamilyAddActivity";
+
+
+
+
+
+
+
     //******************** businessAppoint *******************
     public static final String APPOINT_CONFIRM_ACTIVITY = PROJECT + "businessAppoint/AppointConfirmActivity";
     public static final String APPOINT_DEPT_ACTIVITY = PROJECT + "businessAppoint/AppointDeptActivity";
@@ -81,7 +90,7 @@ public class CommonArouterGroup {
     //******************** wiseFamily *******************
     public static final String FAMILY_MANAGER_ACTIVITY = PROJECT + "wiseFamily/ChangePersonActivity";
     public static final String FAMILY_INFO_ACTIVITY = PROJECT + "wiseFamily/FamilyInfoActivity";
-    public static final String FAMILY_ADD_ACTIVITY = PROJECT + "wiseFamily/FamilyAddActivity";
+
     public static final String USER_INFO_ACTIVITY = PROJECT + "wiseFamily/UserInfoActivity";
     public static final String CARD_MANAGER_ACTIVITY = PROJECT + "wiseFamily/CardManagerActivity";
 

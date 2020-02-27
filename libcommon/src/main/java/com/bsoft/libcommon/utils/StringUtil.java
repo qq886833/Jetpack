@@ -8,6 +8,7 @@ import com.bsoft.libcommon.R;
 import java.io.InputStream;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -111,7 +112,16 @@ public class StringUtil {
 
         return str;
     }
+    public static <T> boolean notEmpty(List<T> list) {
+        return !isEmpty(list);
+    }
 
+    public static <T> boolean isEmpty(List<T> list) {
+        if (list == null || list.size() == 0) {
+            return true;
+        }
+        return false;
+    }
     /**
      * @param str
      * @param def 默认值

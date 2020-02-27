@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bsoft.libbasic.base.activity.CoreActivity;
@@ -32,7 +34,7 @@ public class DicChoiceActivity extends CoreActivity {
     /*View*/
     private RecyclerView recyclerView;
     private DicViewAdapter adapter;
-
+    private DividerItemDecoration decoration;
     public static void appStart(Activity activity, String title
             , ArrayList<ChoiceItem> dataList, ChoiceItem choiceResult, int resultCode) {
         Intent intent = new Intent(activity, DicChoiceActivity.class);
@@ -84,6 +86,10 @@ public class DicChoiceActivity extends CoreActivity {
     private void initRecyclerView() {
         recyclerView = findViewById(R.id.mRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //默认给列表中的Item 一个 10dp的ItemDecoration
+        decoration = new DividerItemDecoration(this, LinearLayoutManager.VERTICAL);
+        decoration.setDrawable(ContextCompat.getDrawable(this, R.drawable.list_divider_1px));
+        recyclerView.addItemDecoration(decoration);
         adapter = new DicViewAdapter(dataList);
         recyclerView.setAdapter(adapter);
 
@@ -122,6 +128,8 @@ public class DicChoiceActivity extends CoreActivity {
             ImageView ivSelect = helper.getView(R.id.ivSelect);
             helper.setText(R.id.tvName, item.getItemName());
             ivSelect.setSelected(item.isChoice());
+
+
         }
     }
 }

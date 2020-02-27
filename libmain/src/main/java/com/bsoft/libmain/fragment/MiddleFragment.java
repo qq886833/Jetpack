@@ -4,6 +4,7 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
+import com.bsoft.libbasic.base.fragment.CoreFragment;
 import com.bsoft.libmain.databinding.MainFragmentMiddleBinding;
 import com.bsoft.libmain.model.SofaTab;
 import com.bsoft.libmain.utils.MainConfig;
@@ -25,7 +27,10 @@ import java.util.List;
 
 
 @FragmentDestination(pageUrl = "main/tabs/middle", asStart = false)
-public class MiddleFragment extends Fragment {
+public class MiddleFragment extends CoreFragment {
+
+
+
     private MainFragmentMiddleBinding binding;
     protected ViewPager2 viewPager2;
     protected TabLayout tabLayout;
@@ -35,6 +40,11 @@ public class MiddleFragment extends Fragment {
     //private Map<Integer, Fragment> mFragmentMap = new HashMap<>();
     private TabLayoutMediator mediator;
 
+
+    @Override
+    protected void lazyLoadData() {
+        Log.e("lazy","main/tabs/middle");
+    }
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 

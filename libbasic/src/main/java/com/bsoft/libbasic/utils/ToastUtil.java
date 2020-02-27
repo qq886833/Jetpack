@@ -36,4 +36,10 @@ public class ToastUtil {
         Toast.makeText(ContextProvider.get().getContext(),ContextProvider.get().getContext().getText(resId),
                 Toast.LENGTH_SHORT).show();
     }
+
+    public static void toast(String msg) {
+        if (!TextUtils.isEmpty(msg))
+            Toast.makeText(ContextProvider.get().getContext(), msg, Toast.LENGTH_SHORT).show();
+    }
+
 }

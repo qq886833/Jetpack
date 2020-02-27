@@ -272,3 +272,10 @@
  private <fields>;
 }
 #不混淆Serializable和它的实现子类、其成员变量
+
+
+################## liveeventbus ################
+-dontwarn com.jeremyliao.liveeventbus.**
+-keep class com.jeremyliao.liveeventbus.** { *; }
+-keep class android.arch.lifecycle.** { *; }
+-keep class android.arch.core.** { *; }

@@ -202,5 +202,10 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
             }
         }
     }
+    public void notifyDataChanged(){
+        setStepViewTexts(mStepBeanList);
+        invalidate();
+    }
+
 
 }

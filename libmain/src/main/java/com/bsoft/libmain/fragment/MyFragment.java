@@ -1,17 +1,15 @@
 package com.bsoft.libmain.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.alibaba.android.arouter.launcher.ARouter;
+import com.bsoft.libbasic.base.fragment.CoreFragment;
 import com.bsoft.libbasic.utils.StatusBar;
 import com.bsoft.libbasic.utils.ToastUtil;
-import com.bsoft.libcommon.arouter.CommonArouterGroup;
-import com.bsoft.libcommon.arouter.interceptor.LoginNavCallback;
 import com.bsoft.libcommon.commonaop.CheckNet;
 import com.bsoft.libcommon.commonaop.SingleClick;
 import com.bsoft.libmain.databinding.MainFragmentMyBinding;
@@ -19,10 +17,15 @@ import com.bsoft.libnavannotation.FragmentDestination;
 
 
 @FragmentDestination(pageUrl = "main/tabs/my", asStart = false)
-public class MyFragment extends Fragment {
+public class MyFragment extends CoreFragment {
     int i=0;
 
     private MainFragmentMyBinding binding;
+
+    @Override
+    protected void lazyLoadData() {
+        Log.e("lazy","main/tabs/my");
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,9 +47,9 @@ public class MyFragment extends Fragment {
             //    ProfileActivity.startProfileActivity(getContext(), ProfileActivity.TAB_TYPE_ALL);
 
                 ToastUtil.showLong("点击"+i++);
-                ARouter.getInstance()
-                        .build(CommonArouterGroup.PATH_CHANGE_NET_ACTIVITY)
-                        .navigation(getContext(), new LoginNavCallback());
+//                ARouter.getInstance()
+//                        .build(CommonArouterGroup.PATH_CHANGE_NET_ACTIVITY)
+//                        .navigation(getContext(), new LoginNavCallback());
             }
         });
 

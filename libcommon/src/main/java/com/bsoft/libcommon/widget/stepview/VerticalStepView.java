@@ -246,4 +246,5 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
             }
         }
     }
+
 }

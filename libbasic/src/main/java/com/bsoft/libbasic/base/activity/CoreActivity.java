@@ -22,7 +22,7 @@ public class CoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
-    private void initTopBar() {
+    protected void initTopBar() {
         mTopBar = findViewById(R.id.topbar);
        // mTopBar.setBackgroundColor(ContextCompat.getColor(this, R.color.app_color_theme_4));
         if(mTopBar!=null){

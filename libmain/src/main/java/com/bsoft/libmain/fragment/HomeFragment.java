@@ -1,12 +1,14 @@
 package com.bsoft.libmain.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import com.bsoft.libbasic.base.fragment.CoreFragment;
 import com.bsoft.libbasic.utils.ToastUtil;
 import com.bsoft.libbasic.widget.dialog.ConfirmDialog;
 import com.bsoft.libmain.activity.ProfileActivity;
@@ -15,11 +17,15 @@ import com.bsoft.libnavannotation.FragmentDestination;
 
 
 @FragmentDestination(pageUrl = "main/tabs/home", asStart = true)
-public class HomeFragment extends Fragment {
+public class HomeFragment extends CoreFragment {
 
 
     private MainFragmentHomeBinding binding;
 
+    @Override
+    protected void lazyLoadData() {
+        Log.e("lazy","main/tabs/home");
+    }
     public static HomeFragment newInstance(String tabType) {
         Bundle args = new Bundle();
         args.putString(ProfileActivity.KEY_TAB_TYPE, tabType);

@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+                name="showMode"
+                type="com.bsoft.family.model.ShowMode" />
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+        <com.qmuiteam.qmui.widget.QMUITopBar
+                android:id="@+id/topbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/qmui_topbar_height"
+                />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/main_green"
+                android:paddingTop="@dimen/core_margin"
+                android:paddingBottom="@dimen/core_margin"
+
+        >
+
+            <com.bsoft.libcommon.widget.stepview.HorizontalStepView
+                    android:id="@+id/stepView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"></com.bsoft.libcommon.widget.stepview.HorizontalStepView>
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/yjhealthCoreLoadLay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/color_white"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                        android:id="@+id/layFirstStep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{showMode.step == 0 ? View.VISIBLE : View.GONE}"
+                >
+
+
+                    <!--国籍-->
+                    <RelativeLayout
+                            android:id="@+id/rlCountry"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_44"
+                            android:background="@android:color/white"
+                            android:enabled="false">
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="国籍"
+                                    android:textColor="@color/color_333"
+                                    android:textSize="@dimen/sp_14" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                    android:text="*"
+                                    android:textColor="@color/qmui_config_color_red"
+                                    android:visibility="@{showMode.add ? View.VISIBLE : View.GONE}" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:id="@+id/tvCountry"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:ellipsize="end"
+                                    android:gravity="right"
+                                    android:hint="请选择国家"
+                                    android:maxWidth="@dimen/dp_200"
+                                    android:textColor="@color/color_666"
+                                    android:textSize="@dimen/sp_14" />
+
+                            <ImageView
+                                    android:layout_width="@dimen/dp_15"
+                                    android:layout_height="@dimen/dp_15"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                     android:tint="@color/arrow_tint_selector"
+                                    app:srcCompat="@drawable/icon_arrow_right"
+                                    tools:ignore="VectorDrawableCompat"
+                                    android:visibility="gone" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <!--证件类型-->
+                    <RelativeLayout
+                            android:id="@+id/rlCardType"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_44"
+                            android:background="@android:color/white"
+                            android:enabled="false">
+
+                        <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_1"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:background="@drawable/list_divider_1px" />
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="证件类型"
+                                    android:textColor="@color/color_333"
+                                    android:textSize="@dimen/sp_14" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                    android:text="*"
+                                    android:textColor="@color/qmui_config_color_red"
+                                    android:visibility="@{showMode.add ? View.VISIBLE : View.GONE}" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:id="@+id/tvCardType"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:ellipsize="end"
+                                    android:gravity="right"
+                                    android:hint="请选择证件类型"
+                                    android:maxWidth="@dimen/dp_200"
+                                    android:textColor="@color/color_666"
+                                    android:textSize="@dimen/sp_14" />
+
+                            <ImageView
+                                    android:layout_width="@dimen/dp_15"
+                                    android:layout_height="@dimen/dp_15"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                     android:tint="@color/arrow_tint_selector"
+                                    app:srcCompat="@drawable/icon_arrow_right"
+                                    tools:ignore="VectorDrawableCompat"
+                                    android:visibility="gone" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <!--证件号码-->
+                    <RelativeLayout
+                            android:id="@+id/rlCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_44"
+                            android:background="@android:color/white">
+
+                        <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_1"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:background="@drawable/list_divider_1px" />
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="证件号码"
+                                    android:textColor="@color/color_333"
+                                    android:textSize="@dimen/sp_14" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                    android:text="*"
+                                    android:textColor="@color/qmui_config_color_red"
+                                    android:visibility="@{showMode.add ? View.VISIBLE : View.GONE}" />
+                        </LinearLayout>
+
+                        <EditText
+                                android:id="@+id/etCard"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dp_15"
+                                android:background="@null"
+                                android:ellipsize="end"
+                                android:gravity="right"
+                                android:hint="请输入证件号码"
+                                android:maxWidth="@dimen/dp_200"
+                                android:singleLine="true"
+                                android:textColor="@color/color_333"
+                                android:textSize="@dimen/sp_14" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                        android:id="@+id/laySecondStep"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{showMode.step == 1 ? View.VISIBLE : View.GONE}">
+                    <!--姓名-->
+                    <RelativeLayout
+                            android:id="@+id/rlName"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_44"
+                            android:background="@android:color/white">
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="姓名"
+                                    android:textColor="@color/color_333"
+                                    android:textSize="@dimen/sp_14" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                    android:text="*"
+                                    android:textColor="@color/qmui_config_color_red"
+                                    android:visibility="@{showMode.add ? View.VISIBLE : View.GONE}" />
+                        </LinearLayout>
+
+                        <EditText
+                                android:id="@+id/etName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dp_15"
+                                android:background="@null"
+                                android:ellipsize="end"
+                                android:enabled="@{showMode.add ? true : false}"
+                                android:gravity="right"
+                                android:hint="请输入姓名"
+                                android:maxWidth="@dimen/dp_200"
+                                android:maxLength="20"
+                                android:singleLine="true"
+                                android:textColor="@{showMode.add ? @color/color_333 : @color/color_666}"
+                                android:textSize="@dimen/sp_14" />
+                    </RelativeLayout>
+
+                    <!--性别-->
+                    <RelativeLayout
+                            android:id="@+id/rlSex"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_44"
+                            android:background="@android:color/white"
+                            android:enabled="@{showMode.add ? true : false}"
+                    >
+
+                        <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_1"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:background="@drawable/list_divider_1px" />
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="性别"
+                                    android:textColor="@color/color_333"
+                                    android:textSize="@dimen/sp_14" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                    android:text="*"
+                                    android:textColor="@color/qmui_config_color_red"
+                                    android:visibility="@{showMode.add ? View.VISIBLE : View.GONE}" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:id="@+id/tvSex"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:ellipsize="end"
+                                    android:gravity="right"
+                                    android:hint="请选择"
+                                    android:maxWidth="@dimen/dp_200"
+                                    android:textSize="@dimen/sp_14"
+                                    android:enabled="@{showMode.add ? true : false}"
+                                    android:textColor="@{showMode.add ? @color/color_333 : @color/color_666}"
+                            />
+
+                            <ImageView
+                                    android:layout_width="@dimen/dp_15"
+                                    android:layout_height="@dimen/dp_15"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                    android:visibility="@{showMode.add ? View.VISIBLE : View.GONE}"
+                                     android:tint="@color/arrow_tint_selector"
+                                    app:srcCompat="@drawable/icon_arrow_right"
+                                    tools:ignore="VectorDrawableCompat" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <!--出生日期-->
+                    <RelativeLayout
+                            android:id="@+id/rlBirth"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_44"
+                            android:background="@android:color/white"
+                            android:enabled="@{showMode.add ? true : false}"
+                    >
+
+                        <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_1"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:background="@drawable/list_divider_1px" />
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="出生日期"
+                                    android:textColor="@color/color_333"
+                                    android:textSize="@dimen/sp_14" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                    android:text="*"
+                                    android:textColor="@color/qmui_config_color_red"
+                                    android:visibility="@{showMode.add ? View.VISIBLE : View.GONE}" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:id="@+id/tvBirth"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:ellipsize="end"
+                                    android:gravity="right"
+                                    android:hint="请选择"
+                                    android:maxWidth="@dimen/dp_200"
+                                    android:textSize="@dimen/sp_14"
+                                    android:enabled="@{showMode.add ? true : false}"
+                                    android:textColor="@{showMode.add ? @color/color_333 : @color/color_666}"
+                            />
+
+                            <ImageView
+                                    android:layout_width="@dimen/dp_15"
+                                    android:layout_height="@dimen/dp_15"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                     android:tint="@color/arrow_tint_selector"
+                                    app:srcCompat="@drawable/icon_arrow_right"
+                                    tools:ignore="VectorDrawableCompat"
+                                    android:visibility="@{showMode.add ? View.VISIBLE : View.GONE}"
+                            />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <!--手机号码-->
+                    <RelativeLayout
+                            android:id="@+id/rlTel"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_44"
+                            android:background="@android:color/white">
+
+                        <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_1"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:background="@drawable/list_divider_1px" />
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="手机号码"
+                                    android:textColor="@color/color_333"
+                                    android:textSize="@dimen/sp_14" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                    android:text="*"
+                                    android:textColor="@color/qmui_config_color_red"
+                                    android:visibility="@{showMode.add ? View.VISIBLE : View.GONE}" />
+                        </LinearLayout>
+
+                        <EditText
+                                android:id="@+id/etTel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dp_15"
+                                android:background="@null"
+                                android:ellipsize="end"
+                                android:enabled="@{showMode.add ? true : false}"
+                                android:gravity="right"
+                                android:hint="请输入手机号码"
+                                android:inputType="number"
+                                android:maxWidth="@dimen/dp_200"
+                                android:maxLength="11"
+                                android:singleLine="true"
+                                android:textColor="@{showMode.add ? @color/color_333 : @color/color_666}"
+                                android:textSize="@dimen/sp_14" />
+                    </RelativeLayout>
+
+                    <!--家庭关系-->
+                    <RelativeLayout
+                            android:id="@+id/rlRelation"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_44"
+                            android:background="@android:color/white">
+
+                        <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_1"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:background="@drawable/list_divider_1px" />
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="家庭关系"
+                                    android:textColor="@color/color_333"
+                                    android:textSize="@dimen/sp_14" />
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                    android:text="*"
+                                    android:textColor="@color/qmui_config_color_red"
+                                    android:visibility="@{showMode.add ? View.VISIBLE : View.GONE}" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dp_15"
+                                android:orientation="horizontal">
+
+                            <TextView
+                                    android:id="@+id/tvRelation"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:ellipsize="end"
+                                    android:gravity="right"
+                                    android:hint="请选择"
+                                    android:maxWidth="@dimen/dp_200"
+                                    android:textColor="@color/color_333"
+                                    android:textSize="@dimen/sp_14" />
+
+                            <ImageView
+                                    android:layout_width="@dimen/dp_15"
+                                    android:layout_height="@dimen/dp_15"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/dp_5"
+                                    android:tint="@color/arrow_tint_selector"
+                                    app:srcCompat="@drawable/icon_arrow_right"
+                                    tools:ignore="VectorDrawableCompat"/>
+
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                    android:id="@+id/tvUpload"
+                    android:layout_width="@dimen/dp_300"
+                    android:layout_height="@dimen/dp_44"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/dp_30"
+                    android:text="@{showMode.step == 0 ? `下一步` : `完成` }"
+                    app:qmui_radius="@dimen/dp_32"
+                    android:textColor="@color/color_white"
+                    app:qmui_backgroundColor="@color/main_green"
+                    app:qmui_borderColor="@color/main_green"
+                    app:qmui_borderWidth="1px"
+                    app:qmui_isRadiusAdjustBounds="true"
+                    android:gravity="center"
+                    tools:text="下一步"/>
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,4 +1,4 @@
-package com.bsoft.libbasic.base.viewmodel;
+package com.bsoft.libbasic.base.mvvm;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
