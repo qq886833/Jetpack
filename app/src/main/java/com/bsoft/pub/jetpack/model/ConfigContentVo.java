@@ -1,7 +1,7 @@
 package com.bsoft.pub.jetpack.model;
 
 
-import com.bsoft.libnet.model.BaseVo;
+import com.bsoft.libcommon.model.base.BaseVo;
 
 public class ConfigContentVo extends BaseVo {
 

@@ -14,7 +14,7 @@ import com.bsoft.libcommon.commonaop.permission.annotation.PermissionCancel;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionDenied;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionNeed;
 import com.bsoft.libcommon.commonaop.permission.util.SettingUtil;
-import com.bsoft.libnet.utils.log.LogUtil;
+import com.bsoft.libbasic.utils.log.LogUtil;
 
 @Route(path = CommonArouterGroup.PAY_ACTIVITY)
 public class PermissionActivity extends AppCompatActivity {

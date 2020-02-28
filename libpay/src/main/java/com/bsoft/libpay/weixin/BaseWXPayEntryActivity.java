@@ -3,7 +3,7 @@ package com.bsoft.libpay.weixin;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import com.bsoft.libnet.utils.log.LogUtil;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.openapi.IWXAPI;

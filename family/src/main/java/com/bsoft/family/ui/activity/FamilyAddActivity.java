@@ -17,8 +17,10 @@ import com.bsoft.libbasic.base.activity.CoreActivity;
 import com.bsoft.libbasic.utils.EffectUtil;
 import com.bsoft.libbasic.utils.ToastUtil;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
-import com.bsoft.libcommon.common.DicChoiceActivity;
+import com.bsoft.libcommon.common.MultiChoiceActivity;
+import com.bsoft.libcommon.common.SingleChoiceActivity;
 import com.bsoft.libcommon.common.model.ChoiceItem;
+import com.bsoft.libcommon.common.model.ResultItem;
 import com.bsoft.libcommon.commonaop.SingleClick;
 import com.bsoft.libcommon.dictionary.CardTypeDic;
 import com.bsoft.libcommon.dictionary.NationalDic;
@@ -150,7 +152,7 @@ public class FamilyAddActivity extends CoreActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (ACTIVITY_RESULT_NATIONAL == requestCode) {
             if (resultCode == RESULT_OK && data != null) {
-                ChoiceItem curCard = (ChoiceItem) data.getSerializableExtra(DicChoiceActivity.INTENT_RESULT);
+                ChoiceItem curCard = (ChoiceItem) data.getSerializableExtra(SingleChoiceActivity.INTENT_RESULT);
                 if (familyVo != null) {
                     if (familyVo.certificate == null) {
                         familyVo.certificate = new CertificateVo();
@@ -163,7 +165,7 @@ public class FamilyAddActivity extends CoreActivity {
             }
         } else if (ACTIVITY_RESULT_CARD == requestCode) {
             if (resultCode == RESULT_OK && data != null) {
-                ChoiceItem curCard = (ChoiceItem) data.getSerializableExtra(DicChoiceActivity.INTENT_RESULT);
+                ChoiceItem curCard = (ChoiceItem) data.getSerializableExtra(SingleChoiceActivity.INTENT_RESULT);
                 if (familyVo != null) {
                     if (familyVo.certificate == null) {
                         familyVo.certificate = new CertificateVo();
@@ -176,7 +178,7 @@ public class FamilyAddActivity extends CoreActivity {
             }
         } else if (ACTIVITY_RESULT_SEX == requestCode) {
             if (resultCode == RESULT_OK && data != null) {
-                ChoiceItem curCard = (ChoiceItem) data.getSerializableExtra(DicChoiceActivity.INTENT_RESULT);
+                ChoiceItem curCard = (ChoiceItem) data.getSerializableExtra(SingleChoiceActivity.INTENT_RESULT);
                 if (familyVo != null) {
                     familyVo.sex = curCard.getIndex();
 
@@ -185,7 +187,7 @@ public class FamilyAddActivity extends CoreActivity {
             }
         } else if (ACTIVITY_RESULT_RELATION == requestCode) {
             if (resultCode == RESULT_OK && data != null) {
-                ChoiceItem curCard = (ChoiceItem) data.getSerializableExtra(DicChoiceActivity.INTENT_RESULT);
+                ChoiceItem curCard = (ChoiceItem) data.getSerializableExtra(SingleChoiceActivity.INTENT_RESULT);
                 if (familyVo != null) {
                     familyVo.relation = curCard.getIndex();
 
@@ -350,9 +352,15 @@ public class FamilyAddActivity extends CoreActivity {
                     if (familyVo != null && familyVo.certificate != null) {
                         curCard = new ChoiceItem(familyVo.certificate.source, familyVo.certificate.sourceText);
                     }
-                    DicChoiceActivity.appStart(FamilyAddActivity.this
+//                    SingleChoiceActivity.appStart(FamilyAddActivity.this
+//                            , getString(R.string.wise_common_national)
+//                            , items, curCard, ACTIVITY_RESULT_NATIONAL);
+
+                    MultiChoiceActivity.appStart(FamilyAddActivity.this
                             , getString(R.string.wise_common_national)
-                            , items, curCard, ACTIVITY_RESULT_NATIONAL);
+                            , items, new ResultItem(), ACTIVITY_RESULT_NATIONAL);
+
+
                 }
             });
 
@@ -366,7 +374,7 @@ public class FamilyAddActivity extends CoreActivity {
                     if (familyVo != null && familyVo.certificate != null) {
                         curCard = new ChoiceItem(familyVo.certificate.certificateType, familyVo.certificate.certificateTypeText);
                     }
-                    DicChoiceActivity.appStart(FamilyAddActivity.this
+                    SingleChoiceActivity.appStart(FamilyAddActivity.this
                             , getString(R.string.wise_common_card)
                             , items, curCard, ACTIVITY_RESULT_CARD);
                 }
@@ -384,7 +392,7 @@ public class FamilyAddActivity extends CoreActivity {
 //                    if (familyVo != null && familyVo.certificate != null) {
 //                        curCard = new ChoiceItem(familyVo.certificate.source, familyVo.certificate.sourceText);
 //                    }
-//                    DicChoiceActivity.appStart(activity
+//                    SingleChoiceActivity.appStart(activity
 //                            , getString(R.string.wise_common_national)
 //                            , items, curCard, ACTIVITY_RESULT_NATIONAL, ThemeConfigUtil.getTheme());
 //                }
@@ -399,7 +407,7 @@ public class FamilyAddActivity extends CoreActivity {
 //                    if (familyVo != null && familyVo.certificate != null) {
 //                        curCard = new ChoiceItem(familyVo.certificate.certificateType, familyVo.certificate.certificateTypeText);
 //                    }
-//                    DicChoiceActivity.appStart(activity
+//                    SingleChoiceActivity.appStart(activity
 //                            , getString(R.string.wise_common_card)
 //                            , items, curCard, ACTIVITY_RESULT_CARD, ThemeConfigUtil.getTheme());
 //                }
@@ -415,7 +423,7 @@ public class FamilyAddActivity extends CoreActivity {
                 if (familyVo != null) {
                     curCard = new ChoiceItem(familyVo.sex, null);
                 }
-                DicChoiceActivity.appStart(FamilyAddActivity.this
+                SingleChoiceActivity.appStart(FamilyAddActivity.this
                         , getString(R.string.wise_common_sex)
                         , items, curCard, ACTIVITY_RESULT_SEX);
             }
@@ -430,7 +438,7 @@ public class FamilyAddActivity extends CoreActivity {
                 if (familyVo != null) {
                     curCard = new ChoiceItem(familyVo.relation, null);
                 }
-                DicChoiceActivity.appStart(FamilyAddActivity.this
+                SingleChoiceActivity.appStart(FamilyAddActivity.this
                         , getString(R.string.wise_common_relation)
                         , items, curCard, ACTIVITY_RESULT_RELATION);
             }

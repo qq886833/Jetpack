@@ -1,6 +1,8 @@
 package com.bsoft.libnet.model;
 
-public class UploadingVo extends BaseVo{
+import com.bsoft.libcommon.model.base.BaseVo;
+
+public class UploadingVo extends BaseVo {
     private long currentSize;
     private long totalSize;
     private boolean done;

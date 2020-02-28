@@ -15,7 +15,7 @@ import com.bsoft.libcommon.InitializeService;
 import com.bsoft.libcommon.localdata.AccountSharpref;
 import com.bsoft.libnavannotation.WXPayEntry;
 import com.bsoft.libnet.utils.NetEnvironmentUtil;
-import com.bsoft.libnet.utils.log.LogUtil;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libpay.weixin.BaseWXPayEntryActivity;
 import com.meituan.android.walle.WalleChannelReader;
 import com.tencent.bugly.Bugly;

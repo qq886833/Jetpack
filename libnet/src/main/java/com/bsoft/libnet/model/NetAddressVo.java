@@ -1,6 +1,8 @@
 package com.bsoft.libnet.model;
 
 
+import com.bsoft.libcommon.model.base.BaseVo;
+
 /**
  * Created by 83990 on 2018/2/7.
  */

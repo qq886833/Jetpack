@@ -19,8 +19,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-
-public class DicChoiceActivity extends CoreActivity {
+/**
+ * Created by Administrator on 2017/4/26.
+ * 单选
+ */
+public class SingleChoiceActivity extends CoreActivity {
     /*Default*/
     public static final String INTENT_TITLE = "title";
     public static final String INTENT_DATA_LIST = "dataList";
@@ -37,7 +40,7 @@ public class DicChoiceActivity extends CoreActivity {
     private DividerItemDecoration decoration;
     public static void appStart(Activity activity, String title
             , ArrayList<ChoiceItem> dataList, ChoiceItem choiceResult, int resultCode) {
-        Intent intent = new Intent(activity, DicChoiceActivity.class);
+        Intent intent = new Intent(activity, SingleChoiceActivity.class);
         intent.putExtra(INTENT_TITLE, title);
         intent.putExtra(INTENT_DATA_LIST, dataList);
         intent.putExtra(INTENT_RESULT, choiceResult);
@@ -50,7 +53,7 @@ public class DicChoiceActivity extends CoreActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.common_activity_dic_choice);
         parseIntent();
-        //initTopBar();
+        initTopBar();
         initLayout();
 
     }
@@ -77,6 +80,7 @@ public class DicChoiceActivity extends CoreActivity {
 //    }
 
     protected void initLayout() {
+        mTopBar.setTitle(title);
 
         initRecyclerView();
     }

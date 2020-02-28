@@ -1,4 +1,4 @@
-package com.bsoft.libnet.utils.log;
+package com.bsoft.libbasic.utils.log;
 
 /**
  * Created by chenkai on 2018/6/5.

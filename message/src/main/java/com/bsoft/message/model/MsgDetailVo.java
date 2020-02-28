@@ -1,7 +1,7 @@
 package com.bsoft.message.model;
 
 
-import com.bsoft.libnet.model.BaseVo;
+import com.bsoft.libcommon.model.base.BaseVo;
 
 /**
  * Created by Administrator on 2016/12/30.

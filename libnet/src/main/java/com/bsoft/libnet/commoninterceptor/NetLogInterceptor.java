@@ -2,7 +2,7 @@ package com.bsoft.libnet.commoninterceptor;
 
 import com.bsoft.libnet.utils.HeadUtil;
 import com.bsoft.libnet.utils.RequestIdPool;
-import com.bsoft.libnet.utils.log.LogUtil;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import okhttp3.*;
 import okhttp3.internal.http.HttpHeaders;
 import okio.Buffer;

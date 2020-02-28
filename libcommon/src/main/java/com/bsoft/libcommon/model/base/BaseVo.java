@@ -1,4 +1,4 @@
-package com.bsoft.libnet.model;
+package com.bsoft.libcommon.model.base;
 
 import java.io.Serializable;
 

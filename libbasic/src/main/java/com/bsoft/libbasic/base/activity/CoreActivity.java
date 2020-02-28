@@ -5,6 +5,7 @@ import android.view.View;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 import com.bsoft.libbasic.R;
 import com.bsoft.libbasic.utils.StatusBar;
 import com.bsoft.libbasic.widget.dialog.LoadingDialog;
@@ -12,14 +13,15 @@ import com.qmuiteam.qmui.widget.QMUITopBar;
 
 public class CoreActivity extends AppCompatActivity {
 
-    private LoadingDialog loadingDialog;
+    protected LoadingDialog loadingDialog;
     protected QMUITopBar mTopBar;
-
+    protected FragmentActivity activity;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         StatusBar.fitSystemBar(this);
         StatusBar.lightStatusBar(this, true);
         super.onCreate(savedInstanceState);
+        this.activity=this;
     }
 
     protected void initTopBar() {
@@ -64,5 +66,9 @@ public class CoreActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    protected void onDestroy() {
+        dismissLoadingDialog();
+        super.onDestroy();
+    }
 }

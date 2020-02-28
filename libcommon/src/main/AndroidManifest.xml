@@ -23,7 +23,9 @@
                 android:exported="false"
                 android:initOrder="101" />
 -->
-        <activity android:name=".common.DicChoiceActivity"
+        <activity android:name=".common.SingleChoiceActivity"
+                  android:theme="@style/AppTheme"/>
+        <activity android:name=".common.MultiChoiceActivity"
                   android:theme="@style/AppTheme"/>
     </application>
 </manifest>

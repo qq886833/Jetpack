@@ -1,4 +1,4 @@
-package com.bsoft.libnet.utils.log;
+package com.bsoft.libbasic.utils.log;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;

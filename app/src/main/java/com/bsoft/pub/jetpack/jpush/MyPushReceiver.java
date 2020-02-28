@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import cn.jpush.android.api.JPushInterface;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
 import com.bsoft.libcommon.utils.DataConverUtil;
-import com.bsoft.libnet.utils.log.LogUtil;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.message.model.MsgDetailVo;
 import com.bsoft.message.utils.MsgUtil;
 import org.json.JSONException;

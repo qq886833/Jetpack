@@ -1,6 +1,7 @@
 package com.bsoft.libnet.model;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.bsoft.libcommon.model.base.BaseVo;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Collection;
@@ -11,7 +12,7 @@ import java.util.Collection;
  *
  */
 
-public class BaseResponse <E>  extends BaseVo{
+public class BaseResponse <E>  extends BaseVo {
 
     public static final int SUCCESS = 200;
     @SerializedName(value ="code")

@@ -1,6 +1,7 @@
 package com.bsoft.libnet.model;
 
 import androidx.annotation.NonNull;
+import com.bsoft.libcommon.model.base.BaseVo;
 
 public class DownloadingVo extends BaseVo {
     private long currentSize;

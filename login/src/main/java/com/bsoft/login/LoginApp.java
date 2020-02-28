@@ -6,7 +6,7 @@ import com.bsoft.libbasic.init.BaseAppInit;
 import com.bsoft.libbasic.init.BaseInitConfig;
 import com.bsoft.libcommon.InitializeService;
 import com.bsoft.libnet.utils.NetEnvironmentUtil;
-import com.bsoft.libnet.utils.log.LogUtil;
+import com.bsoft.libbasic.utils.log.LogUtil;
 
 
 public class LoginApp extends BaseApplication {

@@ -2,7 +2,7 @@ package com.bsoft.pub.jetpack.model;
 
 
 import androidx.annotation.StringDef;
-import com.bsoft.libnet.model.BaseVo;
+import com.bsoft.libcommon.model.base.BaseVo;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

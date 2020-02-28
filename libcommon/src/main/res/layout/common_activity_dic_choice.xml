@@ -5,8 +5,10 @@
               android:fitsSystemWindows="true"
               android:orientation="vertical">
 
-
-    <include layout="@layout/basic_actionbar" />
+    <com.qmuiteam.qmui.widget.QMUITopBar
+            android:id="@+id/topbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/qmui_topbar_height"/>
 
     <LinearLayout
             android:id="@id/mainLoadLay"

@@ -4,9 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libcommon.commonaop.permission.aop.IPermission;
 import com.bsoft.libcommon.commonaop.permission.util.PermissionUtil;
 
@@ -16,7 +16,7 @@ import com.bsoft.libcommon.commonaop.permission.util.PermissionUtil;
  */
 public class PermissionRequestActivity extends Activity {
 
-
+    private static final String TAG = "PermissionRequestActivity";
     private static final String PERMISSION = "permission";
     private static final String REQUEST_CODE = "request_code";
     private static IPermission mIPermission;
@@ -59,7 +59,7 @@ public class PermissionRequestActivity extends Activity {
 
         // 如果没有申请权限  或者 mIPermission接口为null，直接返回
         if (permissions == null || permissions.length <= 0 || mIPermission == null) {
-            Log.e("leo", "onCreate: 条件不满足，直接返回");
+            LogUtil.e(TAG, "onCreate: 条件不满足，直接返回");
             finish();
             return; // 如果不要这个 return，finish 后还会走下面吗？会往下走，并直接出错
         }
@@ -76,7 +76,7 @@ public class PermissionRequestActivity extends Activity {
         if (PermissionUtil.hasSelfPermissions(this, permissions)) {
             // 所有权限都已经有了（granted:已经许可）
             mIPermission.onPermissionGranted();
-            Log.e("leo", "Activity，requestPermission: 所有权限都已经有了");
+            LogUtil.e(TAG, "Activity，requestPermission: 所有权限都已经有了");
             finish();
         } else {
             // 开始请求权限

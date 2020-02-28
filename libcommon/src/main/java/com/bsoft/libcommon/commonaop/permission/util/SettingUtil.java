@@ -2,7 +2,7 @@ package com.bsoft.libcommon.commonaop.permission.util;
 
 import android.content.Context;
 import android.os.Build;
-import android.util.Log;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libcommon.commonaop.permission.setting.Default;
 import com.bsoft.libcommon.commonaop.permission.setting.HuaWei;
 import com.bsoft.libcommon.commonaop.permission.setting.ISetting;
@@ -30,7 +30,7 @@ public class SettingUtil {
     public static void go2Setting(Context context) {
         ISetting iSetting = null;
 
-        Log.e("leo", "go2Setting: " + Build.MANUFACTURER);
+        LogUtil.e("==", "go2Setting: " + Build.MANUFACTURER);
 
         // 产品/硬件的制造商
         switch (Build.MANUFACTURER.toLowerCase()) {

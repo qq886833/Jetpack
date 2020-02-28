@@ -8,6 +8,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import com.bsoft.libbasic.R;
 import com.bsoft.libbasic.widget.dialog.LoadingDialog;
@@ -15,9 +16,9 @@ import com.qmuiteam.qmui.widget.QMUITopBar;
 
 public class CoreFragment extends Fragment {
 
-    private LoadingDialog loadingDialog;
+    protected LoadingDialog loadingDialog;
     protected QMUITopBar mTopBar;
-
+    protected FragmentActivity activity;
     //是否第一次加载
     private boolean isFirst= true;
 
@@ -32,7 +33,11 @@ public class CoreFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
-
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        activity = getActivity();
+    }
     protected void initTopBar() {
         mTopBar = getView().findViewById(R.id.topbar);
         // mTopBar.setBackgroundColor(ContextCompat.getColor(this, R.color.app_color_theme_4));
@@ -88,4 +93,12 @@ public class CoreFragment extends Fragment {
         }
     }
     protected void  lazyLoadData(){}
+
+
+
+    @Override
+    public void onDestroy() {
+        dismissLoadingDialog();
+        super.onDestroy();
+    }
 }

@@ -1,7 +1,7 @@
 package com.bsoft.pub.jetpack.jpush;
 
 
-import com.bsoft.libnet.model.BaseVo;
+import com.bsoft.libcommon.model.base.BaseVo;
 
 public class CustomMessage extends BaseVo {
     private String badge;

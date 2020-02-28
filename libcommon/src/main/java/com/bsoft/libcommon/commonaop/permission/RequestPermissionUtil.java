@@ -32,13 +32,15 @@ public class RequestPermissionUtil {
     public void permissionDenied(int requestCode) {
         Log.e("leo", "RequestPermissionUtil:请求传感器权限被禁止" + requestCode);
         switch (requestCode) {
-            case 11:
+            case 111:
                 showDialog("定位权限被禁止，需要手动去开启");
                 break;
-            case 12:
+            case 222:
                 showDialog("文件存储权限可能被禁止，需要手动去开启");
-            case 31:
-                showDialog("传感器权限可能被禁止，需要手动去开启");
+            case 333:
+                showDialog("电话权限可能被禁止，需要手动去开启");
+            case 444:
+              //  showDialog("电话权限可能被禁止，需要手动去开启");
                 break;
         }
     }

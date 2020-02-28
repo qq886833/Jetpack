@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background" android:drawable="@mipmap/icon_evaluation_order_star" />
+    <item android:id="@android:id/secondaryProgress" android:drawable="@mipmap/icon_evaluation_order_star_press" />
+    <item android:id="@android:id/progress" android:drawable="@mipmap/icon_evaluation_order_star_press" />
+</selector>
