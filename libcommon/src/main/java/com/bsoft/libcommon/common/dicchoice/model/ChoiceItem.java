@@ -1,4 +1,4 @@
-package com.bsoft.libcommon.common.model;
+package com.bsoft.libcommon.common.dicchoice.model;
 
 import android.text.TextUtils;
 

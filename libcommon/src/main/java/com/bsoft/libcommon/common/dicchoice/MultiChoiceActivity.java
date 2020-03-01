@@ -1,4 +1,4 @@
-package com.bsoft.libcommon.common;
+package com.bsoft.libcommon.common.dicchoice;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,19 +11,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bsoft.libbasic.base.activity.CoreActivity;
 import com.bsoft.libcommon.R;
-import com.bsoft.libcommon.common.model.ChoiceItem;
+import com.bsoft.libcommon.common.dicchoice.model.ChoiceItem;
+import com.bsoft.libcommon.common.dicchoice.model.ResultItem;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.qmuiteam.qmui.util.QMUIViewHelper;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Created by Administrator on 2017/4/26.
- * 单选
+ * 多选
  */
-public class SingleChoiceActivity extends CoreActivity {
+public class MultiChoiceActivity extends CoreActivity {
     /*Default*/
     public static final String INTENT_TITLE = "title";
     public static final String INTENT_DATA_LIST = "dataList";
@@ -32,15 +35,16 @@ public class SingleChoiceActivity extends CoreActivity {
     /*Flag*/
     private ArrayList<ChoiceItem> dataList;
     private String title;
-    private ChoiceItem choiceResult;
+    private ResultItem choiceResult;
 
     /*View*/
     private RecyclerView recyclerView;
     private DicViewAdapter adapter;
     private DividerItemDecoration decoration;
+
     public static void appStart(Activity activity, String title
-            , ArrayList<ChoiceItem> dataList, ChoiceItem choiceResult, int resultCode) {
-        Intent intent = new Intent(activity, SingleChoiceActivity.class);
+            , ArrayList<ChoiceItem> dataList, ResultItem choiceResult, int resultCode) {
+        Intent intent = new Intent(activity, MultiChoiceActivity.class);
         intent.putExtra(INTENT_TITLE, title);
         intent.putExtra(INTENT_DATA_LIST, dataList);
         intent.putExtra(INTENT_RESULT, choiceResult);
@@ -62,7 +66,7 @@ public class SingleChoiceActivity extends CoreActivity {
         if (getIntent() != null) {
             title = getIntent().getExtras().getString(INTENT_TITLE);
             dataList = (ArrayList<ChoiceItem>) getIntent().getSerializableExtra(INTENT_DATA_LIST);
-            choiceResult = (ChoiceItem) getIntent().getSerializableExtra(INTENT_RESULT);
+            choiceResult = (ResultItem) getIntent().getSerializableExtra(INTENT_RESULT);
 
             if (null != choiceResult) {
                 int index = -1;
@@ -70,21 +74,51 @@ public class SingleChoiceActivity extends CoreActivity {
                     dataList.get(index).setChoice(true);
                 }
             }
+
+            for (ChoiceItem vo : dataList) {
+                vo.setChoice(false);
+            }
+            if (null != choiceResult && null != choiceResult.getList()) {
+                for (ChoiceItem item : choiceResult.getList()) {
+                    int index = -1;
+                    if ((index = dataList.indexOf(item)) != -1) {
+                        dataList.get(index).setChoice(true);
+                    }
+                }
+
+
+            }
         }
     }
 
-//    @Override
-//    protected void initTopBar() {
-//        super.initTopBar();
-//        mTopBar.setTitle(title);
-//    }
-
     protected void initLayout() {
         mTopBar.setTitle(title);
-
         initRecyclerView();
-    }
 
+        mTopBar.addRightTextButton("确定", QMUIViewHelper.generateViewId()).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (null == choiceResult) {
+                    choiceResult = new ResultItem();
+                }
+                ArrayList<ChoiceItem> selected = new ArrayList<ChoiceItem>();
+                for (ChoiceItem item : adapter.getData()) {
+                    if (item.isChoice()) {
+                        selected.add(item);
+                    }
+                }
+                if (selected.isEmpty()) {
+                    finish();
+                } else {
+                    choiceResult.setResult(selected);
+                    getIntent().putExtra(INTENT_RESULT, choiceResult);
+                    setResult(RESULT_OK, getIntent());
+                    finish();
+                }
+            }
+        });
+    }
 
 
     private void initRecyclerView() {
@@ -101,23 +135,13 @@ public class SingleChoiceActivity extends CoreActivity {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
 
-                choiceResult = dataList.get(position);
-                choiceResult.setChoice(true);
-                for (ChoiceItem item : dataList) {
-                    if (!choiceResult.equals(item)) {
-                        item.setChoice(false);
-                    }
-                }
-                adapter.notifyDataSetChanged();
-
-                getIntent().putExtra(INTENT_RESULT, choiceResult);
-                setResult(RESULT_OK, getIntent());
-                finish();
+                ChoiceItem item = dataList.get(position);
+                item.setChoice(!item.isChoice());
+                adapter.notifyItemChanged(position);
             }
         });
 
     }
-
 
 
     static class DicViewAdapter extends BaseQuickAdapter<ChoiceItem, BaseViewHolder> {

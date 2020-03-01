@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 点击状态下的效果 -->
+    <item android:state_pressed="true">
+        <shape>
+
+            <!-- 设置背景填充色为黑色 -->
+            <solid android:color="#E6E8EB" />
+            <!-- 设置按钮圆角半径为5dp -->
+            <corners android:radius="0dp" />
+        </shape>
+    </item>
+    <!-- 正常状态下(非点击)的效果 -->
+    <item android:state_pressed="false">
+        <shape>
+
+            <!-- 填充的颜色 -->
+            <solid android:color="#FFFFFF" />
+            <!-- 设置按钮的四个角为弧形 -->
+            <!-- android:radius 弧形的半径 -->
+            <corners android:radius="0dp" />
+        </shape>
+    </item>
+
+</selector>

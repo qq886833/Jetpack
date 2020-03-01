@@ -54,6 +54,8 @@ object Versions {
     const val aspectjrt = "1.8.9"
     const val filedownloader = "1.7.7"
     const val walle = "1.1.6"
+    const val fresco = "2.1.0"
+
 
 }
 
@@ -128,6 +130,7 @@ object Deps {
     const val banner = "com.github.xiaohaibin:XBanner:${Versions.banner}"
     const val baserecyclerview = "com.github.CymChad:BaseRecyclerViewAdapterHelper:${Versions.baserecyclerview}"
     const val walle = "com.meituan.android.walle:library:${Versions.walle}"
+    const val fresco = "com.facebook.fresco:fresco:${Versions.fresco}"
 
 
 

@@ -11,11 +11,13 @@ import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libbasic.init.ArouterInit;
 import com.bsoft.libbasic.init.BaseAppInit;
 import com.bsoft.libbasic.init.BaseInitConfig;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libcommon.InitializeService;
 import com.bsoft.libcommon.localdata.AccountSharpref;
+import com.bsoft.libcommon.thirdpart.crash.CaocConfig;
+import com.bsoft.libmain.MainTabActivity;
 import com.bsoft.libnavannotation.WXPayEntry;
 import com.bsoft.libnet.utils.NetEnvironmentUtil;
-import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libpay.weixin.BaseWXPayEntryActivity;
 import com.meituan.android.walle.WalleChannelReader;
 import com.tencent.bugly.Bugly;
@@ -41,8 +43,9 @@ public class AppApplication extends BaseApplication {
         JPushInterface.init(this);
         InitializeService.start(getApplicationContext());
 
-
-        initBuglyAndThinker();
+        //初始化全局异常崩溃
+        initCrash();
+        //initBuglyAndThinker();
 
 
 
@@ -51,7 +54,20 @@ public class AppApplication extends BaseApplication {
 
 
     }
-
+    private void initCrash() {
+        CaocConfig.Builder.create()
+                .backgroundMode(CaocConfig.BACKGROUND_MODE_SILENT) //背景模式,开启沉浸式
+                .enabled(BuildConfig.DEBUG) //是否启动全局异常捕获
+                .showErrorDetails(true) //是否显示错误详细信息
+                .showRestartButton(true) //是否显示重启按钮
+                .trackActivities(true) //是否跟踪Activity
+                .minTimeBetweenCrashesMs(2000) //崩溃的间隔时间(毫秒)
+                .errorDrawable(R.mipmap.ic_launcher) //错误图标
+                .restartActivity(MainTabActivity.class) //重新启动后的activity
+//                .errorActivity(YourCustomErrorActivity.class) //崩溃后的错误activity
+//                .eventListener(new YourCustomEventListener()) //崩溃后的错误监听
+                .apply();
+    }
     private void initBuglyAndThinker() {
 
 

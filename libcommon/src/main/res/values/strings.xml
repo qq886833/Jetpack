@@ -10,6 +10,9 @@
     <string name="common_update_next">下次再说</string>
 
 
+    <string name="common_big_picture">查看大图</string>
+
+
     <string name="customactivityoncrash_error_activity_close_app">关闭程序</string>
     <string name="customactivityoncrash_error_activity_error_details">错误日志</string>
     <string name="customactivityoncrash_error_activity_error_details_clipboard_label">错误信息</string>

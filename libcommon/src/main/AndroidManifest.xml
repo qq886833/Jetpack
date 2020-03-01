@@ -12,8 +12,7 @@
             </intent-filter>
         </service>
 
-
-     <!--   <activity
+          <activity
                 android:name=".thirdpart.crash.DefaultErrorActivity"
                 android:process=":error_activity" />
 
@@ -22,10 +21,10 @@
                 android:authorities="${applicationId}.customactivityoncrashinitprovider"
                 android:exported="false"
                 android:initOrder="101" />
--->
-        <activity android:name=".common.SingleChoiceActivity"
+
+        <activity android:name=".common.dicchoice.SingleChoiceActivity"
                   android:theme="@style/AppTheme"/>
-        <activity android:name=".common.MultiChoiceActivity"
+        <activity android:name=".common.dicchoice.MultiChoiceActivity"
                   android:theme="@style/AppTheme"/>
     </application>
 </manifest>

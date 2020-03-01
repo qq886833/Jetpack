@@ -15,6 +15,8 @@ import com.bsoft.libcommon.arouter.CommonArouterGroup;
 import com.bsoft.libcommon.localdata.AccountSharpref;
 import com.bsoft.libcommon.localdata.AppSharpref;
 import com.bsoft.libcommon.utils.CheckRoot;
+import com.bsoft.webview.BaseWebActivity;
+import com.bsoft.webview.BaseWebView;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
@@ -104,7 +106,13 @@ public class LoadingActivity extends AppCompatActivity {
                // CommonArouterGroup.gotoActivity(CommonArouterGroup.PAY_ACTIVITY);
 
               //  ARouter.getInstance().build(CommonArouterGroup.PATH_GUIDE_ACTIVITY).navigation();
-                ARouter.getInstance().build(CommonArouterGroup.FAMILY_ADD_ACTIVITY).navigation();
+                //ARouter.getInstance().build(CommonArouterGroup.FAMILY_ADD_ACTIVITY).navigation();
+
+           //     BaseWebActivity.startCommonWeb(this, "腾讯网", "https://xw.qq.com/?f=qqcom", WebConstants.LEVEL_BASE,true);
+
+                BaseWebActivity.startCommonWeb(this, "AIDL测试", BaseWebView.CONTENT_SCHEME + "aidl.html",true);
+
+
             }
 
         }

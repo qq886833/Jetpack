@@ -13,4 +13,5 @@ dependencies {
         api project(path: ':libmain')
         //api project(path: ':login')
     }
+    api project(path: ':webview')
 }

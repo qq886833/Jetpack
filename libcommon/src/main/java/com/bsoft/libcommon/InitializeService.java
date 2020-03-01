@@ -7,6 +7,8 @@ import android.os.IBinder;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import com.bsoft.libbasic.context.ContextProvider;
+import com.bsoft.libbasic.thirdpart.loadsir.core.LoadSir;
+import com.bsoft.libbasic.widget.loadsir.*;
 import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.liulishuo.filedownloader.FileDownloader;
 import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection;
@@ -43,7 +45,15 @@ public class InitializeService extends IntentService {
                             .connectTimeout(15_000) // set connection timeout.
                             .readTimeout(15_000) // set read timeout.
                     )).commit();
-
+            LoadSir.beginBuilder()
+                    .addCallback(new ErrorCallback.Builder().build())
+                    .addCallback(new EmptyCallback.Builder().build())
+                    .addCallback(new LoadingCallback.Builder().build())
+                    .addCallback(new TimeoutCallback.Builder().build())
+                    // .addCallback(new CustomCallback())
+                    .addCallback(new PlaceholderCallback())
+                    .setDefaultCallback(LoadingCallback.class)
+                    .commit();
         }
 
     @Override

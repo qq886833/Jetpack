@@ -3,7 +3,7 @@ package com.bsoft.libcommon.dictionary;
 import android.text.TextUtils;
 import com.bsoft.libbasic.context.ContextProvider;
 import com.bsoft.libcommon.R;
-import com.bsoft.libcommon.common.model.ChoiceItem;
+import com.bsoft.libcommon.common.dicchoice.model.ChoiceItem;
 
 import java.util.ArrayList;
 
