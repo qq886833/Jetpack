@@ -45,15 +45,7 @@ public class InitializeService extends IntentService {
                             .connectTimeout(15_000) // set connection timeout.
                             .readTimeout(15_000) // set read timeout.
                     )).commit();
-            LoadSir.beginBuilder()
-                    .addCallback(new ErrorCallback.Builder().build())
-                    .addCallback(new EmptyCallback.Builder().build())
-                    .addCallback(new LoadingCallback.Builder().build())
-                    .addCallback(new TimeoutCallback.Builder().build())
-                    // .addCallback(new CustomCallback())
-                    .addCallback(new PlaceholderCallback())
-                    .setDefaultCallback(LoadingCallback.class)
-                    .commit();
+
         }
 
     @Override

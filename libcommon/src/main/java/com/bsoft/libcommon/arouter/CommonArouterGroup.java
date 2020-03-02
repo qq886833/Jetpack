@@ -45,7 +45,7 @@ public class CommonArouterGroup {
     public static final String PATH_MAIN_TAB_ACTIVITY = PROJECT + "libmain/MainTabActivity";
 
 
-
+    public static final String TEST_WEB_ACTIVITY = PROJECT + "app/MainActivityWeb";
     public static final String TEST_ACTIVITY = PROJECT + "app/HttpActivity";
     public static final String PAY_ACTIVITY = PROJECT + "pay/PermissionActivity";
     //******************** wiseChangeNet **********************

@@ -11,7 +11,9 @@ import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libbasic.init.ArouterInit;
 import com.bsoft.libbasic.init.BaseAppInit;
 import com.bsoft.libbasic.init.BaseInitConfig;
+import com.bsoft.libbasic.thirdpart.loadsir.core.LoadSir;
 import com.bsoft.libbasic.utils.log.LogUtil;
+import com.bsoft.libbasic.widget.loadsir.*;
 import com.bsoft.libcommon.InitializeService;
 import com.bsoft.libcommon.localdata.AccountSharpref;
 import com.bsoft.libcommon.thirdpart.crash.CaocConfig;
@@ -19,6 +21,9 @@ import com.bsoft.libmain.MainTabActivity;
 import com.bsoft.libnavannotation.WXPayEntry;
 import com.bsoft.libnet.utils.NetEnvironmentUtil;
 import com.bsoft.libpay.weixin.BaseWXPayEntryActivity;
+import com.bsoft.pub.jetpack.webviewcommands.ArouterCommands;
+import com.bsoft.pub.jetpack.webviewcommands.LoginCommands;
+import com.bsoft.pub.jetpack.webviewcommands.ToastCommand;
 import com.meituan.android.walle.WalleChannelReader;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
@@ -47,10 +52,19 @@ public class AppApplication extends BaseApplication {
         initCrash();
         //initBuglyAndThinker();
 
+        LoadSir.beginBuilder()
+                .addCallback(new ErrorCallback.Builder().build())
+                .addCallback(new EmptyCallback.Builder().build())
+                .addCallback(new LoadingCallback.Builder().build())
+                .addCallback(new TimeoutCallback.Builder().build())
+                // .addCallback(new CustomCallback())
+                .addCallback(new PlaceholderCallback())
+                .setDefaultCallback(LoadingCallback.class)
+                .commit();
 
-
-
-
+        LoginCommands.init();
+        ArouterCommands.init();
+        ToastCommand.init();
 
 
     }

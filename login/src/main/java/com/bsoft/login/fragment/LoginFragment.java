@@ -20,7 +20,10 @@ import com.bsoft.libbasic.base.fragment.CoreFragment;
 import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libbasic.utils.DensityUtil;
 import com.bsoft.libbasic.utils.ToastUtil;
+import com.bsoft.libcommon.arouter.AppRouterService;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
+import com.bsoft.libcommon.arouter.RouteServiceManager;
+import com.bsoft.libcommon.baseservices.ILoginService;
 import com.bsoft.libcommon.commonaop.SingleClick;
 import com.bsoft.libcommon.livedatabus.LiveEventBusKey;
 import com.bsoft.libcommon.utils.KeyboardStatusDetector;
@@ -43,6 +46,8 @@ public class LoginFragment extends CoreFragment implements View.OnClickListener 
     private String digitsNumber;
     private UserAdapter userAdapter;
     private KeyboardStatusDetector keyboardStatusDetector;
+
+    private static ILoginService mLoginService = RouteServiceManager.provide(ILoginService.class, AppRouterService.APP_LOGIN_SERVICE);
 
 
     public static LoginFragment newInstance(String actPath, Bundle dataBundle, boolean isSSO) {
@@ -186,6 +191,12 @@ public class LoginFragment extends CoreFragment implements View.OnClickListener 
         });
         setBottomH();
 
+        mBinding.tvLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mLoginService.checkLogin(true);
+            }
+        });
 
     }
 

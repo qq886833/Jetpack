@@ -193,6 +193,9 @@ dependencies {
     api project(path: ':libmain')
     api project(path: ':message')
     api project(path: ':family')
+    api project(path: ':libwebview')
+
+
 
     api project(path: ':libpay')
     kapt project(":libnavcompiler")

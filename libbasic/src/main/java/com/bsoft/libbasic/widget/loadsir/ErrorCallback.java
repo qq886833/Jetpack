@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.DrawableRes;
 import com.bsoft.libbasic.R;
-import com.bsoft.libbasic.context.ContextProvider;
 import com.bsoft.libbasic.thirdpart.loadsir.callback.Callback;
 import com.bumptech.glide.Glide;
 import com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton;
@@ -47,12 +46,12 @@ public class ErrorCallback extends Callback {
         if (!TextUtils.isEmpty(msg)) {
             tvMsg.setText(msg);
         }else {
-            tvMsg.setText(ContextProvider.get().getContext().getResources().getString(R.string.basic_error));
+            tvMsg.setText(context.getApplicationContext().getResources().getString(R.string.basic_error));
         }
         if (!TextUtils.isEmpty(btText)) {
             bt_refresh.setText(btText);
         }else {
-            bt_refresh.setText(ContextProvider.get().getContext().getResources().getString(R.string.basic_refresh));
+            bt_refresh.setText(context.getApplicationContext().getResources().getString(R.string.basic_refresh));
         }
 
         if (resourceId != -1) {

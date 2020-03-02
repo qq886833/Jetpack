@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.DrawableRes;
 import com.bsoft.libbasic.R;
-import com.bsoft.libbasic.context.ContextProvider;
 import com.bsoft.libbasic.thirdpart.loadsir.callback.Callback;
 import com.bumptech.glide.Glide;
 import com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton;
@@ -51,7 +50,7 @@ public class EmptyCallback extends Callback {
         if (!TextUtils.isEmpty(msg)) {
             tvMsg.setText(msg);
         }else {
-            tvMsg.setText(ContextProvider.get().getContext().getResources().getString(R.string.basic_empty));
+            tvMsg.setText(context.getApplicationContext().getResources().getString(R.string.basic_empty));
         }
         if (resourceId != -1) {
             Glide.with(context).load(resourceId).into(ivEmpty);
