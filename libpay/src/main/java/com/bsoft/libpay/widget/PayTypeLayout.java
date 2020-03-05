@@ -2,7 +2,6 @@ package com.bsoft.libpay.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -12,6 +11,7 @@ import androidx.collection.ArrayMap;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bsoft.libbasic.constant.HttpConstants;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libnet.api.NetPostApi;
 import com.bsoft.libnet.observer.BaseObserver;
 import com.bsoft.libpay.BasePayActivity;
@@ -127,7 +127,7 @@ public class PayTypeLayout  extends LinearLayout {
 
             @Override
             protected void onHandleSuccess(ArrayList<PayTypeVo> value) {
-                Log.e("mIsViewShown" ,mIsViewShown+"==");
+                LogUtil.e("mIsViewShown" ,mIsViewShown+"==");
                 if (mIsViewShown && (value != null && value.size()>0 )) {
                     mList.clear();
                     for (PayTypeVo payTypeVo : value) {

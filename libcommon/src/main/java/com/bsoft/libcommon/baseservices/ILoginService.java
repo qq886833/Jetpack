@@ -2,6 +2,7 @@ package com.bsoft.libcommon.baseservices;
 
 import android.content.Context;
 import com.alibaba.android.arouter.facade.template.IProvider;
+import com.bsoft.libcommon.model.LoginUserVo;
 import com.bsoft.libcommon.model.UserInfoVo;
 
 public interface ILoginService  extends IProvider {
@@ -32,6 +33,7 @@ public interface ILoginService  extends IProvider {
      void logout();
 
      UserInfoVo getUserInfoVo();
+      LoginUserVo getLoginUserVo();
     
      void onLoginCancel();
 

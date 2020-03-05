@@ -5,7 +5,7 @@ package com.bsoft.libcommon.utils.proxsp;
  * Created by rae on 2020/2/22.
  * Copyright (c) https://github.com/raedev All rights reserved.
  */
-@Config("YourAppConfig")
+@Config("LoginConfig")
 public interface IAppConfig {
 
     void setUserName(String name);

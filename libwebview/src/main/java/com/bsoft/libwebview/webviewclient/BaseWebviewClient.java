@@ -10,9 +10,9 @@ import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import android.webkit.*;
 import androidx.annotation.RequiresApi;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libwebview.R;
 import com.bsoft.libwebview.WebViewCallBack;
 
@@ -53,7 +53,7 @@ public class BaseWebviewClient extends WebViewClient {
      */
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        Log.e(TAG, "shouldOverrideUrlLoading url: " + url);
+        LogUtil.e(TAG, "shouldOverrideUrlLoading url: " + url);
         // 当前链接的重定向, 通过是否发生过点击行为来判断
         if (!mWebviewTouch.isTouchByUser()) {
             return super.shouldOverrideUrlLoading(view, url);
@@ -73,7 +73,7 @@ public class BaseWebviewClient extends WebViewClient {
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-        Log.e(TAG, "shouldOverrideUrlLoading url: "+ request.getUrl());
+        LogUtil.e(TAG, "shouldOverrideUrlLoading url: "+ request.getUrl());
         // 当前链接的重定向
         if (!mWebviewTouch.isTouchByUser()) {
             return super.shouldOverrideUrlLoading(view, request);
@@ -112,7 +112,7 @@ public class BaseWebviewClient extends WebViewClient {
 
     @Override
     public void onPageFinished(WebView view, String url) {
-        Log.e(TAG, "onPageFinished url:" + url);
+        LogUtil.e(TAG, "onPageFinished url:" + url);
         if (!TextUtils.isEmpty(url) && url.startsWith(CONTENT_SCHEME)) {
             isReady = true;
         }
@@ -123,7 +123,7 @@ public class BaseWebviewClient extends WebViewClient {
 
     @Override
     public void onPageStarted(WebView view, String url, Bitmap favicon) {
-        Log.e(TAG, "onPageStarted url: " + url);
+        LogUtil.e(TAG, "onPageStarted url: " + url);
         if (webViewCallBack != null) {
             webViewCallBack.pageStarted(url);
         }
@@ -148,7 +148,7 @@ public class BaseWebviewClient extends WebViewClient {
     @Override
     public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
         super.onReceivedError(view, errorCode, description, failingUrl);
-        Log.e(TAG, "webview error" + errorCode + " + " + description);
+        LogUtil.e(TAG, "webview error" + errorCode + " + " + description);
         if (webViewCallBack != null) {
             webViewCallBack.onError();
         }

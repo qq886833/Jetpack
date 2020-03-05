@@ -15,6 +15,7 @@ import androidx.collection.ArrayMap;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libbasic.utils.ToastUtil;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
 import com.bsoft.libcommon.update.UpdateDailog;
 import com.bsoft.libcommon.update.UpdateUtils;
@@ -437,7 +438,7 @@ public class HttpActivity extends AppCompatActivity {
             @Override
             protected void onHandleSuccess(ConfigContentVo value) {
 
-                Log.d("SUCCESS", "ConfigContentVo:" + value.toString());
+                LogUtil.d("SUCCESS", "ConfigContentVo:" + value.toString());
 
                 sample_text.setText(value.getCopywriterTitle());
             }
@@ -445,7 +446,7 @@ public class HttpActivity extends AppCompatActivity {
             @Override
             protected void onHandleError(Throwable e) {
                 Toast.makeText(HttpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.e("Error", "Message:" + e.getMessage());
+                LogUtil.e("Error", "Message:" + e.getMessage());
             }
 
 
@@ -479,13 +480,13 @@ public class HttpActivity extends AppCompatActivity {
                     @Override
                     protected void onHandleSuccess(LoginResponse value) {
 
-                        Log.e("MainActivity", new Gson().toJson(value));
+                        LogUtil.e("MainActivity", new Gson().toJson(value));
                         sample_text.setText(value.getProperties().get("accessToken"));
                     }
 
                     @Override
                     protected void onHandleError(Throwable e) {
-                        Log.e("Error", "Message:" + e.getMessage());
+                        LogUtil.e("Error", "Message:" + e.getMessage());
                     }
 
                     @Override
@@ -519,7 +520,7 @@ public class HttpActivity extends AppCompatActivity {
             @Override
             protected void onHandleSuccess(LoginResponse value) {
 
-                Log.d("SUCCESS", "LoginUserVo:" + value.toString());
+                LogUtil.d("SUCCESS", "LoginUserVo:" + value.toString());
 
                 sample_text.setText(value.getProperties().get("accessToken"));
 
@@ -527,7 +528,7 @@ public class HttpActivity extends AppCompatActivity {
 
             @Override
             protected void onHandleError(Throwable e) {
-                Log.e("Error", "Message:" + e.getMessage());
+                LogUtil.e("Error", "Message:" + e.getMessage());
                 Toast.makeText(HttpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
 

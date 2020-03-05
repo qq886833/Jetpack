@@ -1,9 +1,9 @@
 package com.bsoft.libcommon.commonaop;
 
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.View;
 import androidx.annotation.Keep;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -89,12 +89,12 @@ public class SingleClickAspect {
         long time = SystemClock.elapsedRealtime();
         long timeInterval = Math.abs(time - mLastClickTime);
         if (timeInterval < intervalMillis && viewId == mLastClickViewId) {
-            Log.e("isFastDoubleClick", "true");
+            LogUtil.e("isFastDoubleClick", "true");
             return true;
         } else {
             mLastClickTime = time;
             mLastClickViewId = viewId;
-            Log.e("isFastDoubleClick", "false");
+            LogUtil.e("isFastDoubleClick", "false");
             return false;
         }
     }

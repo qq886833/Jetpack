@@ -1,6 +1,6 @@
 // -*- Mode: java; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
 
-package com.bsoft.pub.jetpack.webviewcommands;
+package com.bsoft.libcommon.utils;
 
 
 import com.google.gson.Gson;

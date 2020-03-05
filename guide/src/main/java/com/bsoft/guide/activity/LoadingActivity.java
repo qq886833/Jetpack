@@ -103,9 +103,9 @@ public class LoadingActivity extends AppCompatActivity {
              //  CommonArouterGroup.gotoActivity(CommonArouterGroup.TEST_ACTIVITY);
                // CommonArouterGroup.gotoActivity(CommonArouterGroup.PAY_ACTIVITY);
 
-              //  ARouter.getInstance().build(CommonArouterGroup.PATH_GUIDE_ACTIVITY).navigation();
+                ARouter.getInstance().build(CommonArouterGroup.PATH_LOGIN_ACTIVITY).navigation();
                 //ARouter.getInstance().build(CommonArouterGroup.FAMILY_ADD_ACTIVITY).navigation();
-                ARouter.getInstance().build(CommonArouterGroup.TEST_WEB_ACTIVITY).navigation();
+              //  ARouter.getInstance().build(CommonArouterGroup.TEST_WEB_ACTIVITY).navigation();
            //     BaseWebActivity.startCommonWeb(this, "腾讯网", "https://xw.qq.com/?f=qqcom", WebConstants.LEVEL_BASE,true);
 
 

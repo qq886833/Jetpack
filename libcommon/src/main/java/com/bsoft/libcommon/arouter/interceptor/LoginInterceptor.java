@@ -15,15 +15,21 @@ import com.bsoft.libcommon.localdata.AccountSharpref;
  * Description:
  * PS: Not easy to write code, please indicate.
  */
-@Interceptor(name = "login", priority = 3)
+@Interceptor(name = "login", priority = 8)
 public class LoginInterceptor implements IInterceptor {
     private Context mContext;
 
     @Override
     public void process(Postcard postcard, InterceptorCallback callback) {
-        if ((CommonArouterGroup.NEED_LOGIN_FILTER_LIST.contains(postcard.getPath()) && !AccountSharpref.getInstance().getLoginState())
+      //  ILoginService iLoginService = ARouter.getInstance().navigation(ILoginService.class);
+       // if (iLoginService.isLogin()){
+
+
+            if ((CommonArouterGroup.NEED_LOGIN_FILTER_LIST.contains(postcard.getPath()) && !AccountSharpref.getInstance().getLoginState())
                 || (CommonArouterGroup.NEED_COMPLINFO_FILTER_LIST.contains(postcard.getPath()))) {// && TextUtils.isEmpty(LocalData.getLoginUser().idcard) 完善信息
             callback.onInterrupt(null);
+
+            //拦截跳转登录或完善信息
             return;
         }
         callback.onContinue(postcard);

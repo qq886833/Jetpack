@@ -4,12 +4,12 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libcommon.R;
 
 
@@ -76,7 +76,7 @@ public class XLHRatingBar extends LinearLayout {
                         (int) widthAndHeight, (int) widthAndHeight);
             }
             if (differentSize && countNum % 2 != 0) {
-                Log.e("xxx", layoutParams.width + "");
+                LogUtil.e("xxx", layoutParams.width + "");
                 int index = i;
                 if (index > countNum / 2) {
                     index = countNum - 1 - index;

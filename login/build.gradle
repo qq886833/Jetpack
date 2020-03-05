@@ -1,6 +1,10 @@
 apply from: "../mygradle/module.gradle"
 apply plugin: 'android-aspectjx'
-
+android{
+    dataBinding{
+        enabled = true
+    }
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

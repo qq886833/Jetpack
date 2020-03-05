@@ -5,11 +5,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libwebview.command.CommandDispatcher;
 import com.bsoft.libwebview.settings.WebviewDefaultSetting;
 import com.bsoft.libwebview.utils.progressbar.IndicatorHandler;
@@ -108,14 +108,14 @@ public class BaseWebView extends WebView implements BaseWebviewClient.WebviewTou
         } else {
             super.loadUrl(url, mHeaders);
         }
-        Log.e(TAG, "DWebView load url: " + url);
+        LogUtil.e(TAG, "DWebView load url: " + url);
         resetAllStateInternal(url);
     }
 
     @Override
     public void loadUrl(String url, Map<String, String> additionalHttpHeaders) {
         super.loadUrl(url, additionalHttpHeaders);
-        Log.e(TAG, "DWebView load url: " + url);
+        LogUtil.e(TAG, "DWebView load url: " + url);
         resetAllStateInternal(url);
     }
 

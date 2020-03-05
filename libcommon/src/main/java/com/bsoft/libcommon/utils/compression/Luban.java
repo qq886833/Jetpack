@@ -8,6 +8,7 @@ import android.media.ExifInterface;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -84,7 +85,7 @@ public class Luban {
             return result;
         }
         if (Log.isLoggable(TAG, Log.ERROR)) {
-            Log.e(TAG, "default disk cache dir is null");
+            LogUtil.e(TAG, "default disk cache dir is null");
         }
         return null;
     }

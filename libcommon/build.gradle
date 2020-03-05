@@ -2,6 +2,13 @@ apply from: "../mygradle/lib.gradle"
 apply plugin: 'android-aspectjx'
 //2_2.android-maven-gradle-plugin
 apply plugin: 'com.github.dcendents.android-maven'
+
+android {
+
+    //统一资源前缀，规范资源引用
+  //  resourcePrefix "common_"
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 

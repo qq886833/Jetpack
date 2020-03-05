@@ -1,0 +1,7 @@
+<resources>
+
+
+    <declare-styleable name="ControlDistributeLinearLayout">
+        <attr name="distribute_event" format="boolean" />
+    </declare-styleable>
+</resources>

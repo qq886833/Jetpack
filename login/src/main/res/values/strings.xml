@@ -3,4 +3,15 @@
 
     <string name="digits_idcard">ABCDEFGHIGKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxyz1234567890</string>
     <string name="digits_number">1234567890</string>
+
+
+
+
+
+
+    <string-array name="login_tabs">
+        <item>密码登录</item>
+        <item>验证码登录</item>
+
+    </string-array>
 </resources>

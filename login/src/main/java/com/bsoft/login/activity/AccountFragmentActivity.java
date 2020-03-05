@@ -11,6 +11,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.bsoft.libbasic.base.activity.CoreActivity;
+import com.bsoft.libbasic.utils.StatusBar;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
 import com.bsoft.libcommon.livedatabus.LiveEventBusKey;
 import com.bsoft.login.R;
@@ -26,6 +27,9 @@ public class AccountFragmentActivity extends CoreActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //启用沉浸式布局，白底黑字
+        StatusBar.fitSystemBar(this);
+        StatusBar.lightStatusBar(this, false);
         setContentView(R.layout.login_activity_navigation_account);
 
 

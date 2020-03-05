@@ -47,6 +47,16 @@ public class LoginUserVo  extends BaseObservable implements Serializable {
     public String accessToken = "";
 
 
+    private LoginUserVo(){
+        throw new UnsupportedOperationException("Do not instantiate");
+    }
 
+    public static LoginUserVo getInstance(){
+        return LoginUserHolder.INSTANCE;
+    }
+
+    private static class LoginUserHolder{
+        private static  final LoginUserVo INSTANCE =  new LoginUserVo();
+    }
 
 }

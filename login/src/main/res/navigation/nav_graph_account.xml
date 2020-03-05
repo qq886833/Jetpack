@@ -2,18 +2,17 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph_account"
-            app:startDestination="@id/loginFragment"
+            app:startDestination="@id/loginTabFragment"
             tools:ignore="UnusedNavigation">
 
-    <fragment android:id="@+id/loginFragment" android:name="com.bsoft.login.fragment.LoginFragment"
-              android:label="LoginFragment">
-        <action android:id="@+id/action_loginFragment_to_registerFragment" app:destination="@id/registerFragment"
-                app:enterAnim="@anim/nav_default_pop_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"/>
-        <action android:id="@+id/action_loginFragment_to_frogetPwdFragment" app:destination="@id/frogetPwdFragment"/>
+    <fragment android:id="@+id/loginTabFragment" android:name="com.bsoft.login.fragment.LoginTabFragment"
+              android:label="LoginTabFragment">
+        <action android:id="@+id/action_loginTabFragment_to_registerFragment2" app:destination="@id/registerFragment"/>
+        <action android:id="@+id/action_loginTabFragment_to_frogetPwdFragment" app:destination="@id/frogetPwdFragment"/>
     </fragment>
     <fragment android:id="@+id/frogetPwdFragment" android:name="com.bsoft.login.fragment.FrogetPwdFragment"
               android:label="FrogetPwdFragment">
-        <action android:id="@+id/action_frogetPwdFragment_to_loginFragment" app:destination="@id/loginFragment"/>
+        <action android:id="@+id/action_frogetPwdFragment_to_loginFragment" app:destination="@id/loginTabFragment"/>
     </fragment>
     <fragment android:id="@+id/registerFragment" android:name="com.bsoft.login.fragment.RegisterFragment"
               android:label="RegisterFragment">

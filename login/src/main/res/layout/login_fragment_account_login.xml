@@ -3,6 +3,9 @@
         xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingDefaultResource">
     <data>
 
+        <variable   name="loginViewHelper"
+                    type="com.bsoft.login.fragment.LoginFragment.LoginViewHelper"/>
+
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mainView"
@@ -142,9 +145,9 @@
                                 android:singleLine="true"
                                 android:textColor="#000000"
                                 android:textSize="@dimen/sp_14"
-
                                 app:dropMode="flow_parent"
-                                app:hint="请输入您的手机号" />
+                                app:hint="请输入您的手机号"
+                               />
                     </com.qmuiteam.qmui.layout.QMUIRelativeLayout>
 
                     <com.qmuiteam.qmui.layout.QMUIRelativeLayout
@@ -204,7 +207,9 @@
                                 android:password="true"
                                 android:singleLine="true"
                                 android:textColor="#000000"
-                                android:textSize="@dimen/sp_14" />
+                                android:textSize="@dimen/sp_14"
+                                android:text="@={loginViewHelper.pwd}"
+                              />
                     </com.qmuiteam.qmui.layout.QMUIRelativeLayout>
 
 
@@ -222,7 +227,9 @@
                             android:background="?android:attr/selectableItemBackgroundBorderless"
                             app:qmui_backgroundColor="@color/main_green"
                             app:qmui_borderWidth="@dimen/dp_0"
-                            app:qmui_radius="@dimen/dp_100" />
+                            app:qmui_radius="@dimen/dp_100"
+                            android:enabled="@{loginViewHelper.canLogin(loginViewHelper.name,loginViewHelper.pwd)}"
+                            android:onClick="@{loginViewHelper.login}"/>
 
 
                 </RelativeLayout>

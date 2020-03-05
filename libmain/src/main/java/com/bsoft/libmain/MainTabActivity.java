@@ -4,14 +4,17 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.bsoft.libbasic.base.activity.CoreActivity;
 import com.bsoft.libbasic.utils.StatusBar;
+import com.bsoft.libcommon.arouter.AppRouterService;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
+import com.bsoft.libcommon.arouter.RouteServiceManager;
+import com.bsoft.libcommon.baseservices.ILoginService;
 import com.bsoft.libcommon.localdata.AccountSharpref;
 import com.bsoft.libcommon.model.LoginUserVo;
 import com.bsoft.libmain.model.Destination;
@@ -35,7 +38,8 @@ import java.util.Map;
  */
 
 @Route(path = CommonArouterGroup.PATH_MAIN_TAB_ACTIVITY)
-public class MainTabActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainTabActivity extends CoreActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+    private static ILoginService mLoginService = RouteServiceManager.provide(ILoginService.class, AppRouterService.APP_LOGIN_SERVICE);
 
     private NavController navController;
     private AppBottomBar navView;
@@ -62,6 +66,9 @@ public class MainTabActivity extends AppCompatActivity implements BottomNavigati
 
         navView.setBadgeCount(1,13);
 
+        //通过ARouter 获取其他组件提供的fragment
+        //Fragment homeFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
+
     }
 
     @Override
@@ -72,7 +79,7 @@ public class MainTabActivity extends AppCompatActivity implements BottomNavigati
         while (iterator.hasNext()) {
             Map.Entry<String, Destination> entry = iterator.next();
             Destination value = entry.getValue();
-            if (value != null && !AccountSharpref.getInstance().getLoginState() && value.needLogin && value.id == menuItem.getItemId()) {
+            if (value != null && !mLoginService.isLogin() && value.needLogin && value.id == menuItem.getItemId()) {
                 AccountSharpref.getInstance().login(this).observe(this, new Observer<LoginUserVo>() {
                     @Override
                     public void onChanged(LoginUserVo user) {

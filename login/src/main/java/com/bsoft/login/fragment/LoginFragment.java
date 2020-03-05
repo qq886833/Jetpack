@@ -16,6 +16,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.databinding.ObservableField;
 import com.bsoft.libbasic.base.fragment.CoreFragment;
 import com.bsoft.libbasic.constant.HttpConstants;
 import com.bsoft.libbasic.utils.DensityUtil;
@@ -26,6 +27,7 @@ import com.bsoft.libcommon.arouter.RouteServiceManager;
 import com.bsoft.libcommon.baseservices.ILoginService;
 import com.bsoft.libcommon.commonaop.SingleClick;
 import com.bsoft.libcommon.livedatabus.LiveEventBusKey;
+import com.bsoft.libcommon.localdata.LocalDataUtil;
 import com.bsoft.libcommon.utils.KeyboardStatusDetector;
 import com.bsoft.libcommon.utils.NavBarUtil;
 import com.bsoft.libcommon.utils.SoftKeyboardUtils;
@@ -49,7 +51,6 @@ public class LoginFragment extends CoreFragment implements View.OnClickListener 
 
     private static ILoginService mLoginService = RouteServiceManager.provide(ILoginService.class, AppRouterService.APP_LOGIN_SERVICE);
 
-
     public static LoginFragment newInstance(String actPath, Bundle dataBundle, boolean isSSO) {
         LoginFragment fragment = new LoginFragment();
         Bundle bundle = new Bundle();
@@ -66,6 +67,13 @@ public class LoginFragment extends CoreFragment implements View.OnClickListener 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = LoginFragmentAccountLoginBinding.inflate(inflater, container, false);
         return mBinding.getRoot();
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        mBinding.setLoginViewHelper(new LoginViewHelper());
     }
 
     @Override
@@ -126,13 +134,15 @@ public class LoginFragment extends CoreFragment implements View.OnClickListener 
         userAdapter = new UserAdapter(new UserAdapter.OnItemViewClickListener() {
             @Override
             public void onItemDelListener(String name) {
-             //   LoginManager.getInstance().delUserList(name);
+                LocalDataUtil.getInstance().delUserList(name);
+
             }
         });
 
 
-     //   ArrayList<String> userList = LoginManager.getInstance().getUserList();
-        ArrayList<String> userList=new ArrayList<>();
+        ArrayList<String> userList = LocalDataUtil.getInstance().getUserList();
+
+       // ArrayList<String> userList=new ArrayList<>();
         //医生端暂不需要多账号登录保留功能
         mBinding.ivMore.setVisibility(userList == null || userList.size() <= 1 ? View.GONE : View.VISIBLE);
         userAdapter.setData(userList);
@@ -229,6 +239,37 @@ public class LoginFragment extends CoreFragment implements View.OnClickListener 
         } else if ( view.getId() == R.id.bt_login) {
 //            ARouter.getInstance().build(MAIN_TAB_ACTIVITY).navigation();
 //            getActivity().finish();
+
+
         }
     }
+
+
+    public class LoginViewHelper {
+        //监听属性
+        public ObservableField<String> name = new ObservableField<>();
+        public ObservableField<String> pwd = new ObservableField<>();
+
+        /**
+         * 登录点击回调
+         */
+        @SingleClick
+        public void login(View view) {
+           // Toast.makeText(view.getContext(), "click login!", Toast.LENGTH_SHORT).show();
+            LocalDataUtil.getInstance().saveUserList(etUser.getText().toString());
+
+            LoginViewHelper loginViewHelper=new LoginViewHelper();
+            ToastUtil.showShort("===="+loginViewHelper.pwd);
+        }
+
+        /**
+         * 是否可以登录
+         */
+        public  boolean canLogin(String name, String pwd) {
+           // return !(TextUtils.isEmpty(name) || TextUtils.isEmpty(pwd));
+
+            return true;
+        }
+    }
+
 }

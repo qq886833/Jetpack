@@ -3,12 +3,12 @@ package com.bsoft.libcommon.widget;
 import android.content.Context;
 import android.graphics.*;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Scroller;
 import androidx.annotation.Nullable;
+import com.bsoft.libbasic.utils.log.LogUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -130,11 +130,11 @@ public class BigImageView extends View implements GestureDetector.OnGestureListe
 //        }
 
 
-        Log.e("Leo", "============缩放后=========");
-        Log.e("Leo", "inSampleSize = " + mOptions.inSampleSize);
-        Log.e("Leo", "mScale = " + mScale);
-        Log.e("Leo", "图片宽 = " + mImageWidth + ",高 = " + mImageHeight);
-        Log.e("Leo", "view 宽 = " + mViewWidth + ",高 = " + mViewHeight);
+        LogUtil.e("Leo", "============缩放后=========");
+        LogUtil.e("Leo", "inSampleSize = " + mOptions.inSampleSize);
+        LogUtil.e("Leo", "mScale = " + mScale);
+        LogUtil.e("Leo", "图片宽 = " + mImageWidth + ",高 = " + mImageHeight);
+        LogUtil.e("Leo", "view 宽 = " + mViewWidth + ",高 = " + mViewHeight);
 
     }
 
@@ -173,7 +173,7 @@ public class BigImageView extends View implements GestureDetector.OnGestureListe
 
         mOptions.inBitmap = bitmap;
         bitmap = mBitmapRegionDecoder.decodeRegion(mRect, mOptions);
-        Log.e("leo", "图片大小 " + bitmap.getByteCount());// 没有优化：44338752，1.优化：2770200，2优化：692064
+        LogUtil.e("leo", "图片大小 " + bitmap.getByteCount());// 没有优化：44338752，1.优化：2770200，2优化：692064
 
         Matrix matrix = new Matrix();
         matrix.setScale(mScale, mScale);

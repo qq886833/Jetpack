@@ -4,6 +4,7 @@ import android.Manifest;
 import android.util.Log;
 import androidx.fragment.app.FragmentActivity;
 import com.bsoft.libbasic.utils.DensityUtil;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libbasic.widget.dialog.ConfirmDialog;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionCancel;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionDenied;
@@ -20,12 +21,12 @@ public class RequestPermissionUtil {
 
     @PermissionNeed(value = {Manifest.permission.CALL_PHONE}, requestCode = 31)
     public void requestSensors() {
-        Log.e("leo", "RequestPermissionUtil:请求传感器权限");
+        LogUtil.e("leo", "RequestPermissionUtil:请求传感器权限");
     }
 
     @PermissionCancel
     public void permissionCancel(int requestCode) {
-        Log.e("leo", "RequestPermissionUtil:请求传感器权限被取消" + requestCode);
+        LogUtil.e("leo", "RequestPermissionUtil:请求传感器权限被取消" + requestCode);
     }
 
     @PermissionDenied

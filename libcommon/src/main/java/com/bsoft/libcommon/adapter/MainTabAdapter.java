@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainTabAdapter extends FragmentPagerAdapter {
 
@@ -16,7 +17,13 @@ public class MainTabAdapter extends FragmentPagerAdapter {
         this.fragmentManager = fm;
         this.fragments = fragments;
     }
-
+    public void setData(List<Fragment> data){
+        if (fragments == null){
+            fragments = new ArrayList<>();
+        }
+        fragments.addAll(data);
+        notifyDataSetChanged();
+    }
     @Override
     public Fragment getItem(int position) {
         return fragments.get(position);

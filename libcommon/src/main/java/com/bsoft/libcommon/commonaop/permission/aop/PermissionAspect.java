@@ -2,8 +2,8 @@ package com.bsoft.libcommon.commonaop.permission.aop;
 
 
 import android.content.Context;
-import android.util.Log;
 import com.bsoft.libbasic.context.ContextProvider;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libcommon.commonaop.permission.PermissionRequestActivity;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionCancel;
 import com.bsoft.libcommon.commonaop.permission.annotation.PermissionDenied;
@@ -46,7 +46,7 @@ public class PermissionAspect {
         }
 
         if (context == null || permissionNeed == null) {
-            Log.e("leo", "aroundJoinPoint: 条件不满足，直接返回");
+            LogUtil.e("leo", "aroundJoinPoint: 条件不满足，直接返回");
             return;
         }
 

@@ -2,7 +2,6 @@
 package com.bsoft.libbasic;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -10,17 +9,19 @@ import androidx.multidex.MultiDex;
 import androidx.multidex.MultiDexApplication;
 import com.bsoft.libbasic.thirdpart.fastsharedpreferences.FastSharedPreferences;
 import com.bsoft.libbasic.utils.ActivityManager;
+import com.bsoft.libbasic.utils.ScreenAutoAdapter;
 import com.qmuiteam.qmui.arch.QMUISwipeBackActivityManager;
 
 
 public class BaseApplication extends MultiDexApplication {
 
 
-
+    private static BaseApplication sInstance;
     @Override
     public void onCreate() {
         super.onCreate();
         setApplication(this);
+        ScreenAutoAdapter.setup(this);
         FastSharedPreferences.init(this);
         QMUISwipeBackActivityManager.init(this);//必须使用   QMUI  AppTheme
 
@@ -37,8 +38,8 @@ public class BaseApplication extends MultiDexApplication {
      *
      * @param application
      */
-    public static synchronized void setApplication(@NonNull Application application) {
-
+    public static synchronized void setApplication(@NonNull BaseApplication application) {
+        sInstance = application;
         //注册监听每个activity的生命周期,便于堆栈式管理
         application.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
 
@@ -73,6 +74,17 @@ public class BaseApplication extends MultiDexApplication {
             }
         });
     }
-
+    /**
+     * 获得当前app运行的Application
+     */
+    public static BaseApplication getInstance()
+    {
+        if (sInstance == null)
+        {
+            throw new NullPointerException(
+                    "please inherit BaseApplication or call setApplication.");
+        }
+        return sInstance;
+    }
 }
 

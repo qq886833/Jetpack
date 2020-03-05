@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 import com.bsoft.libbasic.R;
+import com.bsoft.libbasic.utils.ScreenAutoAdapter;
 import com.bsoft.libbasic.widget.dialog.LoadingDialog;
 import com.qmuiteam.qmui.widget.QMUITopBar;
 
@@ -17,7 +18,7 @@ public class CoreActivity extends AppCompatActivity {
     protected FragmentActivity activity;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
+        ScreenAutoAdapter.match(this, 375.0f);
         super.onCreate(savedInstanceState);
         this.activity=this;
     }

@@ -7,10 +7,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.animation.LinearInterpolator;
 import androidx.appcompat.widget.AppCompatTextView;
+import com.bsoft.libbasic.utils.log.LogUtil;
 
 public class CountDownTextView extends AppCompatTextView {
 
@@ -62,7 +62,7 @@ public class CountDownTextView extends AppCompatTextView {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 int value = (int) animation.getAnimatedValue();
-                Log.e("value",value+"");
+                LogUtil.e("value",value+"");
                 mSweepAngle = value;
                 invalidate();
                 if(value==360&&listener!=null){

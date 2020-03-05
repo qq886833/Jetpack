@@ -10,6 +10,11 @@
     <string name="common_update_next">下次再说</string>
 
 
+    <string name="common_no_baidu">未安装百度地图</string>
+    <string name="common_no_gaode">未安装高德地图</string>
+
+
+
     <string name="common_big_picture">查看大图</string>
 
 

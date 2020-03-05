@@ -1,7 +1,6 @@
 package com.bsoft.libmain.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,7 @@ import androidx.annotation.Nullable;
 import com.bsoft.libbasic.base.fragment.CoreFragment;
 import com.bsoft.libbasic.utils.StatusBar;
 import com.bsoft.libbasic.utils.ToastUtil;
+import com.bsoft.libbasic.utils.log.LogUtil;
 import com.bsoft.libcommon.commonaop.CheckNet;
 import com.bsoft.libcommon.commonaop.SingleClick;
 import com.bsoft.libmain.databinding.MainFragmentMyBinding;
@@ -24,7 +24,7 @@ public class MyFragment extends CoreFragment {
 
     @Override
     protected void lazyLoadData() {
-        Log.e("lazy","main/tabs/my");
+        LogUtil.e("lazy","main/tabs/my");
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
