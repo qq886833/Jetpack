@@ -75,6 +75,8 @@ public class WebviewFragment extends CoreFragment implements WebViewCallBack {
         return TextUtils.isEmpty(newCookie) ? false : true;
     }
 
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

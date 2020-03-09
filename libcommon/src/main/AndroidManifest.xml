@@ -27,5 +27,8 @@
                   android:theme="@style/AppTheme"/>
         <activity android:name=".common.dicchoice.MultiChoiceActivity"
                   android:theme="@style/AppTheme"/>
+
+        <activity android:name=".base.actvity.ContainerActivity"
+                  android:theme="@style/AppTheme"/>
     </application>
 </manifest>

@@ -7,14 +7,13 @@ import android.view.ViewGroup;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import com.bsoft.libbasic.R;
 import com.bsoft.libbasic.widget.dialog.LoadingDialog;
 import com.qmuiteam.qmui.widget.QMUITopBar;
 
-public class CoreFragment extends Fragment {
+public class CoreFragment extends LifeCycleFragment {
 
     protected LoadingDialog loadingDialog;
     protected QMUITopBar mTopBar;
@@ -101,4 +100,23 @@ public class CoreFragment extends Fragment {
         dismissLoadingDialog();
         super.onDestroy();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

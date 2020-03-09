@@ -1,5 +1,7 @@
 package com.bsoft.libmain;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
@@ -25,6 +27,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -45,6 +48,7 @@ public class MainTabActivity extends CoreActivity implements BottomNavigationVie
     private AppBottomBar navView;
 
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //由于 启动时设置了 R.style.launcher 的windowBackground属性
@@ -68,7 +72,7 @@ public class MainTabActivity extends CoreActivity implements BottomNavigationVie
 
         //通过ARouter 获取其他组件提供的fragment
         //Fragment homeFragment = (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
-
+      //  navView.setSelectedItemId(1264295461);
     }
 
     @Override
@@ -79,6 +83,7 @@ public class MainTabActivity extends CoreActivity implements BottomNavigationVie
         while (iterator.hasNext()) {
             Map.Entry<String, Destination> entry = iterator.next();
             Destination value = entry.getValue();
+
             if (value != null && !mLoginService.isLogin() && value.needLogin && value.id == menuItem.getItemId()) {
                 AccountSharpref.getInstance().login(this).observe(this, new Observer<LoginUserVo>() {
                     @Override
@@ -93,6 +98,37 @@ public class MainTabActivity extends CoreActivity implements BottomNavigationVie
         navController.navigate(menuItem.getItemId());
         return !TextUtils.isEmpty(menuItem.getTitle());
     }
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        if (fragments != null) {
+            for (Fragment fragment : fragments) {
+                if (fragment != null) {
+                    fragment.onActivityResult(requestCode, resultCode, data);
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        List<Fragment> fragments = getSupportFragmentManager().getFragments();
+        if (fragments != null) {
+            for (Fragment fragment : fragments) {
+                if (fragment != null) {
+                    fragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
+                }
+            }
+        }
+    }
+
+
+
 
     @Override
     public void onBackPressed() {

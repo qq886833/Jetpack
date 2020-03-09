@@ -160,6 +160,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
         />
 
+
         <LinearLayout
                 android:id="@+id/layReg"
                 android:layout_width="match_parent"

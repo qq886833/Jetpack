@@ -55,7 +55,9 @@ public class LoginPwdFragment extends CoreFragment implements View.OnClickListen
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-mBinding.tvLogin.setOnClickListener(new View.OnClickListener() {
+
+       // mBinding.tvLogin.setChangeAlphaWhenPress(true);  //代码控制透明的
+        mBinding.tvLogin.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         mLoginService.checkLogin(true);

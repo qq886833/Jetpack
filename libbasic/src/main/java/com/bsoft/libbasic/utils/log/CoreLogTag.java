@@ -5,5 +5,7 @@ package com.bsoft.libbasic.utils.log;
  */
 
 public class CoreLogTag {
-    public static final String TAG = "netlib";
+    public static final String TAG = "libbasic";
+
+
 }

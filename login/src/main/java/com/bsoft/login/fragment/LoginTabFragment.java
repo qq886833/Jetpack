@@ -17,7 +17,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 import com.bsoft.libbasic.base.fragment.CoreFragment;
 import com.bsoft.libbasic.constant.HttpConstants;
-import com.bsoft.libbasic.utils.DensityUtil;
 import com.bsoft.libbasic.utils.ToastUtil;
 import com.bsoft.libcommon.arouter.AppRouterService;
 import com.bsoft.libcommon.arouter.CommonArouterGroup;
@@ -176,10 +175,10 @@ public class LoginTabFragment extends CoreFragment  {
                 TextView customView = (TextView) tab.getCustomView();
                 if (tab.getPosition() == position) {
 
-                    customView.setTextSize(DensityUtil.dip2px(5));
+                    customView.setTextSize(12);
                     customView.setTypeface(Typeface.DEFAULT_BOLD);
                 } else {
-                    customView.setTextSize(DensityUtil.dip2px(4));
+                    customView.setTextSize(10);
                     customView.setTypeface(Typeface.DEFAULT);
                 }
             }
@@ -198,7 +197,7 @@ public class LoginTabFragment extends CoreFragment  {
         ColorStateList stateList = new ColorStateList(states, colors);
         tabView.setTextColor(stateList);
         tabView.setText(tabs[position]);
-        tabView.setTextSize(DensityUtil.dip2px(4));
+        tabView.setTextSize(10);
         return tabView;
     }
 

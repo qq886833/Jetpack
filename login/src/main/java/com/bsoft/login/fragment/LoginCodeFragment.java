@@ -8,10 +8,14 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bsoft.libbasic.base.fragment.CoreFragment;
+import com.bsoft.libbasic.context.ContextProvider;
 import com.bsoft.libcommon.arouter.AppRouterService;
+import com.bsoft.libcommon.arouter.CommonArouterGroup;
 import com.bsoft.libcommon.arouter.RouteServiceManager;
 import com.bsoft.libcommon.baseservices.ILoginService;
 import com.bsoft.libcommon.utils.KeyboardStatusDetector;
+import com.bsoft.libcommon.utils.proxsp.AppConfigHandler;
+import com.bsoft.libcommon.utils.proxsp.LoginConfig;
 import com.bsoft.login.adapter.UserAdapter;
 import com.bsoft.login.databinding.LoginLayoutCodeAccountBinding;
 
@@ -49,6 +53,18 @@ public class LoginCodeFragment extends CoreFragment  {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
       //  initTab();
+        mBinding.tvLogin.setChangeAlphaWhenPress(true);
+        mBinding.tvLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mLoginService.checkLogin(false);
+                LoginConfig config = AppConfigHandler.create(ContextProvider.get().getApplication(),LoginConfig.class);
+               CommonArouterGroup.goMainTabActivity();
+
+
+
+            }
+        });
 
     }
 
